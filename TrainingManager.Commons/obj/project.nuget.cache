@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1Noau/zu+l3oGiFgpMxM8ImcZunj6qjtXjtiyxBmM97McNK5KrNy9CbjLfRJJH2CG3UA3CDTDPrnPeeW69EyOA==",
+  "dgSpecHash": "u9z0sn8veMnaaLjovUX4FcuOLagWoX5yBJXGRezvSGhLfCHMB/WXGebwXDZXG503bZB560bohTYSzlqcoYKNpw==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
+  "projectFilePath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\2.1.0\\microsoft.extensions.dependencyinjection.2.1.0.nupkg.sha512",

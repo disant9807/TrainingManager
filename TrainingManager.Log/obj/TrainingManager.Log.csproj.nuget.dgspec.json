@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {}
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {}
   },
   "projects": {
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
+        "projectUniqueName": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
         "projectName": "TrainingManager.Log",
-        "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
+        "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\obj\\",
+        "outputPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Denis\\AppData\\Roaming\\NuGet\\NuGet.Config",

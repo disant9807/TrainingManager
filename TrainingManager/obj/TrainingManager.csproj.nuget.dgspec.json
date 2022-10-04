@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager\\TrainingManager.csproj": {}
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager\\TrainingManager.csproj": {}
   },
   "projects": {
-    "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj": {
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
+        "projectUniqueName": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
         "projectName": "TrainingManager.Logic",
-        "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
+        "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\obj\\",
+        "outputPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Denis\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
-                "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj"
+              "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
+                "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
+        "projectUniqueName": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
         "projectName": "TrainingManager.Commons",
-        "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
+        "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\obj\\",
+        "outputPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Denis\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -150,14 +150,14 @@
         }
       }
     },
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
+        "projectUniqueName": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
         "projectName": "TrainingManager.Log",
-        "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
+        "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\obj\\",
+        "outputPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Denis\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -230,14 +230,14 @@
         }
       }
     },
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager\\TrainingManager.csproj": {
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager\\TrainingManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager\\TrainingManager.csproj",
+        "projectUniqueName": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager\\TrainingManager.csproj",
         "projectName": "TrainingManager",
-        "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager\\TrainingManager.csproj",
+        "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager\\TrainingManager.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager\\obj\\",
+        "outputPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Denis\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -254,14 +254,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj": {
-                "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj"
+              "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj": {
+                "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj"
               },
-              "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {
-                "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj"
+              "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {
+                "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj"
               },
-              "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
-                "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj"
+              "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj": {
+                "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj"
               }
             }
           }

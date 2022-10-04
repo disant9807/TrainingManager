@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P4CunUZ0hlhhDgL+Uaya5fQ170sfmQOhBTLm2ODRi+cNNbvEUFyeFEQUaGJcgLRBxdUopqX8Wrdpm77nOV+0Ug==",
+  "dgSpecHash": "nc65IenQaT/ia8622ldIJ/LHsrPKDRm6iRw8KHhZVS5FB3oNiTJnQ9m/s4pj1WYvpfXkpNAWwvFnwwSJZa/OPA==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
+  "projectFilePath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Log\\TrainingManager.Log.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.extensions.configuration\\2.0.0\\microsoft.extensions.configuration.2.0.0.nupkg.sha512",

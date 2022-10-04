@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KxGg/Ai6g3nE4+ini3CMVhMZNgQVhqwjvDmjjpZU5tIvypTwOrs0xt1TC95YDR/7GrELYs3ufz570gpUOUaIog==",
+  "dgSpecHash": "EGS0WfizdqFkK+lg23zd/3LFLn+5X0Fa7HeD61iexMniV2veSDGhVR+YAzWoDpb8+r+6YLWy15vcyBCiPFEoRw==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager\\TrainingManager.csproj",
+  "projectFilePath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager\\TrainingManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Denis\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

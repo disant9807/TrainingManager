@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {}
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {}
   },
   "projects": {
-    "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {
+    "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
+        "projectUniqueName": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
         "projectName": "TrainingManager.Commons",
-        "projectPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
+        "projectPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\TrainingManager.Commons.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TrainingManager\\TrainingManager\\TrainingManager.Commons\\obj\\",
+        "outputPath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\TrainingManager.Commons\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Denis\\AppData\\Roaming\\NuGet\\NuGet.Config",

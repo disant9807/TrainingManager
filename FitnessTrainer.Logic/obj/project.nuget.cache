@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GnOfpkTfYFstSGVXqdoVH2FkMWSi2MCMVK7Te7oocxqaH1q9Nt6UpaGgi9v2iIgoGCYHR1hOOqQww7pDASQ3QQ==",
+  "dgSpecHash": "JgSdWigEN9EYJIo4XL+LRLoqaPZNzE3mPTeLGTH76AFutn4EXqykCBsxuWJAiU1RgdvtKTub/2aWFgYqTH0TLQ==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TrainingManager\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
+  "projectFilePath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Denis\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
