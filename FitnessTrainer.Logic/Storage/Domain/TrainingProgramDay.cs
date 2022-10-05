@@ -16,7 +16,9 @@ namespace TrainingManager.Logic.Storage.Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public int DayRelax { get; set; }
-
         public int NumberOfTrainingProgram { get; set; }
+
+        public TrainingProgram TrainingProgram { get; set; }
+        public long TrainingProgramId { get; set; }
     }
 }

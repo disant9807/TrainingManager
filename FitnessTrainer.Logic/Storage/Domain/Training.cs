@@ -22,8 +22,6 @@ namespace TrainingManager.Logic.Storage.Domain
         public long TrainingProgramId { get; set; }
         public TrainingProgram? TrainingProgram { get; set; }
 
-        public Guid[] ApproachsIds { get; set; }
-        [ForeignKey("ApproachsIds")]
-        public Approach[] Approachs { get; set; }
+        public List<Approach> Approachs { get; set; }
     }
 }

@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrainingManager.Logic.Model
+namespace TrainingManager.Logic.Storage
 {
-    public enum HardSkill
+    public interface IStorage
     {
-        easy = 0,
-        normal = 1,
-        hard = 2
     }
 }

@@ -29,7 +29,7 @@ namespace TrainingManager.Logic
 				var config = services.GetService<IConfig>();
 				var logFactory = services.GetService<ILogFactory>();
 				var connectionString = (config ?? throw new ArgumentNullException(nameof(config))).StorageConnectionString;
-				options.UseSqlite(connectionString);
+				options.UseSqlite($"Data Source={connectionString}");
 			});
 		}
 	}

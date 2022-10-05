@@ -14,15 +14,14 @@ namespace TrainingManager.Logic.Storage.Domain
         public long Id { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public string AvatarId { get; set; }
+        public List<Image> Images { get; set; }
 
-        public string[] Images { get; set; }
+        public Image Avatar { get; set; }
+        public Guid? AvatarId { get; set; }
 
         public string Description { get; set; }
 
-        public Guid[] DaysIds { get; set; }
-        [ForeignKey("DaysIds")]
-        public TrainingProgramDay[] Days { get; set; }
+        public List<TrainingProgramDay> Days { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TrainingManager.Logic.Storage.Model
+namespace TrainingManager.Logic.Model
 {
     public class Approach
     {

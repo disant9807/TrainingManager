@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JgSdWigEN9EYJIo4XL+LRLoqaPZNzE3mPTeLGTH76AFutn4EXqykCBsxuWJAiU1RgdvtKTub/2aWFgYqTH0TLQ==",
+  "dgSpecHash": "q9EWg8oAhqplmlXGjS4QSA3zQ/uC2pBV4xtsqnF3K2Dfg8dxC3Kht4j3t+9mGcXv7I4Smjyqki5KQTMeobFe+A==",
   "success": true,
   "projectFilePath": "D:\\Git\\TrainingManager_Fix\\TrainingManager\\FitnessTrainer.Logic\\TrainingManager.Logic.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.9\\microsoft.entityframeworkcore.analyzers.6.0.9.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.9\\microsoft.entityframeworkcore.design.6.0.9.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.9\\microsoft.entityframeworkcore.relational.6.0.9.nupkg.sha512",
+    "C:\\Users\\Denis\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.9\\microsoft.entityframeworkcore.sqlite.6.0.9.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.9\\microsoft.entityframeworkcore.sqlite.core.6.0.9.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.9\\microsoft.entityframeworkcore.tools.6.0.9.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
@@ -35,7 +36,10 @@
     "C:\\Users\\Denis\\.nuget\\packages\\serilog.sinks.console\\4.1.0\\serilog.sinks.console.4.1.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\serilog.sinks.sqlite\\5.5.0\\serilog.sinks.sqlite.5.5.0.nupkg.sha512",
+    "C:\\Users\\Denis\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.6\\sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\sqlitepclraw.core\\2.0.6\\sqlitepclraw.core.2.0.6.nupkg.sha512",
+    "C:\\Users\\Denis\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.6\\sqlitepclraw.lib.e_sqlite3.2.0.6.nupkg.sha512",
+    "C:\\Users\\Denis\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.6\\sqlitepclraw.provider.e_sqlite3.2.0.6.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.116\\stub.system.data.sqlite.core.netstandard.1.0.116.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",

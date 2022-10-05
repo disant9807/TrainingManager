@@ -25,5 +25,8 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public ApproachLvl Technicality { get; set; }
 
+        public Training Training { get; set; }
+        public long TrainingId { get; set; }
+
     }
 }

@@ -21,12 +21,14 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public string Description { get; set; }
 
-        public string[] ImagesIds { get; set; }
-        
+        public List<Image> Images { get; set; }
+
+        public Image Avatar { get; set; }
+
+        public Guid? AvatarId { get; set; }
+
         public HardSkill HardSkill { get; set; }
 
-        public string[] CategoryOfBodiesIds { get; set; }
-        [ForeignKey("CategoryOfBodiesIds")]
         public CategoryOfBody[] CategoryOfBodies { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }

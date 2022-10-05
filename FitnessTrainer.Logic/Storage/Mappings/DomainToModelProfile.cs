@@ -11,6 +11,7 @@ namespace TrainingManager.Logic.Storage.Mappings
 {
     public class DomainToModelProfile : Profile
     {
+		/*
 		public DomainToModelProfiles()
 		{
 			CreateMap<Domain.Approach, Model.Approach>().ReverseMap();
@@ -20,5 +21,6 @@ namespace TrainingManager.Logic.Storage.Mappings
 			CreateMap<Domain.TrainingProgram, Model.TrainingProgram>().ReverseMap();
 			CreateMap<Domain.TrainingProgramDay, Model.TrainingProgramDay>().ReverseMap();
 		}
+		*/
 	}
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace TrainingManager.Logic.Storage.Model
+namespace TrainingManager.Logic.Model
 {
     public class Training
     {

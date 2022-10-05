@@ -80,8 +80,14 @@ namespace TrainingManager
 			var config = app.ApplicationServices.GetRequiredService<IConfig>();
 			var connectionString = (config ?? throw new ArgumentNullException(nameof(config))).StorageConnectionString;
 			var optionsBuilder = new DbContextOptionsBuilder<StorageContext>();
-			var options = optionsBuilder.UseSqlite(connectionString).Options;
 
+			if (!File.Exists(connectionString))
+			{
+				var directory = Path.GetDirectoryName(connectionString);
+				Directory.CreateDirectory(directory);
+				File.WriteAllBytes(connectionString, Array.Empty<byte>());
+			}
+			var options = optionsBuilder.UseSqlite($"Data Source={connectionString}").Options;
 			using (var serviceScope = app.ApplicationServices
 				.GetRequiredService<IServiceScopeFactory>()
 				.CreateScope())

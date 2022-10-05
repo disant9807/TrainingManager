@@ -15,6 +15,7 @@ namespace TrainingManager.Logic.Storage.Domain
         public string Code { get; set; }
         public string Decsription { get; set; }
 
-        public string AvatarId { get; set; }
+        public Image Avatar { get; set; }
+        public Guid? AvatarId { get; set; }
     }
 }

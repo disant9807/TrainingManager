@@ -17,6 +17,8 @@ namespace TrainingManager.Logic.Storage
         public DbSet<TrainingProgram> TrainingProgram { get; set; }
         public DbSet<TrainingProgramDay> TrainingProgramDay { get; set; }
 
+        public DbSet<Image> Image { get; set; }
+
         public StorageContext(DbContextOptions<StorageContext> dbContextOptions) : base(dbContextOptions)
         {
         }
