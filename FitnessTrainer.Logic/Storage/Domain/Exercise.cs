@@ -21,7 +21,7 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public string Description { get; set; }
 
-        public List<Image> Images { get; set; }
+        public ICollection<Image> Images { get; set; }
 
         public Image Avatar { get; set; }
 
@@ -29,8 +29,14 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public HardSkill HardSkill { get; set; }
 
-        public CategoryOfBody[] CategoryOfBodies { get; set; }
+        public ICollection<CategoryOfBody> CategoryOfBodies { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
+
+        public Exercise()
+        {
+            CategoryOfBodies = new List<CategoryOfBody>();
+            Images = new List<Image>();
+        }
     }
 }

@@ -17,5 +17,12 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public Image Avatar { get; set; }
         public Guid? AvatarId { get; set; }
+
+        public ICollection<Exercise> Exercises { get; set; }
+
+        public CategoryOfBody()
+        {
+            Exercises = new List<Exercise>();
+        }
     }
 }

@@ -5,14 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using TrainingManager.Logic.Storage.Domain;
-using TrainingManager.Logic.Storage.Model;
+using TrainingManager.Logic.Model;
 
 namespace TrainingManager.Logic.Storage.Mappings
 {
     public class DomainToModelProfile : Profile
     {
-		/*
-		public DomainToModelProfiles()
+		public DomainToModelProfile()
 		{
 			CreateMap<Domain.Approach, Model.Approach>().ReverseMap();
 			CreateMap<Domain.CategoryOfBody, Model.CategoryOfBody>().ReverseMap();
@@ -21,6 +20,5 @@ namespace TrainingManager.Logic.Storage.Mappings
 			CreateMap<Domain.TrainingProgram, Model.TrainingProgram>().ReverseMap();
 			CreateMap<Domain.TrainingProgramDay, Model.TrainingProgramDay>().ReverseMap();
 		}
-		*/
 	}
 }

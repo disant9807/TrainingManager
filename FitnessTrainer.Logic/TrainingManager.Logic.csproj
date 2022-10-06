@@ -21,8 +21,4 @@
     <ProjectReference Include="..\TrainingManager.Log\TrainingManager.Log.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Storage\Commands\" />
-  </ItemGroup>
-
 </Project>

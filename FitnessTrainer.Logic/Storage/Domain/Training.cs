@@ -22,6 +22,11 @@ namespace TrainingManager.Logic.Storage.Domain
         public long TrainingProgramId { get; set; }
         public TrainingProgram? TrainingProgram { get; set; }
 
-        public List<Approach> Approachs { get; set; }
+        public ICollection<Approach> Approachs { get; set; }
+
+        public Training()
+        {
+            Approachs = new List<Approach>();
+        }
     }
 }
