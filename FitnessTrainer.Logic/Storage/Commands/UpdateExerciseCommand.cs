@@ -32,7 +32,24 @@ namespace TrainingManager.Logic.Storage.Commands
             if (exercise == null)
                 throw new KeyNotFoundException($"Упражнение с id = {_exercise.Id} не найдено");
 
-            //exercise.
+            var newCategoryIds = _exercise.CategoryOfBodiesIds
+                .Where(e => !exercise.CategoryOfBodies.Select(z => z.Code).Contains(e))
+                .ToList();
+
+
+            var deleteCategoryObj = exercise.CategoryOfBodies
+                .Where(e => !_exercise.CategoryOfBodiesIds
+                    .Contains(e.Code))
+                .ToList();
+
+            exercise = _mapper.Map<Model.Exercise, Domain.Exercise>(_exercise);
+            newCategoryIds
+                .ForEach(e => exercise.CategoryOfBodies.Add(new Domain.CategoryOfBody { Code = e }));
+            deleteCategoryObj
+                .ForEach(e => exercise.CategoryOfBodies.Remove(e));
+
+            context.Exercise.Update(exercise);
+            await context.SaveChangesAsync();
         }
     }
 }

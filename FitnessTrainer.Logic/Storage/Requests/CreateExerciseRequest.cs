@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Serilog;
 using AutoMapper;
 using TrainingManager.Log;
+using Microsoft.EntityFrameworkCore;
 
 namespace TrainingManager.Logic.Storage.Requests
 {
@@ -29,6 +30,14 @@ namespace TrainingManager.Logic.Storage.Requests
 
             var exercise = _mapper.Map<Model.Exercise, Domain.Exercise>(_exercise);
             exercise.CreatedDate = DateTimeOffset.Now;
+            
+            if (_exercise.CategoryOfBodiesIds?.Length > 0)
+            {
+                foreach(var code in _exercise.CategoryOfBodiesIds)
+                {
+                    exercise.CategoryOfBodies.Add(new Domain.CategoryOfBody { Code = code });
+                }
+            }
 
             context.Exercise.Add(exercise);
             await context.SaveChangesAsync();

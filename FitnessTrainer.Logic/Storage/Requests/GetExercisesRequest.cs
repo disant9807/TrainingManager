@@ -12,11 +12,11 @@ namespace TrainingManager.Logic.Storage.Requests
     public class GetExercisesRequest : BaseStorageRequest<Model.Exercise[]>
     {
         private readonly GetExercisesFilter filter;
-        private readonly Order _order;
-        private readonly int start;
-        private readonly int count;
+        private readonly Order? _order;
+        private readonly int? start;
+        private readonly int? count;
 
-        public GetExercisesRequest(StorageContext context, GetExercisesFilter filter, Order order, int start, int count) : base(context)
+        public GetExercisesRequest(StorageContext context, GetExercisesFilter filter, Order? order = null, int? start = null, int? count = null) : base(context)
         {
             if (start < 0)
                 throw new ArgumentOutOfRangeException($"{nameof(start)} start = zero");
@@ -43,9 +43,9 @@ namespace TrainingManager.Logic.Storage.Requests
 
         private IQueryable<Domain.Exercise> Take(IQueryable<Domain.Exercise> exercises)
         {
-            if (count != 0)
+            if (count != 0 && count.HasValue && start.HasValue)
             {
-                exercises = exercises.Skip(start).Take(count);
+                exercises = exercises.Skip(start.Value).Take(count.Value);
             }
 
             return exercises;

@@ -33,6 +33,8 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public DateTimeOffset CreatedDate { get; set; }
 
+        public bool IsArchived { get; set; }
+
         public Exercise()
         {
             CategoryOfBodies = new List<CategoryOfBody>();

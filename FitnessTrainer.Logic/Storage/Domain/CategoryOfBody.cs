@@ -20,6 +20,8 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public ICollection<Exercise> Exercises { get; set; }
 
+        public bool IsArchived { get; set; }
+
         public CategoryOfBody()
         {
             Exercises = new List<Exercise>();

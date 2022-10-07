@@ -24,6 +24,8 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public ICollection<Approach> Approachs { get; set; }
 
+        public bool IsArchived { get; set; }
+
         public Training()
         {
             Approachs = new List<Approach>();

@@ -25,6 +25,8 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public DateTimeOffset CreatedDate { get; set; }
 
+        public bool IsArchived { get; set; }
+
         public TrainingProgram()
         {
             Days = new List<TrainingProgramDay>();

@@ -28,5 +28,7 @@ namespace TrainingManager.Logic.Storage.Domain
         public Training Training { get; set; }
         public long TrainingId { get; set; }
 
+        public bool IsArchived { get; set; }
+
     }
 }
