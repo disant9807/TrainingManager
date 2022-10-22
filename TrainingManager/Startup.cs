@@ -6,6 +6,7 @@ using Version = TrainingManager.Extension.Version;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using TrainingManager.Commons;
+using TrainingManager.Commons.Middleware;
 using TrainingManager.Logic.Storage;
 using TrainingManager.Logic.Config;
 using TrainingManager.Log;
@@ -41,16 +42,15 @@ namespace TrainingManager
 					options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())
 				);
 
-			services.AddDefaultSwagger($"{ApiVersion}", ApiName, $"Build:{Version.Number}", c =>
-			{
-				c.MapType<JsonDocument>(() => new OpenApiSchema { Type = "jsonObject" });
-				c.ExampleFilters();
-			});
+			services.AddDefaultSwagger($"{ApiVersion}", ApiName, $"Build:{Version.Number}");
+
+			services.AddControllers();
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogFactory logFactory)
 		{
 			var log = logFactory.CreateModuleLogger(typeof(Startup));
+			app.UseExceptionToHttpResponse((e, h) => log.Error(e, e.FullInfo(true)));
 
 			try
 			{
@@ -58,15 +58,17 @@ namespace TrainingManager
 				MigrateDatabase(app);
 
 				app
-					.UseHttpsRedirection()
 					.UseRouting()
 					.UseCors(options => options.SetIsOriginAllowed(x => _ = true)
-					.AllowAnyMethod()
-					.AllowAnyHeader()
-					.AllowCredentials())
+						.AllowAnyMethod()
+						.AllowAnyHeader()
+						.AllowCredentials())
 					//.UseAuthorization()
 					.UseDefaultSwagger(ApiVersion, ApiName)
-					.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+					.UseEndpoints(endpoints =>
+					{
+						endpoints.MapControllers();
+					});
 			}
 			catch (System.Exception e)
 			{

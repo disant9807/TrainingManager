@@ -36,6 +36,7 @@ namespace TrainingManager.Logic.Storage
 			=> Execute((u) => new CreateExerciseRequest(u, exercise, _logFactory, _mapper));
 
 		public Task UpdateExercise(Exercise exercise)
+
 			=> Execute((u) => new UpdateExerciseCommand(u, exercise, _logFactory, _mapper));
 
 		public Task ArchiveExercise(long id, bool isArchive)

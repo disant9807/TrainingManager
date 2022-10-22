@@ -16,8 +16,8 @@ namespace TrainingManager.Logic
             services.AddSingleton<IConfig, Config.Config>();
 			AddDbContextFactory(services);
 			services.AddSingleton<ILogFactory>(service => new LogFactory(true, "TrainingManagerLogic", service.GetService<IConfiguration>()));
-			//services.AddSingleton<IStorage, Storage.Storage>();
-			services.AddAutoMapper(typeof(ServiceProvider));
+			services.AddSingleton<IStorage, Storage.Storage>();
+			services.AddAutoMapper(typeof(IStorage));
 
 			return services;
 		}

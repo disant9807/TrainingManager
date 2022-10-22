@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrainingManager.Logic.Model
 {
@@ -16,6 +17,6 @@ namespace TrainingManager.Logic.Model
         public Guid[] ImagesIds { get; set; }
         public HardSkill HardSkill { get; set; }
         public string[] CategoryOfBodiesIds { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTimeOffset? CreatedDate { get; set; }
     }
 }
