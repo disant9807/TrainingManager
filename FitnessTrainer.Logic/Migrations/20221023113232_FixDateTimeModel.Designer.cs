@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,9 +11,10 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20221023113232_FixDateTimeModel")]
+    partial class FixDateTimeModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");

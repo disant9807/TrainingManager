@@ -47,4 +47,27 @@ namespace TrainingManager.ViewModels
             return result;
         }
     }
+
+    public static class ExerciseExt
+    {
+        public static ExerciseVM AsExerciseVM(this Exercise model)
+        {
+            var result = new ExerciseVM();
+            result.Id = model.Id.ToString();
+            result.HardSkill = model.HardSkill switch
+            {
+                HardSkill.easy => HardSkillVM.easy,
+                HardSkill.normal => HardSkillVM.normal,
+                HardSkill.hard => HardSkillVM.hard
+            };
+            result.ShortName = model.ShortName;
+            result.ImagesIds = model.ImagesIds;
+            result.CategoryOfBodiesIds = model.CategoryOfBodiesIds;
+            result.Description = model.Description;
+            result.IsBased = model.IsBased;
+            result.Name = model.Name;
+
+            return result;
+        }
+    }
 }

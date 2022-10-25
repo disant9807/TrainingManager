@@ -20,6 +20,6 @@ namespace TrainingManager.Logic.Model
 
         public HardSkill[] HardSkills { get; set; }
 
-        public HardSkill HardSkill { get; set; }
+        public HardSkill? HardSkill { get; set; }
     }
 }

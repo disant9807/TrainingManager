@@ -23,7 +23,7 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public ICollection<TrainingProgramDay> Days { get; set; }
 
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public bool IsArchived { get; set; }
 

@@ -13,7 +13,7 @@ namespace TrainingManager.Logic.Storage.Domain
     {
         [Key]
         public long Id { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
 

@@ -18,8 +18,8 @@ namespace TrainingManager.Logic.Storage.Extensions
                        where !filter.CreatedFrom.HasValue || e.CreatedDate >= filter.CreatedFrom
                        where !createdTo.HasValue || e.CreatedDate < createdTo
                        where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || filter.CategoryOfBodies.Any(u => e.CategoryOfBodies.Select(i => i.Code).Contains(u))
-                       where filter.HardSkills == null || !filter.HardSkills.Any() || filter.HardSkills.Select(i => i.ToString()).Contains(e.HardSkill.ToString())
-                       where filter.HardSkill == null || filter.HardSkill.ToString() == e.HardSkill.ToString()
+                       where filter.HardSkills == null || !filter.HardSkills.Any() || filter.HardSkills.Select(e => (int)e).Contains(((int)e.HardSkill))
+                       where filter.HardSkill == null || (int)filter.HardSkill == (int)e.HardSkill
                        where !filter.IsBased.HasValue || e.IsBased == filter.IsBased
                        where string.IsNullOrWhiteSpace(filter.Name) || e.Name.ToLower().Contains(filter.Name) || e.ShortName.ToLower().Contains(filter.Name)
                        select e;

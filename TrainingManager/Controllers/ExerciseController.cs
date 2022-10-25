@@ -62,10 +62,10 @@ namespace TrainingManager.Controllers
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
-		public async Task<ActionResult> ArchiveExercise([FromQuery] string id, [FromQuery] bool status = true)
+		public async Task<ActionResult> ArchiveExercise([FromRoute] string id, [FromRoute] bool status = true)
 		{
 			long longId;
-			if (string.IsNullOrWhiteSpace(id) || long.TryParse(id, out longId))
+			if (string.IsNullOrWhiteSpace(id) || !long.TryParse(id, out longId))
 				return BadRequest();
 
 			await _storage.ArchiveExercise(longId, status);
@@ -74,47 +74,36 @@ namespace TrainingManager.Controllers
 
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<Exercise>> ExerciseById([FromQuery] string id)
+		public async Task<ActionResult<ExerciseVM>> ExerciseById([FromRoute] string id)
 		{
 			long longId;
-			if (string.IsNullOrWhiteSpace(id) || long.TryParse(id, out longId))
+			if (string.IsNullOrWhiteSpace(id) || !long.TryParse(id, out longId))
 				return BadRequest();
 
 			var result = await _storage.GetExerciseById(longId);
-			return Ok(result);
+			return Ok(result.AsExerciseVM());
 		}
 
 		[HttpGet]
 		[ProducesDefaultResponseType]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public async Task<ActionResult<IEnumerable<Exercise>>> Exercises(
-			[FromQuery(Name = "categoryOfBodies[]")] string[] categoryOfBodies,
-            [FromQuery]string name,
-            [FromQuery]DateTime? createdFrom,
-            [FromQuery]DateTime? createdTo,
-            [FromQuery]bool? isBased,
-			[FromQuery(Name = "hardSkills[]")] HardSkill[] hardSkills,
-            [FromQuery] HardSkill hardSkill,
-            [FromQuery] Order order,
-            [FromQuery] int start = 0,
-            [FromQuery] int count = 0
-			)
+		public async Task<ActionResult<IEnumerable<Exercise>>> Exercises([FromQuery] QueryParamsExerciseVM parameters)
 		{
 			var filter = new GetExercisesFilter()
 			{
-				CategoryOfBodies = categoryOfBodies,
-				CreatedFrom = createdFrom,
-				CreatedTo = createdTo,
-				Name = name,
-				IsBased = isBased,
-				HardSkill = hardSkill,
-				HardSkills = hardSkills
+				CategoryOfBodies = parameters.categoryOfBodies,
+				CreatedFrom = parameters.createdFrom,
+				CreatedTo = parameters.createdTo,
+				Name = parameters.name,
+				IsBased = parameters.isBased,
+				HardSkill = parameters.hardSkill,
+				HardSkills = parameters.hardSkills
 			};
 
-			var requests = await _storage.GetExercises(filter, order, start, count);
+			var requests = await _storage.GetExercises(filter, parameters.order, parameters.start, parameters.count);
 
-			return Ok(requests);
+			return Ok(requests.Select(e => e.AsExerciseVM()));
 		}
 	}
 }

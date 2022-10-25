@@ -27,11 +27,11 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public Guid? AvatarId { get; set; }
 
-        public HardSkill HardSkill { get; set; }
+        public HardSkill? HardSkill { get; set; }
 
         public ICollection<CategoryOfBody> CategoryOfBodies { get; set; }
 
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public bool IsArchived { get; set; }
 

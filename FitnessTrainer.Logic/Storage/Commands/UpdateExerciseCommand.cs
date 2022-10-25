@@ -27,7 +27,7 @@ namespace TrainingManager.Logic.Storage.Commands
         {
             var exercise = await context.Exercise.Where(e => e.Id == _exercise.Id)
                 .Include(e => e.CategoryOfBodies)
-                .SingleOrDefaultAsync();
+                .FirstOrDefaultAsync();
 
             if (exercise == null)
                 throw new KeyNotFoundException($"Упражнение с id = {_exercise.Id} не найдено");
@@ -42,11 +42,21 @@ namespace TrainingManager.Logic.Storage.Commands
                     .Contains(e.Code))
                 .ToList();
 
-            exercise = _mapper.Map<Model.Exercise, Domain.Exercise>(_exercise);
             newCategoryIds
                 .ForEach(e => exercise.CategoryOfBodies.Add(new Domain.CategoryOfBody { Code = e }));
             deleteCategoryObj
                 .ForEach(e => exercise.CategoryOfBodies.Remove(e));
+
+            exercise.ShortName = _exercise.ShortName;
+            exercise.Description = _exercise.Description;
+            exercise.Name = _exercise.Name;
+            exercise.IsBased = _exercise.IsBased;
+            exercise.HardSkill = _exercise.HardSkill switch
+            {
+                Model.HardSkill.easy => Domain.HardSkill.easy,
+                Model.HardSkill.normal => Domain.HardSkill.normal,
+                Model.HardSkill.hard => Domain.HardSkill.hard
+            };
 
             context.Exercise.Update(exercise);
             await context.SaveChangesAsync();

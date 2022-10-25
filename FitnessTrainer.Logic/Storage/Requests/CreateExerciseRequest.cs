@@ -29,7 +29,7 @@ namespace TrainingManager.Logic.Storage.Requests
                 throw new ArgumentNullException($"Ошибка в {_exercise}");
 
             var exercise = _mapper.Map<Model.Exercise, Domain.Exercise>(_exercise);
-            exercise.CreatedDate = DateTimeOffset.Now;
+            exercise.CreatedDate = DateTime.Now;
             
             if (_exercise.CategoryOfBodiesIds?.Length > 0)
             {
