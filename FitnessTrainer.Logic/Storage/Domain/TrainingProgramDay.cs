@@ -11,8 +11,7 @@ namespace TrainingManager.Logic.Storage.Domain
     {
         [Key]
         public Guid Id { get; set; }
-        public long ExercisesId { get; set; }
-        public Exercise Exercises { get; set; }
+        public ICollection<Exercise> Exercises { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int DayRelax { get; set; }
@@ -22,5 +21,10 @@ namespace TrainingManager.Logic.Storage.Domain
         public long TrainingProgramId { get; set; }
 
         public bool IsArchived { get; set; }
+
+        public TrainingProgramDay()
+        {
+            Exercises = new List<Exercise>();
+        }
     }
 }

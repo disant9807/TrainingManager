@@ -13,13 +13,13 @@ namespace TrainingManager.Logic.Storage.Domain
     {
         [Key]
         public long Id { get; set; }
+        public DateTime? TrainingDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
 
         public long Time { get; set; }
 
-        public long TrainingProgramId { get; set; }
         public TrainingProgram? TrainingProgram { get; set; }
 
         public ICollection<Approach> Approachs { get; set; }

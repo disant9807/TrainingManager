@@ -42,6 +42,43 @@ namespace TrainingManager.Logic.Storage
 		public Task ArchiveExercise(long id, bool isArchive)
 			=> Execute((u) => new ArchiveExerciseCommand(u, _logFactory, id, isArchive));
 
+
+
+		public Task<TrainingProgram[]> GetTrainingPrograms(GetTrainingProgramsFilter filter, Order? order = null, int? start = null, int? count = null)
+			=> Execute((u) => new GetTrainingProgramsRequest(u, _mapper, filter, order, start, count));
+
+		public Task<long> CreateTrainingProgram(TrainingProgram trainingProgram)
+			=> Execute((u) => new CreateTrainingProgramRequest(u, trainingProgram, _logFactory, _mapper));
+
+		public Task UpdateTrainingProgram(TrainingProgram trainingProgram)
+			=> Execute((u) => new UpdateTrainingProgramInfoCommand(u, trainingProgram, _logFactory, _mapper));
+
+		public Task ArchiveTrainingProgram(long id, bool isArchive)
+
+			=> Execute((u) => new ArchiveTrainingProgramCommand(u, _logFactory, id, isArchive));
+
+		public Task<TrainingProgram> GetTrainingProgramById(long id)
+			=> Execute((u) => new GetTrainingProgramByIdRequest(u, _logFactory, _mapper, id));
+
+
+
+		public Task<Training[]> GetTraining(GetTrainingsFilter filter, Order? order = null, int? start = null, int? count = null)
+			=> Execute((u) => new GetTrainingsRequest(u, _mapper, filter, order, start, count));
+
+		public Task<long> CreateTraining(Training training)
+			=> Execute((u) => new CreateTrainingRequest(u, training, _logFactory, _mapper));
+
+		public Task UpdateTraining(Training training)
+			=> Execute((u) => new UpdateTrainingCommand(u, training, _logFactory, _mapper));
+
+		public Task ArchiveTraining(long id, bool isArchive)
+
+			=> Execute((u) => new ArchiveTrainingCommand(u, _logFactory, id, isArchive));
+
+		public Task<Training> GetTrainingById(long id)
+			=> Execute((u) => new GetTrainingByIdRequest(u, _logFactory, _mapper, id));
+
+
 		protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
 		{
 			using var context = _contextFactory.CreateDbContext();

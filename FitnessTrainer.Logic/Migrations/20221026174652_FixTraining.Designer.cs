@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,9 +11,10 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20221026174652_FixTraining")]
+    partial class FixTraining
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -38,7 +40,7 @@ namespace TrainingManager.Logic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<long?>("ExerciseId")
+                    b.Property<long>("ExerciseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Hard")
@@ -230,7 +232,7 @@ namespace TrainingManager.Logic.Migrations
                     b.Property<DateTime?>("TrainingDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<long?>("TrainingProgramId")
+                    b.Property<long>("TrainingProgramId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -326,7 +328,9 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Exercise", "Exercise")
                         .WithMany()
-                        .HasForeignKey("ExerciseId");
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Training", "Training")
                         .WithMany("Approachs")
@@ -376,7 +380,9 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.TrainingProgram", "TrainingProgram")
                         .WithMany()
-                        .HasForeignKey("TrainingProgramId");
+                        .HasForeignKey("TrainingProgramId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TrainingProgram");
                 });

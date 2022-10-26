@@ -18,8 +18,7 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public float Weight { get; set; }
 
-        public long ExerciseId { get; set; }
-        public Exercise Exercise { get; set; }
+        public Exercise? Exercise { get; set; }
 
         public int Hard { get; set; }
 

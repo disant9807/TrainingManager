@@ -14,7 +14,8 @@ namespace TrainingManager.Logic.Model
         public string AvatarId { get; set; }
         public string[] Images { get; set; }
         public string Description { get; set; }
-        public Guid[] DaysIds { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
+
+        public ICollection<TrainingProgramDay> Days { get; set;}
+        public DateTime CreatedDate { get; set; }
     }
 }
