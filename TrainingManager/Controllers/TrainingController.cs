@@ -8,6 +8,7 @@ using TrainingManager.Log;
 using TrainingManager.ViewModels;
 using Serilog;
 using System.Net;
+using AutoMapper;
 
 namespace TrainingManager.Controllers
 {
@@ -18,24 +19,27 @@ namespace TrainingManager.Controllers
         private readonly IStorage _storage;
         private readonly Serilog.ILogger _log;
         private readonly ILogFactory _logFactory;
+		private readonly IMapper _mapper;
 
-        public TrainingController(IStorage storage, ILogFactory logFactory)
+		public TrainingController(IStorage storage, ILogFactory logFactory)
         {
             _storage = storage;
             _logFactory = logFactory;
-            _log = logFactory.CreateModuleLogger(typeof(ExerciseController));
+            _log = logFactory.CreateModuleLogger(typeof(TrainingController));
         }
 
 		/// <summary>Создать тренировку</summary>
 		/// <returns>Идентификатор созданной тренировки</returns>
 		[HttpPost("create")]
 		[ProducesResponseType(typeof(Training), (int)HttpStatusCode.OK)]
-		public async Task<ActionResult<long>> CreateExercise([FromBody] TrainingVM trainingVM)
+		public async Task<ActionResult<long>> CreateTraining([FromBody] TrainingVM trainingVM)
 		{
 			if (trainingVM == null)
 				return BadRequest();
 
-			var result = await _storage.CreateTraining(trainingVM.AsTraining());
+			var training = _mapper.Map<TrainingVM, Training>(trainingVM);
+
+			var result = await _storage.CreateTraining(training);
 			return Ok(result);
 		}
 
@@ -51,7 +55,9 @@ namespace TrainingManager.Controllers
 			if (trainingVM == null)
 				return BadRequest();
 
-			await _storage.UpdateTraining(trainingVM.AsTraining());
+			var training = _mapper.Map<TrainingVM, Training>(trainingVM);
+
+			await _storage.UpdateTraining(training);
 			return Ok(trainingVM.Id);
 		}
 
@@ -74,14 +80,30 @@ namespace TrainingManager.Controllers
 
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<Training>> TrainingById([FromRoute] string id)
+		public async Task<ActionResult<TrainingVM>> TrainingById([FromRoute] string id)
 		{
 			long longId;
 			if (string.IsNullOrWhiteSpace(id) || !long.TryParse(id, out longId))
 				return BadRequest();
 
 			var result = await _storage.GetTrainingById(longId);
-			return Ok(result);
+
+			var training = _mapper.Map<Training, TrainingVM>(result);
+
+			return Ok(training);
+		}
+
+		[HttpGet]
+		[ProducesDefaultResponseType]
+		[ProducesResponseType(StatusCodes.Status400BadRequest)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		public async Task<ActionResult<IEnumerable<Exercise>>> Trainings([FromQuery] QueryParamsTrainingVM parameters)
+		{
+			var filter = _mapper.Map<QueryParamsTrainingVM, GetTrainingsFilter>(parameters);
+
+			var requests = await _storage.GetTraining(filter, parameters.order, parameters.start, parameters.count);
+
+			return Ok(requests.Select(e => _mapper.Map<Training, TrainingVM>(e)));
 		}
 	}
 }

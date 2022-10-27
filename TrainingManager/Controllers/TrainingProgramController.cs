@@ -14,33 +14,32 @@ namespace TrainingManager.Controllers
 {
 	[Route("[controller]")]
 	[ApiController]
-	public class ExerciseController : ControllerBase
+	public class TrainingProgramController : ControllerBase
     {
         private readonly IStorage _storage;
         private readonly Serilog.ILogger _log;
         private readonly ILogFactory _logFactory;
 		private readonly IMapper _mapper;
 
-        public ExerciseController (IStorage storage, ILogFactory logFactory, IMapper mapper)
+		public TrainingProgramController(IStorage storage, ILogFactory logFactory)
         {
             _storage = storage;
             _logFactory = logFactory;
-            _log = logFactory.CreateModuleLogger(typeof(ExerciseController));
-			_mapper = mapper;
+            _log = logFactory.CreateModuleLogger(typeof(TrainingProgramController));
         }
 
-		/// <summary>Создать упражнение</summary>
-		/// <returns>Идентификатор созданного упражнения</returns>
+		/// <summary>Создать тренировку</summary>
+		/// <returns>Идентификатор созданной тренировки</returns>
 		[HttpPost("create")]
-		[ProducesResponseType(typeof(Exercise), (int)HttpStatusCode.OK)]
-		public async Task<ActionResult<long>> CreateExercise([FromBody] ExerciseVM exerciseVM)
+		[ProducesResponseType(typeof(TrainingProgramVM), (int)HttpStatusCode.OK)]
+		public async Task<ActionResult<long>> CreateTrainingProgram([FromBody] TrainingProgramVM trainingProgramVM)
 		{
-			if (exerciseVM == null)
+			if (trainingProgramVM == null)
 				return BadRequest();
 
-			var exercise = _mapper.Map<ExerciseVM, Exercise>(exerciseVM);
+			var trainingProgram = _mapper.Map<TrainingProgramVM, TrainingProgram>(trainingProgramVM);
 
-			var result = await _storage.CreateExercise(exercise);
+			var result = await _storage.CreateTrainingProgram(trainingProgram);
 			return Ok(result);
 		}
 
@@ -51,15 +50,15 @@ namespace TrainingManager.Controllers
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
-		public async Task<ActionResult<long>> UpdateExercise([FromBody] ExerciseVM exerciseVM)
+		public async Task<ActionResult<long>> UpdateTraining([FromBody] TrainingProgramVM trainingProgramVM)
 		{
-			if (exerciseVM == null)
+			if (trainingProgramVM == null)
 				return BadRequest();
 
-			var exercise = _mapper.Map<ExerciseVM, Exercise>(exerciseVM);
+			var trainingProgram = _mapper.Map<TrainingProgramVM, >(trainingProgramVM);
 
-			await _storage.UpdateExercise(exercise);
-			return Ok(exerciseVM.Id);
+			await _storage.UpdateTrainingProgram(trainingProgram);
+			return Ok(trainingProgram.Id);
 		}
 
 		/// <summary>Архивировать упражнение</summary>
@@ -69,51 +68,42 @@ namespace TrainingManager.Controllers
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
-		public async Task<ActionResult> ArchiveExercise([FromRoute] string id, [FromRoute] bool status = true)
+		public async Task<ActionResult> ArchiveTrainingProgram([FromRoute] string id, [FromRoute] bool status = true)
 		{
 			long longId;
 			if (string.IsNullOrWhiteSpace(id) || !long.TryParse(id, out longId))
 				return BadRequest();
 
-			await _storage.ArchiveExercise(longId, status);
+			await _storage.ArchiveTrainingProgram(longId, status);
 			return Ok();
 		}
 
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<ExerciseVM>> ExerciseById([FromRoute] string id)
+		public async Task<ActionResult<TrainingVM>> TrainingProgramById([FromRoute] string id)
 		{
 			long longId;
 			if (string.IsNullOrWhiteSpace(id) || !long.TryParse(id, out longId))
 				return BadRequest();
 
-			var result = await _storage.GetExerciseById(longId);
+			var result = await _storage.GetTrainingProgramById(longId);
 
-			var exercise = _mapper.Map<Exercise, ExerciseVM>(result);
+			var trainingProgram = _mapper.Map<TrainingProgram, TrainingVM>(result);
 
-			return Ok(exercise);
+			return Ok(trainingProgram);
 		}
 
 		[HttpGet]
 		[ProducesDefaultResponseType]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public async Task<ActionResult<IEnumerable<Exercise>>> Exercises([FromQuery] QueryParamsExerciseVM parameters)
+		public async Task<ActionResult<IEnumerable<Exercise>>> TrainingPrograms([FromQuery] QueryParamsTrainingProgramVM parameters)
 		{
-			var filter = new GetExercisesFilter()
-			{
-				CategoryOfBodies = parameters.categoryOfBodies,
-				CreatedFrom = parameters.createdFrom,
-				CreatedTo = parameters.createdTo,
-				Name = parameters.name,
-				IsBased = parameters.isBased,
-				HardSkill = parameters.hardSkill,
-				HardSkills = parameters.hardSkills
-			};
+			var filter = _mapper.Map<QueryParamsTrainingProgramVM, GetTrainingProgramsFilter>(parameters);
 
-			var requests = await _storage.GetExercises(filter, parameters.order, parameters.start, parameters.count);
+			var requests = await _storage.GetTrainingPrograms(filter, parameters.order, parameters.start, parameters.count);
 
-			return Ok(requests.Select(e => _mapper.Map<Exercise, ExerciseVM>(e)));
+			return Ok(requests.Select(e => _mapper.Map<TrainingProgram, TrainingVM>(e)));
 		}
 	}
 }
