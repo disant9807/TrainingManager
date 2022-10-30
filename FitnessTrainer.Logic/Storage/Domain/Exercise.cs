@@ -31,12 +31,15 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public ICollection<CategoryOfBody> CategoryOfBodies { get; set; }
 
+        public ICollection<TrainingProgramDay> TrainingProgramDays { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
         public bool IsArchived { get; set; }
 
         public Exercise()
         {
+            TrainingProgramDays = new List<TrainingProgramDay>();
             CategoryOfBodies = new List<CategoryOfBody>();
             Images = new List<Image>();
         }

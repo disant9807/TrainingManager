@@ -21,11 +21,12 @@ namespace TrainingManager.Controllers
         private readonly ILogFactory _logFactory;
 		private readonly IMapper _mapper;
 
-		public TrainingProgramController(IStorage storage, ILogFactory logFactory)
+		public TrainingProgramController(IStorage storage, ILogFactory logFactory, IMapper mapper)
         {
             _storage = storage;
             _logFactory = logFactory;
             _log = logFactory.CreateModuleLogger(typeof(TrainingProgramController));
+			_mapper = mapper;
         }
 
 		/// <summary>Создать тренировку</summary>
@@ -55,7 +56,7 @@ namespace TrainingManager.Controllers
 			if (trainingProgramVM == null)
 				return BadRequest();
 
-			var trainingProgram = _mapper.Map<TrainingProgramVM, >(trainingProgramVM);
+			var trainingProgram = _mapper.Map<TrainingProgramVM, TrainingProgram>(trainingProgramVM);
 
 			await _storage.UpdateTrainingProgram(trainingProgram);
 			return Ok(trainingProgram.Id);
@@ -88,7 +89,7 @@ namespace TrainingManager.Controllers
 
 			var result = await _storage.GetTrainingProgramById(longId);
 
-			var trainingProgram = _mapper.Map<TrainingProgram, TrainingVM>(result);
+			var trainingProgram = _mapper.Map<TrainingProgram, TrainingProgramVM>(result);
 
 			return Ok(trainingProgram);
 		}

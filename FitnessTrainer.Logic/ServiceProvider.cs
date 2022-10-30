@@ -17,7 +17,6 @@ namespace TrainingManager.Logic
 			AddDbContextFactory(services);
 			services.AddSingleton<ILogFactory>(service => new LogFactory(true, "TrainingManagerLogic", service.GetService<IConfiguration>()));
 			services.AddSingleton<IStorage, Storage.Storage>();
-			services.AddAutoMapper(typeof(IStorage));
 
 			return services;
 		}
@@ -29,6 +28,7 @@ namespace TrainingManager.Logic
 				var config = services.GetService<IConfig>();
 				var logFactory = services.GetService<ILogFactory>();
 				var connectionString = (config ?? throw new ArgumentNullException(nameof(config))).StorageConnectionString;
+				options.EnableSensitiveDataLogging();
 				options.UseSqlite($"Data Source={connectionString}");
 			});
 		}

@@ -11,8 +11,7 @@ namespace TrainingManager.ViewModels
         public string[] Images { get; set; }
         public string Description { get; set; }
 
-        public ICollection<TrainingProgramDay> Days { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public ICollection<TrainingProgramDayVM> Days { get; set; }
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,23 @@ namespace TrainingManager.Logic.Storage.Requests
         {
             var trainingProgram = _mapper.Map<Model.TrainingProgram, Domain.TrainingProgram>(_trainingProgram);
             trainingProgram.CreatedDate = DateTime.Now;
-
             context.TrainingProgram.Add(trainingProgram);
             await context.SaveChangesAsync();
+
+            foreach (var _day in _trainingProgram.Days)
+            {
+                var day =_mapper.Map<Model.TrainingProgramDay, Domain.TrainingProgramDay>(_day);
+                day.TrainingProgramId = trainingProgram.Id;
+
+                context.Exercise.AttachRange(day.Exercises);
+                context.TrainingProgramDay.Add(day);
+                await context.SaveChangesAsync();
+                foreach (var exercise in day.Exercises)
+                {
+                    context.Entry<Domain.Exercise>(exercise).State = EntityState.Detached;
+                }
+            }
+
             return trainingProgram.Id;
         }
     }

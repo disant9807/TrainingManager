@@ -17,7 +17,11 @@ namespace TrainingManager.Mappings
 	public class StringToLongFormatter : IValueConverter<string, long>
 	{
 		public long Convert(string source, ResolutionContext context)
-			=> long.Parse(source);
+        {
+			long result;
+			return long.TryParse(source, out result) ? result : 0;
+        }
+			
 	}
 
 	public class GuidToStringFormatter : IValueConverter<Guid, string>
@@ -25,10 +29,29 @@ namespace TrainingManager.Mappings
 		public string Convert(Guid source, ResolutionContext context)
 			=> source.ToString();
 	}
+
+	public class GuidNullableToStringFormatter : IValueConverter<Guid?, string>
+	{
+		public string Convert(Guid? source, ResolutionContext context)
+			=> source?.ToString() ?? String.Empty;
+	}
+
+	public class StringToGuidNullableFormatter : IValueConverter<string, Guid?>
+	{
+		public Guid? Convert(string source, ResolutionContext context)
+		{
+			Guid result;
+			return Guid.TryParse(source, out result) ? result : null;
+		}
+	}
+
 	public class StringToGuidFormatter : IValueConverter<string, Guid>
 	{
 		public Guid Convert(string source, ResolutionContext context)
-			=> Guid.Parse(source);
+		{
+			Guid result;
+			return Guid.TryParse(source, out result) ? result : Guid.Empty;
+		}
 	}
 
 	public class ModelToViewModelProfile : Profile
@@ -52,8 +75,10 @@ namespace TrainingManager.Mappings
 
 			CreateMap<TrainingProgram, TrainingProgramVM>()
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new LongToStringFormatter()))
+				.ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new GuidNullableToStringFormatter()))
 				.ReverseMap()
-				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()));
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()))
+				.ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new StringToGuidNullableFormatter()));
 
 			CreateMap<TrainingProgramDay, TrainingProgramDayVM>()
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new GuidToStringFormatter()))

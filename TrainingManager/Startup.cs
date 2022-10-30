@@ -10,6 +10,9 @@ using TrainingManager.Commons.Middleware;
 using TrainingManager.Logic.Storage;
 using TrainingManager.Logic.Config;
 using TrainingManager.Log;
+using Microsoft.Extensions.DependencyInjection;
+using TrainingManager.Logic.Storage.Mappings;
+using TrainingManager.Mappings;
 
 namespace TrainingManager
 {
@@ -35,6 +38,7 @@ namespace TrainingManager
         {
 			services.AddHttpClient();
 			services.AddTrainingManager(Configuration);
+			services.AddAutoMapper(typeof(DomainToModelProfile), typeof(ModelToViewModelProfile));
 			services
 				.AddCors()
 				.AddControllers()
