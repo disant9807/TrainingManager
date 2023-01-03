@@ -12,22 +12,21 @@ namespace TrainingManager.Logic.Storage.Domain
         [Key]
         public Guid Id { get; set; }
 
-        public long Time { get; set; }
-
         public int NumberOfTraining { get; set; }
 
-        public float Weight { get; set; }
-
         public Exercise? Exercise { get; set; }
-
-        public int Hard { get; set; }
-
-        public ApproachLvl Technicality { get; set; }
 
         public Training Training { get; set; }
         public long TrainingId { get; set; }
 
         public bool IsArchived { get; set; }
+
+        public ICollection<ApproachItem> ApproachsItems { get; set; }
+
+        public Approach()
+        {
+            ApproachsItems = new List<ApproachItem>();
+        }
 
     }
 }

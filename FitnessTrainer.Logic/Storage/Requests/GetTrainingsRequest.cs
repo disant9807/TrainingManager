@@ -35,8 +35,7 @@ namespace TrainingManager.Logic.Storage.Requests
         public override async Task<Training[]> ExecuteAsync()
         {
             var trainingRequest = context.GetFiltredTrainingPrograms(filter);
-            var training = trainingRequest
-                .AsNoTracking();
+            var training = trainingRequest.AsNoTracking();
             training = Order(training);
             training = Take(training);
             return await training.Select(e => e.AsTraining(_mapper)).ToArrayAsync();

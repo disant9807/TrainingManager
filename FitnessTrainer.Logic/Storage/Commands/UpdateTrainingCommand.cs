@@ -64,21 +64,6 @@ namespace TrainingManager.Logic.Storage.Commands
             {
                 var approach = training.Approachs.FirstOrDefault(e => e.Id == approachModel.Id);
 
-                approach.Time = approachModel.Time;
-                approach.NumberOfTraining = approachModel.NumberOfTraining;
-                approach.Weight = approachModel.Time;
-                approach.Hard = approachModel.Hard;
-                approach.Technicality = approachModel.Technicality switch
-                {
-                    Model.ApproachLvl.good => Domain.ApproachLvl.good,
-                    Model.ApproachLvl.bad => Domain.ApproachLvl.bad,
-                    Model.ApproachLvl.normal => Domain.ApproachLvl.normal
-                };
-
-                long longExerciseId;
-                if (!string.IsNullOrEmpty(approachModel.ExerciseId) && long.TryParse(approachModel.ExerciseId, out longExerciseId))
-                    approach.Exercise = new Exercise { Id = longExerciseId };
-
                 context.Approach.Update(approach);
             }
 

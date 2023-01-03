@@ -73,6 +73,11 @@ namespace TrainingManager.Mappings
 				.ReverseMap()
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()));
 
+			CreateMap<ApproachItem, ApproachItemVM>()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new GuidToStringFormatter()))
+				.ReverseMap()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()));
+
 			CreateMap<TrainingProgram, TrainingProgramVM>()
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new LongToStringFormatter()))
 				.ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new GuidNullableToStringFormatter()))

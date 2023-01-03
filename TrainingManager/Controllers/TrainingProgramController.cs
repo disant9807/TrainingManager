@@ -104,7 +104,7 @@ namespace TrainingManager.Controllers
 
 			var requests = await _storage.GetTrainingPrograms(filter, parameters.order, parameters.start, parameters.count);
 
-			return Ok(requests.Select(e => _mapper.Map<TrainingProgram, TrainingVM>(e)));
+			return Ok(requests.Select(e => _mapper.Map<TrainingProgram, TrainingProgramVM>(e)));
 		}
 	}
 }

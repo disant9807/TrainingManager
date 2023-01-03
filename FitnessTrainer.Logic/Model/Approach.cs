@@ -8,12 +8,10 @@ namespace TrainingManager.Logic.Model
     public class Approach
     {
         public Guid Id { get; set; }
-        public long Time { get; set; }
         public int NumberOfTraining { get; set; }
-        public float Weight { get; set; }
-        public string ExerciseId { get; set; }
-        public int Hard { get; set; }
-        public ApproachLvl Technicality { get; set; }
+        public Exercise Exercise { get; set; }
+
+        public ICollection<ApproachItem> approachItems { get; set; }
 
     }
 }

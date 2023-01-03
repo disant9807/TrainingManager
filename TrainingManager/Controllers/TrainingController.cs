@@ -21,12 +21,13 @@ namespace TrainingManager.Controllers
         private readonly ILogFactory _logFactory;
 		private readonly IMapper _mapper;
 
-		public TrainingController(IStorage storage, ILogFactory logFactory)
+		public TrainingController(IStorage storage, ILogFactory logFactory, IMapper mapper)
         {
             _storage = storage;
             _logFactory = logFactory;
             _log = logFactory.CreateModuleLogger(typeof(TrainingController));
-        }
+			_mapper = mapper;
+		}
 
 		/// <summary>Создать тренировку</summary>
 		/// <returns>Идентификатор созданной тренировки</returns>
@@ -93,11 +94,13 @@ namespace TrainingManager.Controllers
 			return Ok(training);
 		}
 
+
+
 		[HttpGet]
 		[ProducesDefaultResponseType]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public async Task<ActionResult<IEnumerable<Exercise>>> Trainings([FromQuery] QueryParamsTrainingVM parameters)
+		public async Task<ActionResult<IEnumerable<TrainingVM>>> Trainings([FromQuery] QueryParamsTrainingVM parameters)
 		{
 			var filter = _mapper.Map<QueryParamsTrainingVM, GetTrainingsFilter>(parameters);
 

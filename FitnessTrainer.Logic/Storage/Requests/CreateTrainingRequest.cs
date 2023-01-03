@@ -27,8 +27,26 @@ namespace TrainingManager.Logic.Storage.Requests
         public override async Task<long> ExecuteAsync()
         {
             var training = _mapper.Map<Model.Training, Domain.Training>(_training);
-            training.CreatedDate = DateTime.Now;
 
+// Добавление тренировочной программы
+            if (training.TrainingProgram?.Id == 0)
+            {
+                training.TrainingProgram = null;
+            }
+            else
+            {
+                Domain.TrainingProgram trainingProgramLocal = new Domain.TrainingProgram
+                {
+                    Id = long.Parse(_training.TrainingProgramId)
+                };
+                context.TrainingProgram.Attach(trainingProgramLocal);
+
+                training.TrainingProgram = trainingProgramLocal;
+            }
+
+
+            training.CreatedDate = DateTime.Now;
+            context.Exercise.AttachRange(training.Approachs.Select(e => e.Exercise).Where(e => e != null));
             context.Training.Add(training);
             await context.SaveChangesAsync();
             return training.Id;

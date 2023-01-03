@@ -28,6 +28,9 @@ namespace TrainingManager.Logic.Storage.Requests
             var data = await context.Training
                 .Where(e => e.Id == _id)
                 .Include(e => e.Approachs)
+                .ThenInclude(e => e.ApproachsItems)
+                .Include(e => e.Approachs)
+                .ThenInclude(e => e.Exercise)
                 .FirstOrDefaultAsync();
 
             if (data is null)
