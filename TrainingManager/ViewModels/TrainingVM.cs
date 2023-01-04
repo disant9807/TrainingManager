@@ -27,13 +27,12 @@ namespace TrainingManager.ViewModels
         public int NumberOfTraining { get; set; }
         public ExerciseVM Exercise { get; set; }
 
-        public ApproachItemVM[] ApproachItems { get; set; }
+        public ApproachItemVM[] ApproachsItems { get; set; }
     }
 
     public class ApproachItemVM
     {
         public string Id { get; set; }
-        public ApproachVM approach { get; set; }
         public long Time { get; set; }
         public float Weight { get; set; }
 

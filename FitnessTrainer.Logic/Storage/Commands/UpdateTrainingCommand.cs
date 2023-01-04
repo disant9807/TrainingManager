@@ -29,6 +29,8 @@ namespace TrainingManager.Logic.Storage.Commands
             var training = await context.Training.Where(e => e.Id == _training.Id)
                 .Include(e => e.Approachs)
                 .ThenInclude(e => e.Exercise)
+                .Include(e => e.Approachs)
+                .ThenInclude(e => e.ApproachsItems)
                 .Include(e => e.TrainingProgram)
                 .FirstOrDefaultAsync();
 

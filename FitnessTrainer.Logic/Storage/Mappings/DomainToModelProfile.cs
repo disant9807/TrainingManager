@@ -13,8 +13,8 @@ namespace TrainingManager.Logic.Storage.Mappings
     {
 		public DomainToModelProfile()
 		{
-			CreateMap<Domain.Approach, Model.Approach>().ReverseMap();
 			CreateMap<Domain.ApproachItem, Model.ApproachItem>().ReverseMap();
+			CreateMap<Domain.Approach, Model.Approach>().ReverseMap();
 			CreateMap<Domain.CategoryOfBody, Model.CategoryOfBody>().ReverseMap();
 			CreateMap<Domain.Exercise, Model.Exercise>().ReverseMap();
 			CreateMap<Domain.Training, Model.Training>().ReverseMap();

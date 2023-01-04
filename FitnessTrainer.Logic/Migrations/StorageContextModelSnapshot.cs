@@ -29,7 +29,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("ExercisesId");
 
-                    b.ToTable("CategoryOfBodyExercise");
+                    b.ToTable("CategoryOfBodyExercise", (string)null);
                 });
 
             modelBuilder.Entity("ExerciseTrainingProgramDay", b =>
@@ -44,7 +44,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("TrainingProgramDaysId");
 
-                    b.ToTable("ExerciseTrainingProgramDay");
+                    b.ToTable("ExerciseTrainingProgramDay", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Approach", b =>
@@ -71,7 +71,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("TrainingId");
 
-                    b.ToTable("Approach");
+                    b.ToTable("Approach", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.ApproachItem", b =>
@@ -102,7 +102,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("approachId");
 
-                    b.ToTable("ApproachItem");
+                    b.ToTable("ApproachItem", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.CategoryOfBody", b =>
@@ -132,7 +132,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("AvatarId");
 
-                    b.ToTable("CategoryOfBody");
+                    b.ToTable("CategoryOfBody", (string)null);
 
                     b.HasData(
                         new
@@ -198,7 +198,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("AvatarId");
 
-                    b.ToTable("Exercise");
+                    b.ToTable("Exercise", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Image", b =>
@@ -230,7 +230,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("TrainingProgramId");
 
-                    b.ToTable("Image");
+                    b.ToTable("Image", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Training", b =>
@@ -266,7 +266,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("TrainingProgramId");
 
-                    b.ToTable("Training");
+                    b.ToTable("Training", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.TrainingProgram", b =>
@@ -300,7 +300,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("AvatarId");
 
-                    b.ToTable("TrainingProgram");
+                    b.ToTable("TrainingProgram", (string)null);
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.TrainingProgramDay", b =>
@@ -333,7 +333,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("TrainingProgramId");
 
-                    b.ToTable("TrainingProgramDay");
+                    b.ToTable("TrainingProgramDay", (string)null);
                 });
 
             modelBuilder.Entity("CategoryOfBodyExercise", b =>

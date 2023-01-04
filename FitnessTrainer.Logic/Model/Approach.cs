@@ -11,7 +11,7 @@ namespace TrainingManager.Logic.Model
         public int NumberOfTraining { get; set; }
         public Exercise Exercise { get; set; }
 
-        public ICollection<ApproachItem> approachItems { get; set; }
+        public ApproachItem[] ApproachsItems { get; set; }
 
     }
 }

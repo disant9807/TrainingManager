@@ -11,6 +11,7 @@ namespace TrainingManager.Logic.Storage
     public class StorageContext : DbContext
     {
         public DbSet<Approach> Approach { get; set; }
+        public DbSet<ApproachItem> ApproachItem { get; set;}
         public DbSet<CategoryOfBody> CategoryOfBody { get; set; }
         public DbSet<Exercise> Exercise { get; set; }
         public DbSet<Training> Training { get; set; }
