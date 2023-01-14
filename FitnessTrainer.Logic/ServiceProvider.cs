@@ -9,11 +9,11 @@ using TrainingManager.Log;
 
 namespace TrainingManager.Logic
 {
-    public static class ServiceProvider
-    {
-        public static IServiceCollection AddTrainingManager(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddSingleton<IConfig, Config.Config>();
+	public static class ServiceProvider
+	{
+		public static IServiceCollection AddTrainingManager(this IServiceCollection services, IConfiguration configuration)
+		{
+			services.AddSingleton<IConfig, Config.Config>();
 			AddDbContextFactory(services);
 			services.AddSingleton<ILogFactory>(service => new LogFactory(true, "TrainingManagerLogic", service.GetService<IConfiguration>()));
 			services.AddSingleton<IStorage, Storage.Storage>();
