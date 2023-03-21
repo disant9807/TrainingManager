@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,9 +11,10 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230116101137_addSizeName")]
+    partial class addSizeName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -238,28 +240,6 @@ namespace TrainingManager.Logic.Migrations
                     b.ToTable("Image");
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Purpose", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Purpose");
-                });
-
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>
                 {
                     b.Property<long>("Id")
@@ -317,36 +297,6 @@ namespace TrainingManager.Logic.Migrations
                     b.HasIndex("SizeId");
 
                     b.ToTable("SizeItem");
-                });
-
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubPurpose", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CategoryOfBodyCode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CodeUnitsOfMeasurement")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<long>("PurposeId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("Value")
-                        .HasColumnType("REAL");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryOfBodyCode");
-
-                    b.HasIndex("CodeUnitsOfMeasurement");
-
-                    b.HasIndex("PurposeId");
-
-                    b.ToTable("SubPurpose");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Training", b =>
@@ -592,31 +542,6 @@ namespace TrainingManager.Logic.Migrations
                     b.Navigation("UnitsOfMeasurement");
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubPurpose", b =>
-                {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "CategoryOfBody")
-                        .WithMany()
-                        .HasForeignKey("CategoryOfBodyCode");
-
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", "UnitsOfMeasurement")
-                        .WithMany()
-                        .HasForeignKey("CodeUnitsOfMeasurement")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Purpose", "Purpose")
-                        .WithMany("SubPurpose")
-                        .HasForeignKey("PurposeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CategoryOfBody");
-
-                    b.Navigation("Purpose");
-
-                    b.Navigation("UnitsOfMeasurement");
-                });
-
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Training", b =>
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.TrainingProgram", "TrainingProgram")
@@ -654,11 +579,6 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Exercise", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Purpose", b =>
-                {
-                    b.Navigation("SubPurpose");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>

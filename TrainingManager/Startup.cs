@@ -77,7 +77,7 @@ namespace TrainingManager
 			catch (System.Exception e)
 			{
 				log.Fatal(e, $"Ошибка при запуске сервиса {e.Message}");
-				throw e;
+                //throw e;
 			}
 		}
 

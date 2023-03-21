@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,9 +11,10 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230116102944_SizeModel")]
+    partial class SizeModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -161,6 +163,28 @@ namespace TrainingManager.Logic.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Cell", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cell");
+                });
+
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Exercise", b =>
                 {
                     b.Property<long>("Id")
@@ -238,28 +262,6 @@ namespace TrainingManager.Logic.Migrations
                     b.ToTable("Image");
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Purpose", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Purpose");
-                });
-
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>
                 {
                     b.Property<long>("Id")
@@ -319,7 +321,7 @@ namespace TrainingManager.Logic.Migrations
                     b.ToTable("SizeItem");
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubPurpose", b =>
+            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubCell", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -328,12 +330,12 @@ namespace TrainingManager.Logic.Migrations
                     b.Property<string>("CategoryOfBodyCode")
                         .HasColumnType("TEXT");
 
+                    b.Property<long>("CellId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("CodeUnitsOfMeasurement")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<long>("PurposeId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<float>("Value")
                         .HasColumnType("REAL");
@@ -342,11 +344,11 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasIndex("CategoryOfBodyCode");
 
+                    b.HasIndex("CellId");
+
                     b.HasIndex("CodeUnitsOfMeasurement");
 
-                    b.HasIndex("PurposeId");
-
-                    b.ToTable("SubPurpose");
+                    b.ToTable("SubCells");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Training", b =>
@@ -592,11 +594,17 @@ namespace TrainingManager.Logic.Migrations
                     b.Navigation("UnitsOfMeasurement");
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubPurpose", b =>
+            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubCell", b =>
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "CategoryOfBody")
                         .WithMany()
                         .HasForeignKey("CategoryOfBodyCode");
+
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.Cell", "Cell")
+                        .WithMany("SubCells")
+                        .HasForeignKey("CellId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", "UnitsOfMeasurement")
                         .WithMany()
@@ -604,15 +612,9 @@ namespace TrainingManager.Logic.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Purpose", "Purpose")
-                        .WithMany("SubPurpose")
-                        .HasForeignKey("PurposeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("CategoryOfBody");
 
-                    b.Navigation("Purpose");
+                    b.Navigation("Cell");
 
                     b.Navigation("UnitsOfMeasurement");
                 });
@@ -651,14 +653,14 @@ namespace TrainingManager.Logic.Migrations
                     b.Navigation("ApproachsItems");
                 });
 
+            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Cell", b =>
+                {
+                    b.Navigation("SubCells");
+                });
+
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Exercise", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Purpose", b =>
-                {
-                    b.Navigation("SubPurpose");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>
