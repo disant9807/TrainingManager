@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrainingManager.Logic.Storage.Domain
 {
-    public class Purpose
+    public class Goal
     {
         [Key]
         public long Id { get; set; }
@@ -17,13 +17,17 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public string Description { get; set; }
 
-        public DateTime Date { get; set; }
+        public bool IsArchived { get; set; }
 
-        public ICollection<SubPurpose> SubPurpose { get; set; }
+        public DateTime CreatedDate { get; set; }
 
-        public Purpose()
+        public DateTime CompletionDate { get; set; }
+
+        public ICollection<SubGoal> SubGoals { get; set; }
+
+        public Goal()
         {
-            SubPurpose = new List<SubPurpose>();
+            SubGoals = new List<SubGoal>();
         }
     }
 }

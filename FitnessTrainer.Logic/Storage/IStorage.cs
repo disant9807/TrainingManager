@@ -36,5 +36,13 @@ namespace TrainingManager.Logic.Storage
         Task UpdateSize(Size size);
         Task ArchiveSize(long id, bool isArchived);
         Task<Size> GetSizeById(long id);
+
+        // Цели
+        // Замеры
+        Task<Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<long> CreateGoal(Goal size);
+        Task UpdateGoal(Goal size);
+        Task ArchiveGoal(long id, bool isArchived);
+        Task<Goal> GetGoalById(long id);
     }
 }

@@ -21,9 +21,10 @@ namespace TrainingManager.Logic.Storage.Mappings
 			CreateMap<Domain.TrainingProgram, Model.TrainingProgram>().ReverseMap()
 				.ForMember(m => m.Days, d => d.Ignore());
 			CreateMap<Domain.TrainingProgramDay, Model.TrainingProgramDay>().ReverseMap();
-			CreateMap<Domain.Size, Model.Size>().ReverseMap()
-                .ForMember(m => m.SizeItems, d => d.Ignore());
+			CreateMap<Domain.Size, Model.Size>().ReverseMap();
             CreateMap<Domain.SizeItem, Model.SizeItem>().ReverseMap();
+            CreateMap<Domain.Goal, Model.Goal>().ReverseMap();
+            CreateMap<Domain.SubGoal, Model.SubGoal>().ReverseMap();
         }
 	}
 }

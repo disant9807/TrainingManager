@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,9 +11,10 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230324061549_RenamePurposeToGoal")]
+    partial class RenamePurposeToGoal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -207,18 +209,12 @@ namespace TrainingManager.Logic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CompletionDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -331,15 +327,14 @@ namespace TrainingManager.Logic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("BodyCode")
-                        .IsRequired()
+                    b.Property<string>("CategoryOfBodyCode")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CodeUnitsOfMeasurement")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("GoalId")
+                    b.Property<long>("PurposeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("Value")
@@ -347,11 +342,11 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BodyCode");
+                    b.HasIndex("CategoryOfBodyCode");
 
                     b.HasIndex("CodeUnitsOfMeasurement");
 
-                    b.HasIndex("GoalId");
+                    b.HasIndex("PurposeId");
 
                     b.ToTable("SubGoal");
                 });
@@ -601,11 +596,9 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubGoal", b =>
                 {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "Body")
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "CategoryOfBody")
                         .WithMany()
-                        .HasForeignKey("BodyCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryOfBodyCode");
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", "UnitsOfMeasurement")
                         .WithMany()
@@ -613,15 +606,15 @@ namespace TrainingManager.Logic.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Goal", "Goal")
-                        .WithMany("SubGoals")
-                        .HasForeignKey("GoalId")
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.Goal", "Purpose")
+                        .WithMany("SubPurpose")
+                        .HasForeignKey("PurposeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Body");
+                    b.Navigation("CategoryOfBody");
 
-                    b.Navigation("Goal");
+                    b.Navigation("Purpose");
 
                     b.Navigation("UnitsOfMeasurement");
                 });
@@ -667,7 +660,7 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Goal", b =>
                 {
-                    b.Navigation("SubGoals");
+                    b.Navigation("SubPurpose");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>

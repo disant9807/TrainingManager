@@ -72,9 +72,10 @@ namespace TrainingManager.Logic.Storage
 			=> Execute((u) => new UpdateTrainingCommand(u, training, _logFactory, _mapper));
 
 		public Task ArchiveTraining(long id, bool isArchive)
-
 			=> Execute((u) => new ArchiveTrainingCommand(u, _logFactory, id, isArchive));
 
+        public Task<Training> GetTrainingById(long id)
+            => Execute((u) => new GetTrainingByIdRequest(u, _logFactory, _mapper, id));
 
 
         public Task<Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null)
@@ -92,6 +93,22 @@ namespace TrainingManager.Logic.Storage
         public Task ArchiveSize(long id, bool isArchive)
             => Execute((u) => new ArchiveSizeCommand(u, _logFactory, id, isArchive));
 
+
+
+        public Task<Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null)
+            => Execute((u) => new GetGoalsRequest(u, _mapper, filter, order, start, count));
+
+        public Task<Goal> GetGoalById(long id)
+            => Execute((u) => new GetGoalByIdRequest(u, _logFactory, _mapper, id));
+
+        public Task<long> CreateGoal(Goal goal)
+            => Execute((u) => new CreateGoalRequest(u, goal, _logFactory, _mapper));
+
+        public Task UpdateGoal(Goal goal)
+            => Execute((u) => new UpdateGoalCommand(u, goal, _logFactory, _mapper));
+
+        public Task ArchiveGoal(long id, bool isArchive)
+            => Execute((u) => new ArchiveGoalCommand(u, _logFactory, id, isArchive));
 
         protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
 		{

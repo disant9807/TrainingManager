@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,9 +11,10 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230324062105_FixFkGoal")]
+    partial class FixFkGoal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -207,18 +209,12 @@ namespace TrainingManager.Logic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CompletionDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -331,8 +327,7 @@ namespace TrainingManager.Logic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("BodyCode")
-                        .IsRequired()
+                    b.Property<string>("CategoryOfBodyCode")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CodeUnitsOfMeasurement")
@@ -347,7 +342,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BodyCode");
+                    b.HasIndex("CategoryOfBodyCode");
 
                     b.HasIndex("CodeUnitsOfMeasurement");
 
@@ -601,11 +596,9 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubGoal", b =>
                 {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "Body")
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "CategoryOfBody")
                         .WithMany()
-                        .HasForeignKey("BodyCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryOfBodyCode");
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", "UnitsOfMeasurement")
                         .WithMany()
@@ -614,12 +607,12 @@ namespace TrainingManager.Logic.Migrations
                         .IsRequired();
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Goal", "Goal")
-                        .WithMany("SubGoals")
+                        .WithMany("SubPurpose")
                         .HasForeignKey("GoalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Body");
+                    b.Navigation("CategoryOfBody");
 
                     b.Navigation("Goal");
 
@@ -667,7 +660,7 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Goal", b =>
                 {
-                    b.Navigation("SubGoals");
+                    b.Navigation("SubPurpose");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>

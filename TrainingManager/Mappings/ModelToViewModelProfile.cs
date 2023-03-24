@@ -96,16 +96,27 @@ namespace TrainingManager.Mappings
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()));
 
             CreateMap<SizeItem, SizeItemVM>()
-                .ForMember(vm => vm.Id, m => m.ConvertUsing(new LongToStringFormatter()))
+                .ForMember(vm => vm.Id, m => m.ConvertUsing(new GuidToStringFormatter()))
                 .ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new GuidNullableToStringFormatter()))
                 .ReverseMap()
-                .ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()))
+                .ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()))
                 .ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new StringToGuidNullableFormatter()));
+
+			CreateMap<Goal, GoalVM>()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new LongToStringFormatter()))
+				.ReverseMap()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()));
+
+            CreateMap<SubGoal, SubGoalVM>()
+                .ForMember(vm => vm.Id, m => m.ConvertUsing(new GuidToStringFormatter()))
+                .ReverseMap()
+                .ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()));
 
             CreateMap<GetTrainingsFilter, QueryParamsTrainingVM>().ReverseMap();
 			CreateMap<GetTrainingProgramsFilter, QueryParamsTrainingProgramVM>().ReverseMap();
             CreateMap<GetExercisesFilter, QueryParamsExerciseVM>().ReverseMap();
             CreateMap<GetSizesFilter, QueryParamsSizeVM>().ReverseMap();
+            CreateMap<GetGoalsFilter, QueryParamsGoalVM>().ReverseMap();
         }
 	}
 }

@@ -8,12 +8,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrainingManager.Logic.Storage.Domain
 {
-    public class SubPurpose
+    public class SubGoal
     {
         [Key]
         public Guid Id { get; set; }
 
-        public CategoryOfBody CategoryOfBody { get; set; }
+        public string BodyCode { get; set; }
+
+        [ForeignKey("BodyCode")]
+        public CategoryOfBody Body { get; set; }
 
         public float Value { get; set; }
 
@@ -22,9 +25,9 @@ namespace TrainingManager.Logic.Storage.Domain
         [ForeignKey("CodeUnitsOfMeasurement")]
         public UnitsOfMeasurement UnitsOfMeasurement { get; set; }
 
-        [ForeignKey("PurposeId")]
-        public Purpose Purpose { get; set; }
+        [ForeignKey("GoalId")]
+        public Goal Goal { get; set; }
 
-        public long PurposeId { get; set; }
+        public long GoalId { get; set; }
     }
 }
