@@ -29,5 +29,12 @@ namespace TrainingManager.Logic.Storage
         Task UpdateTraining(Training training);
         Task ArchiveTraining(long id, bool isArchived);
         Task<Training> GetTrainingById(long id);
+
+        // Замеры
+        Task<Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<long> CreateSize(Size size);
+        Task UpdateSize(Size size);
+        Task ArchiveSize(long id, bool isArchived);
+        Task<Size> GetSizeById(long id);
     }
 }

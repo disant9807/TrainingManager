@@ -90,8 +90,22 @@ namespace TrainingManager.Mappings
 				.ReverseMap()
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()));
 
-			CreateMap<GetTrainingsFilter, QueryParamsTrainingVM>().ReverseMap();
+			CreateMap<Size, SizeVM>()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new LongToStringFormatter()))
+				.ReverseMap()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()));
+
+            CreateMap<SizeItem, SizeItemVM>()
+                .ForMember(vm => vm.Id, m => m.ConvertUsing(new LongToStringFormatter()))
+                .ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new GuidNullableToStringFormatter()))
+                .ReverseMap()
+                .ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()))
+                .ForMember(vm => vm.AvatarId, m => m.ConvertUsing(new StringToGuidNullableFormatter()));
+
+            CreateMap<GetTrainingsFilter, QueryParamsTrainingVM>().ReverseMap();
 			CreateMap<GetTrainingProgramsFilter, QueryParamsTrainingProgramVM>().ReverseMap();
-		}
+            CreateMap<GetExercisesFilter, QueryParamsExerciseVM>().ReverseMap();
+            CreateMap<GetSizesFilter, QueryParamsSizeVM>().ReverseMap();
+        }
 	}
 }

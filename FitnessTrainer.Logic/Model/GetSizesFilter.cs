@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TrainingManager.Logic.Model
 {
-    public class GetSizeFilter
+    public class GetSizesFilter
     {
+        public string[] CodeUnitsOfMeasurement { get; set; }
+
         public string[] CategoryOfBodies { get; set; }
 
         public string Name { get; set; }

@@ -75,11 +75,25 @@ namespace TrainingManager.Logic.Storage
 
 			=> Execute((u) => new ArchiveTrainingCommand(u, _logFactory, id, isArchive));
 
-		public Task<Training> GetTrainingById(long id)
-			=> Execute((u) => new GetTrainingByIdRequest(u, _logFactory, _mapper, id));
 
 
-		protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
+        public Task<Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null)
+            => Execute((u) => new GetSizesRequest(u, _mapper, filter, order, start, count));
+
+        public Task<Size> GetSizeById(long id)
+			=> Execute((u) => new GetSizeByIdRequest(u, _logFactory, _mapper, id));
+
+        public Task<long> CreateSize(Size size)
+            => Execute((u) => new CreateSizeRequest(u, size, _logFactory, _mapper));
+
+        public Task UpdateSize(Size size)
+            => Execute((u) => new UpdateSizeCommand(u, size, _logFactory, _mapper));
+
+        public Task ArchiveSize(long id, bool isArchive)
+            => Execute((u) => new ArchiveSizeCommand(u, _logFactory, id, isArchive));
+
+
+        protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
 		{
 			using var context = _contextFactory.CreateDbContext();
 			// Ожидание для сохранения контекста

@@ -12,13 +12,13 @@ namespace TrainingManager.Logic.Storage.Requests
 {
     public class GetSizesRequest : BaseStorageRequest<Model.Size[]>
     {
-        private readonly GetSizeFilter filter;
+        private readonly GetSizesFilter filter;
         private readonly Order? _order;
         private readonly int? start;
         private readonly int? count;
         private readonly IMapper _mapper;
 
-        public GetSizesRequest(StorageContext context, IMapper mapper, GetSizeFilter filter, Order? order = null, int? start = null, int? count = null) : base(context)
+        public GetSizesRequest(StorageContext context, IMapper mapper, GetSizesFilter filter, Order? order = null, int? start = null, int? count = null) : base(context)
         {
             if (start < 0)
                 throw new ArgumentOutOfRangeException($"{nameof(start)} start = zero");
