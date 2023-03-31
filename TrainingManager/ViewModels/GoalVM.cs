@@ -5,6 +5,7 @@ namespace TrainingManager.ViewModels
 {
     public class GoalVM
     {
+        [DisplayFormat(ConvertEmptyStringToNull = true)]
         public string Id { get; set; }
 
         public string Name { get; set; }
@@ -13,9 +14,11 @@ namespace TrainingManager.ViewModels
 
         public bool IsArchived { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = true)]
+        public DateTime? CreatedDate { get; set; }
 
-        public DateTime CompletionDate { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = true)]
+        public DateTime? CompletionDate { get; set; }
 
         public ICollection<SubGoalVM> SubGoals { get; set; }
     }

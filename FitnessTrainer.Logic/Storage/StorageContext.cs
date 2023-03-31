@@ -23,6 +23,8 @@ namespace TrainingManager.Logic.Storage
         public DbSet<Goal> Goal { get; set; }
         public DbSet<SubGoal> SubGoal { get; set; }
 
+        public DbSet<UnitsOfMeasurement> UnitsOfMeasurements { get; set; }
+
         public StorageContext(DbContextOptions<StorageContext> dbContextOptions) : base(dbContextOptions)
         {
         }

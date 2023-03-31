@@ -13,6 +13,7 @@ using TrainingManager.Log;
 using Microsoft.Extensions.DependencyInjection;
 using TrainingManager.Logic.Storage.Mappings;
 using TrainingManager.Mappings;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace TrainingManager
 {
@@ -42,9 +43,7 @@ namespace TrainingManager
 			services
 				.AddCors()
 				.AddControllers()
-				.AddJsonOptions(options =>
-					options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())
-				);
+				.AddNewtonsoftJson();
 
 			services.AddDefaultSwagger($"{ApiVersion}", ApiName, $"Build:{Version.Number}");
 

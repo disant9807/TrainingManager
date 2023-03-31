@@ -29,7 +29,7 @@ namespace TrainingManager.Logic.Storage.Commands
         {        
             var goalCount = await context.Goal.CountAsync(e => e.Id == _goal.Id);
 
-            if (goalCount > 1 )
+            if (goalCount < 1 )
                 throw new KeyNotFoundException($"Цель с id = {_goal.Id} не найден");
 
             var goal = _mapper.Map<Model.Goal, Domain.Goal>(_goal);

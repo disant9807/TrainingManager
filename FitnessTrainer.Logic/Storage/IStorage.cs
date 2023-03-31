@@ -38,11 +38,24 @@ namespace TrainingManager.Logic.Storage
         Task<Size> GetSizeById(long id);
 
         // Цели
-        // Замеры
         Task<Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateGoal(Goal size);
         Task UpdateGoal(Goal size);
         Task ArchiveGoal(long id, bool isArchived);
         Task<Goal> GetGoalById(long id);
+
+        // Части тела
+        Task<CategoryOfBody[]> GetCategoryOfBody(string queryString, Order? order = null, int? start = null, int? count = null);
+        Task<string> CreateCategoryOfBody(CategoryOfBody  categoryOfBody);
+        Task UpdateCategoryOfBody(CategoryOfBody categoryOfBody);
+        Task RemoveCategoryOfBody(string code, bool isArchived);
+        Task<CategoryOfBody> GetCategoryOfBodyById(string code);
+
+        // Едиинцы измерения
+        Task<UnitsOfMeasurement[]> GetUnitsOfMeasurement(string queryString, Order? order = null, int? start = null, int? count = null);
+        Task<string> CreateUnitsOfMeasurement(UnitsOfMeasurement unitsOfMeasurement);
+        Task UpdateUnitsOfMeasurementy(UnitsOfMeasurement unitsOfMeasurement);
+        Task RemoveUnitsOfMeasurement(string id, bool isArchived);
+        Task<UnitsOfMeasurement> GetUnitsOfMeasurementById(string code);
     }
 }
