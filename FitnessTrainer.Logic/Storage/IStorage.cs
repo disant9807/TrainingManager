@@ -47,7 +47,7 @@ namespace TrainingManager.Logic.Storage
         // Части тела
         Task<CategoryOfBody[]> GetCategoryOfBody(string queryString, Order? order = null, int? start = null, int? count = null);
         Task<string> CreateCategoryOfBody(CategoryOfBody  categoryOfBody);
-        Task UpdateCategoryOfBody(CategoryOfBody categoryOfBody);
+        Task UpdateCategoryOfBody(string code, CategoryOfBody categoryOfBody);
         Task RemoveCategoryOfBody(string code, bool isArchived);
         Task<CategoryOfBody> GetCategoryOfBodyById(string code);
 

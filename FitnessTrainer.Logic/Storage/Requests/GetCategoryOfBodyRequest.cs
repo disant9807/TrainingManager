@@ -42,7 +42,7 @@ namespace TrainingManager.Logic.Storage.Requests
             var categoryOfBody = categoryOfBodyRequest.AsNoTracking();
             categoryOfBody = Order(categoryOfBody);
             categoryOfBody = Take(categoryOfBody);
-            return await categoryOfBody.Select(e => AsCategoryOfBody(e, _mapper)).ToArrayAsync();
+            return await categoryOfBody.Select(e => _mapper.Map<Domain.CategoryOfBody, Model.CategoryOfBody>(e)).ToArrayAsync();
         }
 
         private IQueryable<Domain.CategoryOfBody> Take(IQueryable<Domain.CategoryOfBody> categoryOfBody)
@@ -65,12 +65,6 @@ namespace TrainingManager.Logic.Storage.Requests
 
 
             return categoryOfBody;
-        }
-
-        public Model.CategoryOfBody AsCategoryOfBody(Domain.CategoryOfBody categoryOfBody, IMapper mapper)
-        {
-            var result = mapper.Map<Domain.CategoryOfBody, Model.CategoryOfBody>(categoryOfBody);
-            return result;
         }
     }
 }

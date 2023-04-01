@@ -44,24 +44,24 @@ namespace TrainingManager.Controllers
         }
 
 
-		[HttpPost("update")]
+        [HttpPost("{code}/update")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<string>> UpdateCategoryOfBody([FromBody] CategoryOfBodyVM categoryOfBodyVM)
+        public async Task<ActionResult<string>> UpdateCategoryOfBody([FromRoute] string code, [FromBody] CategoryOfBodyVM categoryOfBodyVM)
         {
             if (categoryOfBodyVM == null)
                 return BadRequest();
 
             var categoryOfBody = _mapper.Map<CategoryOfBodyVM, CategoryOfBody>(categoryOfBodyVM);
 
-            await _storage.UpdateCategoryOfBody(categoryOfBody);
+            await _storage.UpdateCategoryOfBody(code, categoryOfBody);
             return Ok(categoryOfBodyVM.Code);
         }
 
 
-		[HttpPost("categoryOfBody/{code}/remove")]
+		[HttpPost("{code}/remove")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

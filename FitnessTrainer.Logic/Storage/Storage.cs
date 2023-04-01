@@ -118,8 +118,8 @@ namespace TrainingManager.Logic.Storage
 		public Task<string> CreateCategoryOfBody(Model.CategoryOfBody categoryOfBody)
 			=> Execute((u) => new CreateCategoryOfBodyRequest(u, categoryOfBody, _logFactory, _mapper));
 
-        public Task UpdateCategoryOfBody(Model.CategoryOfBody categoryOfBody)
-			=> Execute((u) => new UpdateCategoryOfBodyCommand(u, categoryOfBody, _logFactory, _mapper));
+        public Task UpdateCategoryOfBody(string code, Model.CategoryOfBody categoryOfBody)
+			=> Execute((u) => new UpdateCategoryOfBodyCommand(u, categoryOfBody, code, _logFactory, _mapper));
 
         public Task RemoveCategoryOfBody(string code, bool isArchived)
 			=> Execute((u) => new RemoveCategoryOfBodyCommand(u, _logFactory, code));
