@@ -112,6 +112,9 @@ namespace TrainingManager.Mappings
                 .ReverseMap()
                 .ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()));
 
+            CreateMap<CategoryOfBody, CategoryOfBodyVM>().ReverseMap();
+            CreateMap<UnitsOfMeasurement, UnitsOfMeasurementVM>().ReverseMap();
+
             CreateMap<GetTrainingsFilter, QueryParamsTrainingVM>().ReverseMap();
 			CreateMap<GetTrainingProgramsFilter, QueryParamsTrainingProgramVM>().ReverseMap();
             CreateMap<GetExercisesFilter, QueryParamsExerciseVM>().ReverseMap();

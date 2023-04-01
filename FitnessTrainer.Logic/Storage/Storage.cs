@@ -135,8 +135,8 @@ namespace TrainingManager.Logic.Storage
         public Task<string> CreateUnitsOfMeasurement(Model.UnitsOfMeasurement categoryOfBody)
             => Execute((u) => new CreateUnitsOfMeasurementRequest(u, categoryOfBody, _logFactory, _mapper));
 
-        public Task UpdateUnitsOfMeasurementy(Model.UnitsOfMeasurement categoryOfBody)
-            => Execute((u) => new UpdateUnitsOfMeasurementCommand(u, categoryOfBody, _logFactory, _mapper));
+        public Task UpdateUnitsOfMeasurementy(string code, Model.UnitsOfMeasurement categoryOfBody)
+            => Execute((u) => new UpdateUnitsOfMeasurementCommand(u, categoryOfBody, code, _logFactory, _mapper));
 
         public Task RemoveUnitsOfMeasurement(string code, bool isArchived)
             => Execute((u) => new RemoveUnitsOfMeasurementCommand(u, _logFactory, code));

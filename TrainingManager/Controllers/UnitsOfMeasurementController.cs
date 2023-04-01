@@ -31,7 +31,7 @@ namespace TrainingManager.Controllers
 
 
 		[HttpPost("create")]
-        [ProducesResponseType(typeof(Goal), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(UnitsOfMeasurementVM), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<string>> CreateGoal([FromBody] UnitsOfMeasurementVM unitsOfMeasurementVM)
         {
             if (unitsOfMeasurementVM == null)
@@ -44,24 +44,21 @@ namespace TrainingManager.Controllers
         }
 
 
-		[HttpPost("update")]
-        [ProducesDefaultResponseType]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<string>> UpdateUnitsOfMeasurement([FromBody] UnitsOfMeasurementVM unitsOfMeasurementVM)
+		[HttpPost("{code}/update")]
+        [ProducesResponseType(typeof(UnitsOfMeasurementVM), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<string>> UpdateUnitsOfMeasurement([FromRoute] string code, [FromBody] UnitsOfMeasurementVM unitsOfMeasurementVM)
         {
             if (unitsOfMeasurementVM == null)
                 return BadRequest();
 
             var unitsOfMeasurement = _mapper.Map<UnitsOfMeasurementVM, UnitsOfMeasurement>(unitsOfMeasurementVM);
 
-            await _storage.UpdateUnitsOfMeasurementy(unitsOfMeasurement);
+            await _storage.UpdateUnitsOfMeasurementy(code, unitsOfMeasurement);
             return Ok(unitsOfMeasurementVM.Code);
         }
 
 
-		[HttpPost("unitsOfmeasuremen/{code}/remove")]
+		[HttpPost("{code}/remove")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

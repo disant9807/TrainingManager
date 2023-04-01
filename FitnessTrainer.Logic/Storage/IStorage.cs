@@ -54,7 +54,7 @@ namespace TrainingManager.Logic.Storage
         // Едиинцы измерения
         Task<UnitsOfMeasurement[]> GetUnitsOfMeasurement(string queryString, Order? order = null, int? start = null, int? count = null);
         Task<string> CreateUnitsOfMeasurement(UnitsOfMeasurement unitsOfMeasurement);
-        Task UpdateUnitsOfMeasurementy(UnitsOfMeasurement unitsOfMeasurement);
+        Task UpdateUnitsOfMeasurementy(string code, UnitsOfMeasurement unitsOfMeasurement);
         Task RemoveUnitsOfMeasurement(string id, bool isArchived);
         Task<UnitsOfMeasurement> GetUnitsOfMeasurementById(string code);
     }

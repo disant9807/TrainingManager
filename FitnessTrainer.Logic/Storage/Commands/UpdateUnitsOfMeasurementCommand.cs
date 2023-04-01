@@ -15,24 +15,35 @@ namespace TrainingManager.Logic.Storage.Commands
         private readonly Model.UnitsOfMeasurement _unitsOfMeasurement;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
+        private readonly string _code;
 
-        public UpdateUnitsOfMeasurementCommand(StorageContext context, Model.UnitsOfMeasurement unitsOfMeasurement, ILogFactory log, IMapper mapper) : base(context)
+        public UpdateUnitsOfMeasurementCommand(StorageContext context, Model.UnitsOfMeasurement unitsOfMeasurement, string code, ILogFactory log, IMapper mapper) : base(context)
         {
             _unitsOfMeasurement = unitsOfMeasurement;
             _logger = log.CreateModuleLogger(typeof(UpdateUnitsOfMeasurementCommand));
             _mapper = mapper;
+            _code = code;
         }
 
         public async override Task ExecuteAsync()
         {
-            var unitsOfMeasurementCount = await context.UnitsOfMeasurements.CountAsync(e => e.Code == _unitsOfMeasurement.Code);
+            var unitsOfMeasurement = await context.UnitsOfMeasurements.FirstOrDefaultAsync(e => e.Code == _code);
 
-            if (unitsOfMeasurementCount < 1)
-                throw new KeyNotFoundException($"Часть тела с id = {_unitsOfMeasurement.Code} не найден");
+            if (unitsOfMeasurement == null)
+                throw new KeyNotFoundException($"Часть тела с code = {_code} не найден");
 
-            var unitsOfMeasurement = _mapper.Map<Model.UnitsOfMeasurement, Domain.UnitsOfMeasurement>(_unitsOfMeasurement);
+            if (_code == _unitsOfMeasurement.Code)
+            {
+                unitsOfMeasurement.Value = _unitsOfMeasurement.Value;
+                context.UnitsOfMeasurements.Update(unitsOfMeasurement);
+            } else
+            {
+                context.UnitsOfMeasurements.Remove(unitsOfMeasurement);
 
-            context.UnitsOfMeasurements.Update(unitsOfMeasurement);
+                var newUnitsOfMeasurement = _mapper.Map<Model.UnitsOfMeasurement, Domain.UnitsOfMeasurement>(_unitsOfMeasurement);
+                context.UnitsOfMeasurements.Add(newUnitsOfMeasurement);
+            }
+
             await context.SaveChangesAsync();
         }
     }

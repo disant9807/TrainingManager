@@ -41,7 +41,7 @@ namespace TrainingManager.Logic.Storage.Requests
             var unitsOfMeasurement = unitsOfMeasurementRequest.AsNoTracking();
             unitsOfMeasurement = Order(unitsOfMeasurement);
             unitsOfMeasurement = Take(unitsOfMeasurement);
-            return await unitsOfMeasurement.Select(e => AsUnitsOfMeasurement(e, _mapper)).ToArrayAsync();
+            return await unitsOfMeasurement.Select(e => _mapper.Map<Domain.UnitsOfMeasurement, Model.UnitsOfMeasurement>(e)).ToArrayAsync();
         }
 
         private IQueryable<Domain.UnitsOfMeasurement> Take(IQueryable<Domain.UnitsOfMeasurement> categoryOfBody)
@@ -64,12 +64,6 @@ namespace TrainingManager.Logic.Storage.Requests
 
 
             return categoryOfBody;
-        }
-
-        public Model.UnitsOfMeasurement AsUnitsOfMeasurement(Domain.UnitsOfMeasurement categoryOfBody, IMapper mapper)
-        {
-            var result = mapper.Map<Domain.UnitsOfMeasurement, Model.UnitsOfMeasurement>(categoryOfBody);
-            return result;
         }
     }
 }
