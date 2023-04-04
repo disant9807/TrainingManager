@@ -107,10 +107,12 @@ namespace TrainingManager.Mappings
 				.ReverseMap()
 				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToLongFormatter()));
 
-            CreateMap<SubGoal, SubGoalVM>()
-                .ForMember(vm => vm.Id, m => m.ConvertUsing(new GuidToStringFormatter()))
-                .ReverseMap()
-                .ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()));
+			CreateMap<SubGoal, SubGoalVM>()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new GuidToStringFormatter()))
+				.ForMember(vm => vm.GoalId, m => m.ConvertUsing(new LongToStringFormatter()))
+				.ReverseMap()
+				.ForMember(vm => vm.Id, m => m.ConvertUsing(new StringToGuidFormatter()))
+				.ForMember(vm => vm.GoalId, m => m.ConvertUsing(new StringToLongFormatter()));
 
             CreateMap<CategoryOfBody, CategoryOfBodyVM>().ReverseMap();
             CreateMap<UnitsOfMeasurement, UnitsOfMeasurementVM>().ReverseMap();

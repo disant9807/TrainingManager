@@ -38,3 +38,4 @@ namespace TrainingManager.ViewModels
         public string GoalId { get; set; }
     }
 }
+    

@@ -31,7 +31,7 @@ namespace TrainingManager.Logic.Storage
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<CategoryOfBody>().HasData(
+            modelBuilder.Entity<CategoryOfBody>().HasData(
 				new CategoryOfBody
                 {
                     Code = "Back",

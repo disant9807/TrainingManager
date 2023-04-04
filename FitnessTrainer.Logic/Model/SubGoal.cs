@@ -14,15 +14,9 @@ namespace TrainingManager.Logic.Model
 
         public string BodyCode { get; set; }
 
-        public CategoryOfBody CategoryOfBody { get; set; }
-
         public float Value { get; set; }
 
         public string CodeUnitsOfMeasurement { get; set; }
-
-        public UnitsOfMeasurement UnitsOfMeasurement { get; set; }
-
-        public Goal Goal { get; set; }
 
         public long GoalId { get; set; }
 

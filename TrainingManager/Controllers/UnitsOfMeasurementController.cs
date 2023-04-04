@@ -72,7 +72,7 @@ namespace TrainingManager.Controllers
             return Ok();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{code}")]
         public async Task<ActionResult<UnitsOfMeasurementVM>> UnitsOfMeasurementById([FromRoute] string code)
         {
             if (string.IsNullOrWhiteSpace(code))

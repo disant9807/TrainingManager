@@ -20,8 +20,6 @@ namespace TrainingManager.ViewModels
     {
         public string Id { get; set; }
 
-        public SizeVM Size { get; set; }
-
         public string BodyCode { get; set; }
 
         public string Value { get; set; }

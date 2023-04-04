@@ -12,8 +12,6 @@ namespace TrainingManager.Logic.Model
 
         public long SizeId { get; set; }
 
-        public Size Size { get; set; }
-
         public string BodyCode { get; set; }
 
         public string Value { get; set; }

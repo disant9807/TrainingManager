@@ -29,7 +29,6 @@ namespace TrainingManager.Logic.Storage.Requests
             var size = _mapper.Map<Model.Size, Domain.Size>(_size);
 
             size.CreatedDate = DateTime.Now;
-            context.CategoryOfBody.AttachRange(size.SizeItems.Select(e => new Domain.CategoryOfBody() { Code = e.BodyCode }));
             context.Size.Add(size);
             await context.SaveChangesAsync();
             return size.Id;

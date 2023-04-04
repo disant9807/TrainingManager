@@ -9,6 +9,7 @@ using AutoMapper;
 using TrainingManager.Log;
 using Microsoft.EntityFrameworkCore;
 using TrainingManager.Logic.Storage.Domain;
+using TrainingManager.Logic.Model;
 
 namespace TrainingManager.Logic.Storage.Commands
 {
@@ -26,7 +27,24 @@ namespace TrainingManager.Logic.Storage.Commands
         }
 
         public async override Task ExecuteAsync()
-        {        
+        {
+            var countSize = await context.Size.CountAsync(e => e.Id == _size.Id);
+
+            if (countSize < 1)
+                throw new KeyNotFoundException($"Замер с id = {_size.Id} не найден");
+
+            var size = _mapper.Map<Model.Size, Domain.Size>(_size);
+
+            context.Entry<Domain.Size>(size).State = EntityState.Detached;
+            foreach (var subSize in size.SizeItems)
+            {
+                context.Entry<Domain.SizeItem>(subSize).State = EntityState.Detached;
+            }
+
+            context.Size.Update(size);
+            await context.SaveChangesAsync();
+
+            /*
             var size = await context.Size.Where(e => e.Id == _size.Id).FirstOrDefaultAsync();
 
             if (size == null )
@@ -80,6 +98,7 @@ namespace TrainingManager.Logic.Storage.Commands
                     context.Entry<Domain.SizeItem>(sizeitemFor).State = EntityState.Detached;
                 }
             }
+            */
         }
     }
 }

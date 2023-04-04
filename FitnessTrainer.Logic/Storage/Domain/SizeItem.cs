@@ -35,11 +35,6 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public ICollection<Image> Images { get; set; }
 
-        public Guid? AvatarId { get; set; }
-
-        [ForeignKey("AvatarId")]
-        public Image Avatar { get; set; }
-
         public SizeItem()
         {
             Images = new List<Image>();

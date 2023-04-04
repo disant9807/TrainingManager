@@ -9,6 +9,7 @@ using AutoMapper;
 using TrainingManager.Log;
 using Microsoft.EntityFrameworkCore;
 using TrainingManager.Logic.Storage.Domain;
+using TrainingManager.Logic.Model;
 
 namespace TrainingManager.Logic.Storage.Commands
 {
@@ -33,8 +34,12 @@ namespace TrainingManager.Logic.Storage.Commands
                 throw new KeyNotFoundException($"Цель с id = {_goal.Id} не найден");
 
             var goal = _mapper.Map<Model.Goal, Domain.Goal>(_goal);
-            context.Goal.Attach(goal);
-            context.SubGoal.AttachRange(goal.SubGoals.Select(e => new SubGoal { Id = e.Id }));
+
+            context.Entry<Domain.Goal>(goal).State = EntityState.Detached;
+            foreach (var subGoal in goal.SubGoals)
+            {
+                context.Entry<Domain.SubGoal>(subGoal).State = EntityState.Detached;
+            }          
 
             context.Goal.Update(goal);
             await context.SaveChangesAsync();

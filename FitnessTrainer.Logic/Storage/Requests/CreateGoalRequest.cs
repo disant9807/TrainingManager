@@ -29,7 +29,6 @@ namespace TrainingManager.Logic.Storage.Requests
             var goal = _mapper.Map<Model.Goal, Domain.Goal>(_goal);
 
             goal.CreatedDate = DateTime.Now;
-            context.SubGoal.AttachRange(goal.SubGoals.Select(e => new Domain.SubGoal() { Id = e.Id }));
             context.Goal.Add(goal);
             await context.SaveChangesAsync();
             return goal.Id;

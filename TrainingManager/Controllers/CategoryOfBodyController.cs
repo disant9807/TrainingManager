@@ -75,7 +75,7 @@ namespace TrainingManager.Controllers
             return Ok();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{code}")]
         public async Task<ActionResult<CategoryOfBodyVM>> CategoryOfBodyById([FromRoute] string code)
         {
             if (string.IsNullOrWhiteSpace(code))
