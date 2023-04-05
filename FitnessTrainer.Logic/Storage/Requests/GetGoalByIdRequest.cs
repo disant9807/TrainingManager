@@ -28,6 +28,9 @@ namespace TrainingManager.Logic.Storage.Requests
             var data = await context.Goal
                 .Where(e => e.Id == _id)
                 .Include(e => e.SubGoals)
+                .ThenInclude(e => e.Body)
+                .Include(e => e.SubGoals)
+                .ThenInclude(e => e.UnitsOfMeasurement)
                 .FirstOrDefaultAsync();
 
             if (data is null)

@@ -29,11 +29,13 @@ namespace TrainingManager.ViewModels
 
         public string BodyCode { get; set; }
 
+        public CategoryOfBodyVM Body { get; set; }
+
         public float Value { get; set; }
 
         public string CodeUnitsOfMeasurement { get; set; }
 
-        public GoalVM Goal { get; set; }
+        public UnitsOfMeasurementVM UnitsOfMeasurement { get; set; }
 
         public string GoalId { get; set; }
     }

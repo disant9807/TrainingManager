@@ -17,6 +17,7 @@ namespace TrainingManager.Logic.Storage.Extensions
             DateTime? complectedDateTo = filter.CompletionDateTo?.AddDays(1);
 
             var data = from e in context.Goal.AsNoTracking()
+                       where !e.IsArchived
                        where !filter.CreatedFrom.HasValue || e.CreatedDate >= filter.CreatedFrom
                        where !createdTo.HasValue || e.CreatedDate < createdTo
                        where !filter.CompletionDateFrom.HasValue || e.CompletionDate >= filter.CompletionDateFrom

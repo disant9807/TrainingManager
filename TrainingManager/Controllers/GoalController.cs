@@ -64,7 +64,7 @@ namespace TrainingManager.Controllers
 
         /// <summary>Архивировать замер</summary>
 		/// <returns>Идентификатор архивированного замера</returns>
-		[HttpPost("{id}/goal/{status}")]
+		[HttpPost("{id}/archive/{status}")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

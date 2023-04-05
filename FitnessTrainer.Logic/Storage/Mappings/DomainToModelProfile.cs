@@ -24,7 +24,9 @@ namespace TrainingManager.Logic.Storage.Mappings
 			CreateMap<Domain.Size, Model.Size>().ReverseMap();
             CreateMap<Domain.SizeItem, Model.SizeItem>().ReverseMap();
             CreateMap<Domain.Goal, Model.Goal>().ReverseMap();
-            CreateMap<Domain.SubGoal, Model.SubGoal>().ReverseMap();
+            CreateMap<Domain.SubGoal, Model.SubGoal>().ReverseMap()
+				.ForMember(m => m.Body, m => m.Ignore())
+				.ForMember(m => m.UnitsOfMeasurement, m => m.Ignore());
 			CreateMap<Domain.UnitsOfMeasurement, Model.UnitsOfMeasurement>().ReverseMap();
 			CreateMap<Domain.CategoryOfBody, Model.CategoryOfBody>().ReverseMap();
         }

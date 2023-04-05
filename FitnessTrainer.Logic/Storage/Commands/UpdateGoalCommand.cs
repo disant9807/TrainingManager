@@ -27,21 +27,33 @@ namespace TrainingManager.Logic.Storage.Commands
         }
 
         public async override Task ExecuteAsync()
-        {        
-            var goalCount = await context.Goal.CountAsync(e => e.Id == _goal.Id);
+        {
+            var goal = await context.Goal.Where(e => e.Id == _goal.Id)
+                .Include(e => e.SubGoals).AsNoTracking().FirstOrDefaultAsync();
 
-            if (goalCount < 1 )
+            if (goal == null)
                 throw new KeyNotFoundException($"Цель с id = {_goal.Id} не найден");
 
-            var goal = _mapper.Map<Model.Goal, Domain.Goal>(_goal);
+            var goalFromMap = _mapper.Map<Model.Goal, Domain.Goal>(_goal);
 
-            context.Entry<Domain.Goal>(goal).State = EntityState.Detached;
-            foreach (var subGoal in goal.SubGoals)
+            context.Entry<Domain.Goal>(goalFromMap).State = EntityState.Detached;
+            foreach (var subGoal in goalFromMap.SubGoals)
             {
                 context.Entry<Domain.SubGoal>(subGoal).State = EntityState.Detached;
-            }          
+            } 
 
-            context.Goal.Update(goal);
+            context.Goal.Update(goalFromMap);
+            await context.SaveChangesAsync();
+
+            context.Entry<Domain.Goal>(goalFromMap).State = EntityState.Detached;
+            foreach (var subGoal in goalFromMap.SubGoals)
+            {
+                context.Entry<Domain.SubGoal>(subGoal).State = EntityState.Detached;
+            }
+            context.SubGoal
+                .RemoveRange(goal.SubGoals
+                    .Where(e => !goalFromMap.SubGoals
+                        .Select(e => e.Id).Contains(e.Id)));
             await context.SaveChangesAsync();
         }
     }
