@@ -14,17 +14,16 @@ namespace TrainingManager.Logic.Storage.Domain
         [Key]
         public string Code { get; set; }
         public string Decsription { get; set; }
-
         public Image Avatar { get; set; }
         public Guid? AvatarId { get; set; }
 
-        public ICollection<Exercise> Exercises { get; set; }
-
         public bool IsArchived { get; set; }
+
+        public ICollection<Exercise> Exercise { get; set; }
 
         public CategoryOfBody()
         {
-            Exercises = new List<Exercise>();
+            Exercise = new List<Exercise>();
         }
     }
 }

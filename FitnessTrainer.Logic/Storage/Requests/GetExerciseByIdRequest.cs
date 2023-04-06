@@ -26,7 +26,7 @@ namespace TrainingManager.Logic.Storage.Requests
         public override async Task<Model.Exercise> ExecuteAsync()
         {
             var data = await context.Exercise
-                .Where(e => e.Id == _id)
+                .Where(e => e.Id == _id)    
                 .Include(e => e.CategoryOfBodies)
                 .FirstOrDefaultAsync();
 

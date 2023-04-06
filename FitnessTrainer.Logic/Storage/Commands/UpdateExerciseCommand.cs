@@ -7,6 +7,7 @@ using Serilog;
 using AutoMapper;
 using TrainingManager.Log;
 using Microsoft.EntityFrameworkCore;
+using TrainingManager.Logic.Storage.Domain;
 
 namespace TrainingManager.Logic.Storage.Commands
 {
@@ -27,25 +28,10 @@ namespace TrainingManager.Logic.Storage.Commands
         {
             var exercise = await context.Exercise.Where(e => e.Id == _exercise.Id)
                 .Include(e => e.CategoryOfBodies)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync((e => e.Id == _exercise.Id));
 
             if (exercise == null)
-                throw new KeyNotFoundException($"Упражнение с id = {_exercise.Id} не найдено");
-
-            var newCategoryIds = _exercise.CategoryOfBodiesIds
-                .Where(e => !exercise.CategoryOfBodies.Select(z => z.Code).Contains(e))
-                .ToList();
-
-
-            var deleteCategoryObj = exercise.CategoryOfBodies
-                .Where(e => !_exercise.CategoryOfBodiesIds
-                    .Contains(e.Code))
-                .ToList();
-
-            newCategoryIds
-                .ForEach(e => exercise.CategoryOfBodies.Add(new Domain.CategoryOfBody { Code = e }));
-            deleteCategoryObj
-                .ForEach(e => exercise.CategoryOfBodies.Remove(e));
+                throw new KeyNotFoundException($"Упражнение с id = {_exercise.Id} не найден");
 
             exercise.ShortName = _exercise.ShortName;
             exercise.Description = _exercise.Description;
@@ -57,6 +43,24 @@ namespace TrainingManager.Logic.Storage.Commands
                 Model.HardSkill.normal => Domain.HardSkill.normal,
                 Model.HardSkill.hard => Domain.HardSkill.hard
             };
+
+            var addBodies = _exercise.CategoryOfBodies
+                .Where(e => !exercise.CategoryOfBodies.Select(u => u.Code)
+                    .Contains(e.Code)).ToList();
+
+            var deleteBodies = exercise.CategoryOfBodies
+                .Where(e => !_exercise.CategoryOfBodies.Select(u => u.Code)
+                    .Contains(e.Code)).ToList();
+
+
+            addBodies.ForEach(e => {
+                var body = new CategoryOfBody { Code = e.Code };
+                context.CategoryOfBody.Attach(body);
+                exercise.CategoryOfBodies.Add(body);
+            });
+
+            deleteBodies.ForEach(e => exercise.CategoryOfBodies
+                .Remove(e));
 
             context.Exercise.Update(exercise);
             await context.SaveChangesAsync();

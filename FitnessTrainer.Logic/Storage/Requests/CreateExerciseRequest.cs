@@ -7,6 +7,7 @@ using Serilog;
 using AutoMapper;
 using TrainingManager.Log;
 using Microsoft.EntityFrameworkCore;
+using TrainingManager.Logic.Storage.Domain;
 
 namespace TrainingManager.Logic.Storage.Requests
 {
@@ -28,14 +29,28 @@ namespace TrainingManager.Logic.Storage.Requests
             if (_exercise == null)
                 throw new ArgumentNullException($"Ошибка в {_exercise}");
 
-            var exercise = _mapper.Map<Model.Exercise, Domain.Exercise>(_exercise);
+            var exercise = new Exercise();
             exercise.CreatedDate = DateTime.Now;
-            
-            if (_exercise.CategoryOfBodiesIds?.Length > 0)
+            exercise.Name = _exercise.Name;
+            exercise.ShortName = _exercise.ShortName;
+            exercise.IsBased = _exercise.IsBased;
+            exercise.Description = _exercise.Description;
+            exercise.HardSkill = _exercise.HardSkill switch
             {
-                foreach(var code in _exercise.CategoryOfBodiesIds)
+                Model.HardSkill.easy => Domain.HardSkill.easy,
+                Model.HardSkill.normal => Domain.HardSkill.normal,
+                Model.HardSkill.hard => Domain.HardSkill.hard
+            };
+
+
+            if (_exercise.CategoryOfBodies?.Length > 0)
+            {
+                foreach(var code in _exercise.CategoryOfBodies.Select(e => e.Code))
                 {
-                    exercise.CategoryOfBodies.Add(new Domain.CategoryOfBody { Code = code });
+                    var body = new Domain.CategoryOfBody { Code = code };
+                    context.CategoryOfBody.Attach(body);
+
+                    exercise.CategoryOfBodies.Add(body);
                 }
             }
 

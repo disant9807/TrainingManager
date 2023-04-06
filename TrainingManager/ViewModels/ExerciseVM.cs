@@ -11,7 +11,9 @@ namespace TrainingManager.ViewModels
         public string Description { get; set; }
         public Guid[] ImagesIds { get; set; }
         public HardSkillVM HardSkill { get; set; }
-        public string[] CategoryOfBodiesIds { get; set; }
+        public string[] CategoryOfBodiesIds { get; set; }  
+        public CategoryOfBodyVM[] CategoryOfBodies { get; set; }
+        public DateTime? CreatedDate { get; set; }
     }
 
     public enum HardSkillVM

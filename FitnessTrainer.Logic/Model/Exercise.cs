@@ -17,6 +17,7 @@ namespace TrainingManager.Logic.Model
         public Guid[] ImagesIds { get; set; }
         public HardSkill HardSkill { get; set; }
         public string[] CategoryOfBodiesIds { get; set; }
-        public DateTimeOffset? CreatedDate { get; set; }
+        public CategoryOfBody[] CategoryOfBodies { get; set; }
+        public DateTime? CreatedDate { get; set; }
     }
 }

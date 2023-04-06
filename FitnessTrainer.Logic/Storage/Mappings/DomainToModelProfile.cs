@@ -16,7 +16,8 @@ namespace TrainingManager.Logic.Storage.Mappings
 			CreateMap<Domain.ApproachItem, Model.ApproachItem>().ReverseMap();
 			CreateMap<Domain.Approach, Model.Approach>().ReverseMap();
 			CreateMap<Domain.CategoryOfBody, Model.CategoryOfBody>().ReverseMap();
-			CreateMap<Domain.Exercise, Model.Exercise>().ReverseMap();
+			CreateMap<Domain.Exercise, Model.Exercise>().ReverseMap()
+				.ForMember(m => m.CreatedDate, d => d.Ignore());
 			CreateMap<Domain.Training, Model.Training>().ReverseMap();
 			CreateMap<Domain.TrainingProgram, Model.TrainingProgram>().ReverseMap()
 				.ForMember(m => m.Days, d => d.Ignore());

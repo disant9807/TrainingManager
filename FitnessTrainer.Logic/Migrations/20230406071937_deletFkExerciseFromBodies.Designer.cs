@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingManager.Logic.Storage;
 
@@ -10,27 +11,13 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230406071937_deletFkExerciseFromBodies")]
+    partial class deletFkExerciseFromBodies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
-
-            modelBuilder.Entity("CategoryOfBodyExercise", b =>
-                {
-                    b.Property<string>("CategoryOfBodiesCode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<long>("ExerciseId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("CategoryOfBodiesCode", "ExerciseId");
-
-                    b.HasIndex("ExerciseId");
-
-                    b.ToTable("CategoryOfBodyExercise");
-                });
 
             modelBuilder.Entity("ExerciseTrainingProgramDay", b =>
                 {
@@ -117,6 +104,9 @@ namespace TrainingManager.Logic.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<long?>("ExerciseId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsArchived")
                         .HasColumnType("INTEGER");
 
@@ -131,6 +121,8 @@ namespace TrainingManager.Logic.Migrations
                     b.HasKey("Code");
 
                     b.HasIndex("AvatarId");
+
+                    b.HasIndex("ExerciseId");
 
                     b.ToTable("CategoryOfBody");
 
@@ -467,21 +459,6 @@ namespace TrainingManager.Logic.Migrations
                     b.ToTable("UnitsOfMeasurements");
                 });
 
-            modelBuilder.Entity("CategoryOfBodyExercise", b =>
-                {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", null)
-                        .WithMany()
-                        .HasForeignKey("CategoryOfBodiesCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Exercise", null)
-                        .WithMany()
-                        .HasForeignKey("ExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ExerciseTrainingProgramDay", b =>
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Exercise", null)
@@ -530,6 +507,10 @@ namespace TrainingManager.Logic.Migrations
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Image", "Avatar")
                         .WithMany()
                         .HasForeignKey("AvatarId");
+
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.Exercise", null)
+                        .WithMany("CategoryOfBodies")
+                        .HasForeignKey("ExerciseId");
 
                     b.Navigation("Avatar");
                 });
@@ -648,6 +629,8 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Exercise", b =>
                 {
+                    b.Navigation("CategoryOfBodies");
+
                     b.Navigation("Images");
                 });
 
