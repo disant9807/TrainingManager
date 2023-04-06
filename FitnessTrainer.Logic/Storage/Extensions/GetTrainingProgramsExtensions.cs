@@ -15,14 +15,17 @@ namespace TrainingManager.Logic.Storage.Extensions
         {
             DateTime? createdTo = filter.CreatedTo?.AddDays(1);
 
-            var data = from e in context.TrainingProgram.AsNoTracking()
+            var data = from e in context.TrainingProgram
+                       .Include(e => e.Days)
+                       .ThenInclude(e => e.Exercises)
+                       .AsNoTracking()
                        where !filter.CreatedFrom.HasValue || e.CreatedDate >= filter.CreatedFrom
                        where !createdTo.HasValue || e.CreatedDate < createdTo
                        where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || filter.CategoryOfBodies
                         .Any(u => e.Days.SelectMany(z => z.Exercises).SelectMany(t => t.CategoryOfBodies).Select(i => i.Code).Contains(u))
                        where string.IsNullOrWhiteSpace(filter.Name) || e.Name.ToLower().Contains(filter.Name) || e.ShortName.ToLower().Contains(filter.Name)
-                       where filter.Exercises == null || !filter.Exercises.Any() || filter.Exercises
-                        .Any(u => e.Days.SelectMany(t => t.Exercises).Select(i => i.Id.ToString()).Contains(u))
+                       where filter.Exercises == null || !filter.Exercises.Any() || e.Days.SelectMany(y => y.Exercises)
+                        .Where(e => filter.Exercises.Any(y => e.Id.ToString() == y)).Count() > 0
                        where !filter.MinCountTrainingDays.HasValue || e.Days.Count >= filter.MinCountTrainingDays
                        where !filter.MaxCountTrainingDays.HasValue || e.Days.Count <= filter.MaxCountTrainingDays
                        select e;

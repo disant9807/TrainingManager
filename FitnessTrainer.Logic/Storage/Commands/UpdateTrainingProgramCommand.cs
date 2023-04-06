@@ -8,6 +8,7 @@ using AutoMapper;
 using TrainingManager.Log;
 using Microsoft.EntityFrameworkCore;
 using TrainingManager.Logic.Storage.Domain;
+using TrainingManager.Logic.Model;
 
 namespace TrainingManager.Logic.Storage.Commands
 {
@@ -16,89 +17,130 @@ namespace TrainingManager.Logic.Storage.Commands
         private readonly Model.TrainingProgram _trainingProgram;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
+        private List<Domain.Exercise> _attachedExercise;
 
         public UpdateTrainingProgramInfoCommand(StorageContext context, Model.TrainingProgram trainingProgram, ILogFactory log, IMapper mapper) : base(context)
         {
             _trainingProgram = trainingProgram;
             _logger = log.CreateModuleLogger(typeof(UpdateTrainingProgramInfoCommand));
             _mapper = mapper;
+            _attachedExercise = new List<Domain.Exercise>();
         }
 
         public async override Task ExecuteAsync()
         {
-            var trainingProgramDb = await context.TrainingProgram.Where(e => e.Id == _trainingProgram.Id)
+            var trainingProgram = await context.TrainingProgram.Where(e => e.Id == _trainingProgram.Id)
+                .Include(e => e.Days)
+                .ThenInclude(e => e.Exercises)
                 .FirstOrDefaultAsync();
 
-            if (trainingProgramDb == null)
+            if (trainingProgram == null)
                 throw new KeyNotFoundException($"Тренировочная программа с id = {_trainingProgram.Id} не найдена");
 
-            var trainingProgram = _mapper.Map<Model.TrainingProgram, Domain.TrainingProgram>(_trainingProgram);
+            trainingProgram.Name = _trainingProgram.Name;
+            trainingProgram.ShortName = _trainingProgram.ShortName;
+            trainingProgram.Description = _trainingProgram.Description;
 
-            context.Entry<Domain.TrainingProgram>(trainingProgramDb).State = EntityState.Detached;
+            trainingProgram.Days.SelectMany(e => e.Exercises)
+                .ToList().ForEach(e => _attachedExercise.Add(e));
+
+            var updatedDays = trainingProgram.Days
+                .Where(e => _trainingProgram.Days.Select(z => z.Id).Contains(e.Id)).ToList();
+
+            var removedDays = trainingProgram.Days
+                .Where(e => !_trainingProgram.Days.Select(z => z.Id).Contains(e.Id)).ToList();
+
+            var addedDays = _trainingProgram.Days
+                .Where(e => !trainingProgram.Days.Select(z => z.Id).Contains(e.Id)).ToList();
+
+            updatedDays.ForEach(day =>
+            {
+                var newDay = _trainingProgram.Days
+                    .FirstOrDefault(e => e.Id == day.Id);
+
+                day.Name = newDay.Name;
+                day.DayRelax = newDay.DayRelax;
+                day.Description = newDay.Description;
+                day.DayRelax = newDay.DayRelax;
+                day.NumberOfTrainingProgram = newDay.NumberOfTrainingProgram;
+
+                var addedExercise = newDay.Exercises
+                    .Where(e => !day.Exercises
+                        .Select(z => z.Id).Contains(e.Id)).ToList();
+
+                var removedExercise = day.Exercises
+                    .Where(e => !newDay.Exercises
+                        .Select(z => z.Id).Contains(e.Id)).ToList();
+
+                addedExercise.ForEach(newExercise =>
+                {
+                    var attachedExercise = _attachedExercise
+                            .FirstOrDefault(z => z.Id == newExercise.Id);
+
+                    if (attachedExercise != null)
+                    {
+                        day.Exercises.Add(attachedExercise);
+                    }
+                    else
+                    {
+                        var exercise = new Domain.Exercise
+                        {
+                            Id = newExercise.Id
+                        };
+                        context.Exercise.Attach(exercise);
+                        day.Exercises.Add(exercise);
+                        _attachedExercise.Add(exercise);
+                    }
+                });
+
+                removedExercise.ForEach(exercise =>
+                {
+                    day.Exercises.Remove(exercise);
+                });
+            });
+
+            addedDays.ForEach(newDay =>
+            {
+                var day = new Domain.TrainingProgramDay
+                {
+                    Name = newDay.Name,
+                    DayRelax = newDay.DayRelax,
+                    Description = newDay.Description,
+                    NumberOfTrainingProgram = newDay.NumberOfTrainingProgram
+                };
+
+                newDay.Exercises.ToList()
+                    .ForEach(e =>
+                    {
+                        var attachedExercise = _attachedExercise
+                            .FirstOrDefault(z => z.Id == e.Id);
+
+                        if(attachedExercise != null)
+                        {
+                            day.Exercises.Add(attachedExercise);
+                        }
+                        else
+                        {
+                            var exercise = new Domain.Exercise
+                            {
+                                Id = e.Id
+                            };
+                            context.Exercise.Attach(exercise);
+                            day.Exercises.Add(exercise);
+                            _attachedExercise.Add(exercise);
+                        }
+                    });
+
+                trainingProgram.Days.Add(day);
+            });
+
+            removedDays.ForEach(e =>
+            {
+                trainingProgram.Days.Remove(e);
+            });
+
             context.TrainingProgram.Update(trainingProgram);
             await context.SaveChangesAsync();
-
-
-            var daysDb = await context.TrainingProgram.Where(e => e.Id == _trainingProgram.Id)
-                .SelectMany(e => e.Days).Include(e => e.Exercises).ToListAsync();
-            foreach (var day in daysDb)
-            { context.Entry<Domain.TrainingProgramDay>(day).State = EntityState.Detached; }
-            foreach (var exer in daysDb.SelectMany(e => e.Exercises))
-            { context.Entry<Domain.Exercise>(exer).State = EntityState.Detached; }
-
-            var days = _trainingProgram.Days;
-
-            var deleteDays = trainingProgramDb.Days.Where(e => !days.Any(z => z.Id == e.Id));
-            var addDaysModel = _trainingProgram.Days.Where(e => !daysDb.Any(z => z.Id == e.Id));
-            var editDaysModel = _trainingProgram.Days.Where(e => daysDb.Any(z => z.Id == e.Id));
-
-            foreach (var day in deleteDays)
-            {
-                trainingProgram.Days.Remove(day);
-                context.TrainingProgramDay.Remove(day);
-                await context.SaveChangesAsync();
-            }
-            foreach(var dayModel in addDaysModel)
-            {
-                var tpDay = _mapper.Map<Model.TrainingProgramDay, Domain.TrainingProgramDay>(dayModel);
-                context.TrainingProgramDay.Add(tpDay);
-                trainingProgram.Days.Add(tpDay);
-
-                await context.SaveChangesAsync();
-                foreach (var exercise in tpDay.Exercises)
-                {
-                    context.Entry<Domain.Exercise>(exercise).State = EntityState.Detached;
-                }
-
-            }
-            foreach (var dayModel in editDaysModel)
-            {
-                var day = _mapper.Map<Model.TrainingProgramDay, Domain.TrainingProgramDay>(dayModel);
-                day.TrainingProgramId = _trainingProgram.Id;
-                context.TrainingProgramDay.Attach(day);
-                context.Exercise.AttachRange(day.Exercises);
-
-                
-                var deleteExercise = day.Exercises.Where(e => !dayModel.Exercises.Any(z => z.Id == e.Id));
-                var addExerciseModel = dayModel.Exercises.Where(e => !day.Exercises.Any(z => z.Id == e.Id));
-
-
-                foreach(var exerciseModel in addExerciseModel)
-                {
-                    day.Exercises.Add(new Exercise { Id = exerciseModel.Id });
-                }
-                foreach (var delete in deleteExercise)
-                {
-                    day.Exercises.Remove(delete);
-                }
-
-
-                context.TrainingProgramDay.Update(day);
-                await context.SaveChangesAsync();
-
-                foreach (var exer in day.Exercises)
-                { context.Entry<Domain.Exercise>(exer).State = EntityState.Detached; }
-            }
         }
     }
 }
