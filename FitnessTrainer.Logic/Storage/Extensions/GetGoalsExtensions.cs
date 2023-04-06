@@ -22,8 +22,8 @@ namespace TrainingManager.Logic.Storage.Extensions
                        where !createdTo.HasValue || e.CreatedDate < createdTo
                        where !filter.CompletionDateFrom.HasValue || e.CompletionDate >= filter.CompletionDateFrom
                        where !complectedDateTo.HasValue || e.CompletionDate < complectedDateTo
-                       where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || filter.CategoryOfBodies
-                        .Any(u => e.SubGoals.Select(t => t.BodyCode).Contains(u))
+                       where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || e.SubGoals.Select(y => y.Body)
+                        .Where(e => filter.CategoryOfBodies.Any(y => e.Code == y)).Count() > 0
                        where filter.CodeUnitsOfMeasurement == null || !filter.CodeUnitsOfMeasurement.Any() || filter.CodeUnitsOfMeasurement
                         .Any(u => e.SubGoals.Select(t => t.CodeUnitsOfMeasurement).Contains(u))
                        where string.IsNullOrWhiteSpace(filter.Name) || e.Name.ToLower().Contains(filter.Name)

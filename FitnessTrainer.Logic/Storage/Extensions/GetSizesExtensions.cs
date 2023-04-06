@@ -18,8 +18,8 @@ namespace TrainingManager.Logic.Storage.Extensions
             var data = from e in context.Size.AsNoTracking()
                        where !filter.CreatedFrom.HasValue || e.CreatedDate >= filter.CreatedFrom
                        where !createdTo.HasValue || e.CreatedDate < createdTo
-                       where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || filter.CategoryOfBodies
-                        .Any(u => e.SizeItems.Select(t => t.BodyCode).Contains(u))
+                       where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || e.SizeItems.Select(y => y.Body)
+                        .Where(e => filter.CategoryOfBodies.Any(y => e.Code == y)).Count() > 0
                        where filter.CodeUnitsOfMeasurement == null || !filter.CodeUnitsOfMeasurement.Any() || filter.CodeUnitsOfMeasurement
                         .Any(u => e.SizeItems.Select(t => t.CodeUnitsOfMeasurement).Contains(u))
                        where string.IsNullOrWhiteSpace(filter.Name) || e.Name.ToLower().Contains(filter.Name)
