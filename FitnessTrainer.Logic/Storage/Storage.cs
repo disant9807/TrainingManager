@@ -124,7 +124,10 @@ namespace TrainingManager.Logic.Storage
         public Task RemoveCategoryOfBody(string code, bool isArchived)
 			=> Execute((u) => new RemoveCategoryOfBodyCommand(u, _logFactory, code));
 
-		public Task<Model.CategoryOfBody> GetCategoryOfBodyById(string code)
+        public Task ArchiveCategoryOfBody(string code, bool isArchived)
+            => Execute((u) => new ArchiveCategoryOfBodyCommand(u, _logFactory, code, isArchived));
+
+        public Task<Model.CategoryOfBody> GetCategoryOfBodyById(string code)
 			=> Execute((u) => new GetCategoryOfBodyByIdRequest(u, _logFactory, _mapper, code));
 
 
@@ -140,6 +143,9 @@ namespace TrainingManager.Logic.Storage
 
         public Task RemoveUnitsOfMeasurement(string code, bool isArchived)
             => Execute((u) => new RemoveUnitsOfMeasurementCommand(u, _logFactory, code));
+
+        public Task ArchiveUnitsOfMeasurement(string code, bool isArchived)
+            => Execute((u) => new ArchiveUnitsOfMeasurementCommand(u, _logFactory, code, isArchived));
 
         public Task<Model.UnitsOfMeasurement> GetUnitsOfMeasurementById(string code)
             => Execute((u) => new GetUnitsOfMeasurementByIdRequest(u, _logFactory, _mapper, code));

@@ -11,5 +11,7 @@ namespace TrainingManager.Logic.Model
         public string Code { get; set; }
 
         public string Value { get; set; }
+
+        public bool IsArchive{ get; set; }
     }
 }

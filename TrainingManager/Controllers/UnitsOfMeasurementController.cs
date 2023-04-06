@@ -58,17 +58,17 @@ namespace TrainingManager.Controllers
         }
 
 
-		[HttpPost("{code}/remove")]
+		[HttpPost("{code}/archive/{state}")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult> RemoveUnitsOfMeasurementById([FromRoute] string code)
+        public async Task<ActionResult> ArchiveUnitsOfMeasurementById([FromRoute] string code, [FromRoute] bool state)
         {
             if (string.IsNullOrWhiteSpace(code))
                 return BadRequest();
 
-            await _storage.RemoveUnitsOfMeasurement(code, true);
+            await _storage.ArchiveCategoryOfBody(code, state);
             return Ok();
         }
 

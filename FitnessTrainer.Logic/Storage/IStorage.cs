@@ -49,6 +49,7 @@ namespace TrainingManager.Logic.Storage
         Task<string> CreateCategoryOfBody(CategoryOfBody  categoryOfBody);
         Task UpdateCategoryOfBody(string code, CategoryOfBody categoryOfBody);
         Task RemoveCategoryOfBody(string code, bool isArchived);
+        Task ArchiveCategoryOfBody(string code, bool isArchived);
         Task<CategoryOfBody> GetCategoryOfBodyById(string code);
 
         // Едиинцы измерения
@@ -56,6 +57,7 @@ namespace TrainingManager.Logic.Storage
         Task<string> CreateUnitsOfMeasurement(UnitsOfMeasurement unitsOfMeasurement);
         Task UpdateUnitsOfMeasurementy(string code, UnitsOfMeasurement unitsOfMeasurement);
         Task RemoveUnitsOfMeasurement(string id, bool isArchived);
+        Task ArchiveUnitsOfMeasurement(string id, bool isArchived);
         Task<UnitsOfMeasurement> GetUnitsOfMeasurementById(string code);
     }
 }

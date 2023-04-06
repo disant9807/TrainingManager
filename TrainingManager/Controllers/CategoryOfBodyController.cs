@@ -61,17 +61,17 @@ namespace TrainingManager.Controllers
         }
 
 
-		[HttpPost("{code}/remove")]
+		[HttpPost("{code}/archive/{state}")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult> RemoveCategoryOfBodyById([FromRoute] string code)
+        public async Task<ActionResult> RemoveCategoryOfBodyById([FromRoute] string code, [FromRoute] bool state)
         {
             if (string.IsNullOrWhiteSpace(code))
                 return BadRequest();
 
-            await _storage.RemoveCategoryOfBody(code, true);
+            await _storage.ArchiveCategoryOfBody(code, state);
             return Ok();
         }
 

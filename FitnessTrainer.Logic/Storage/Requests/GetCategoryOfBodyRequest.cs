@@ -37,7 +37,8 @@ namespace TrainingManager.Logic.Storage.Requests
             var categoryOfBodyRequest = context.CategoryOfBody
                 .Where(e => string.IsNullOrEmpty(_queryString) || e.Name.ToLower().Contains(_queryString))
                 .Where(e => string.IsNullOrEmpty(_queryString) || e.Decsription.ToLower().Contains(_queryString))
-                .Where(e => string.IsNullOrEmpty(_queryString) || e.Code.ToLower().Contains(_queryString));
+                .Where(e => string.IsNullOrEmpty(_queryString) || e.Code.ToLower().Contains(_queryString))
+                .Where(e => !e.IsArchived);
 
             var categoryOfBody = categoryOfBodyRequest.AsNoTracking();
             categoryOfBody = Order(categoryOfBody);

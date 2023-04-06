@@ -13,5 +13,6 @@ namespace TrainingManager.Logic.Model
         public string Code { get; set; }
         public string Decsription { get; set; }
         public string AvatarId { get; set; }
+        public bool IsArchived { get; set; }
     }
 }

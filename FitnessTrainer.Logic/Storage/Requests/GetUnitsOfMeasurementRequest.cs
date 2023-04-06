@@ -36,7 +36,8 @@ namespace TrainingManager.Logic.Storage.Requests
         {
             var unitsOfMeasurementRequest = context.UnitsOfMeasurements
                 .Where(e => string.IsNullOrEmpty(_queryString) || e.Value.ToLower().Contains(_queryString))
-                .Where(e => string.IsNullOrEmpty(_queryString) || e.Code.ToLower().Contains(_queryString));
+                .Where(e => string.IsNullOrEmpty(_queryString) || e.Code.ToLower().Contains(_queryString))
+                .Where(e => !e.IsArchive);
 
             var unitsOfMeasurement = unitsOfMeasurementRequest.AsNoTracking();
             unitsOfMeasurement = Order(unitsOfMeasurement);
