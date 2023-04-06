@@ -28,20 +28,32 @@ namespace TrainingManager.Logic.Storage.Commands
 
         public async override Task ExecuteAsync()
         {
-            var countSize = await context.Size.CountAsync(e => e.Id == _size.Id);
+            var size = await context.Size.Where(e => e.Id == _size.Id)
+                .Include(e => e.SizeItems).AsNoTracking().FirstOrDefaultAsync();
 
-            if (countSize < 1)
+            if (size == null)
                 throw new KeyNotFoundException($"Замер с id = {_size.Id} не найден");
 
-            var size = _mapper.Map<Model.Size, Domain.Size>(_size);
+            var sizeFromMap = _mapper.Map<Model.Size, Domain.Size>(_size);
 
-            context.Entry<Domain.Size>(size).State = EntityState.Detached;
-            foreach (var subSize in size.SizeItems)
+            context.Entry<Domain.Size>(sizeFromMap).State = EntityState.Detached;
+            foreach (var sizeItem in sizeFromMap.SizeItems)
             {
-                context.Entry<Domain.SizeItem>(subSize).State = EntityState.Detached;
+                context.Entry<Domain.SizeItem>(sizeItem).State = EntityState.Detached;
             }
 
-            context.Size.Update(size);
+            context.Size.Update(sizeFromMap);
+            await context.SaveChangesAsync();
+
+            context.Entry<Domain.Size>(sizeFromMap).State = EntityState.Detached;
+            foreach (var sizeItem in sizeFromMap.SizeItems)
+            {
+                context.Entry<Domain.SizeItem>(sizeItem).State = EntityState.Detached;
+            }
+            context.SizeItem
+                .RemoveRange(size.SizeItems
+                    .Where(e => !sizeFromMap.SizeItems
+                        .Select(e => e.Id).Contains(e.Id)));
             await context.SaveChangesAsync();
 
             /*

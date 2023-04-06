@@ -14,9 +14,13 @@ namespace TrainingManager.Logic.Model
 
         public string BodyCode { get; set; }
 
+        public CategoryOfBody Body { get; set; }
+
         public string Value { get; set; }
 
         public string CodeUnitsOfMeasurement { get; set; }
+
+        public UnitsOfMeasurement UnitsOfMeasurement { get; set; }
 
         public Guid? AvatarId { get; set; }
     }

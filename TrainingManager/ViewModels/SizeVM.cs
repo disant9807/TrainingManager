@@ -22,9 +22,13 @@ namespace TrainingManager.ViewModels
 
         public string BodyCode { get; set; }
 
+        public CategoryOfBodyVM Body { get; set; }
+
         public string Value { get; set; }
 
         public string CodeUnitsOfMeasurement { get; set; }
+
+        public UnitsOfMeasurementVM UnitsOfMeasurement { get; set; }
 
         public string[] Images { get; set; }
 
