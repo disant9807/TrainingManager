@@ -15,6 +15,7 @@ namespace TrainingManager.Logic.Storage.Requests
         private readonly Model.Training _training;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
+        private List<Domain.Exercise> _attachedExercises;
 
         public CreateTrainingRequest(StorageContext context, Model.Training training, ILogFactory log, IMapper mapper) : base(context)
         {
@@ -22,34 +23,76 @@ namespace TrainingManager.Logic.Storage.Requests
             _training = training;
             _logger = log.CreateModuleLogger(typeof(CreateTrainingRequest));
             _mapper = mapper;
+            _attachedExercises = new List<Domain.Exercise>();
         }
 
         public override async Task<long> ExecuteAsync()
         {
-            var training = _mapper.Map<Model.Training, Domain.Training>(_training);
+            Domain.Exercise[] exercises = _training.Approachs
+                .Select(e => e.Exercise)
+                .Select(e => e.Id)
+                .Distinct()
+                .Select(id => new Domain.Exercise { Id = id })
+                .ToArray();
 
-// Добавление тренировочной программы
-            if (training.TrainingProgram?.Id == 0)
-            {
-                training.TrainingProgram = null;
-            }
-            else
-            {
-                Domain.TrainingProgram trainingProgramLocal = new Domain.TrainingProgram
+            context.Exercise.AttachRange(exercises);
+            _attachedExercises.AddRange(exercises);
+
+            var training = new Domain.Training();
+
+            training.TrainingDate = _training.TrainingDate;
+            training.Description = _training.Description;
+            training.Name = _training.Name;
+            training.Time = _training.Time;
+
+            _training.Approachs.ToList()
+                .ForEach(e =>
                 {
-                    Id = long.Parse(_training.TrainingProgramId)
-                };
-                context.TrainingProgram.Attach(trainingProgramLocal);
+                    var approach = new Domain.Approach();
+                    approach.NumberOfTraining = e.NumberOfTraining;
+                    approach.ApproachsItems = e.ApproachsItems.Select(e =>
+                    {
+                        return mapApproachItem(e, new Domain.ApproachItem());
+                    }).ToArray();
+                    approach.Exercise = getAttachedExercise(e.Exercise.Id);
 
-                training.TrainingProgram = trainingProgramLocal;
-            }
+                    training.Approachs.Add(approach);
+                });
 
-
-            training.CreatedDate = DateTime.Now;
-            context.Exercise.AttachRange(training.Approachs.Select(e => e.Exercise).Where(e => e != null));
             context.Training.Add(training);
             await context.SaveChangesAsync();
+
             return training.Id;
+        }
+
+        private Domain.Exercise getAttachedExercise(long id)
+        {
+            Domain.Exercise exercise = _attachedExercises.FirstOrDefault(e => e.Id == id);
+            if (exercise == null)
+            {
+                exercise = new Domain.Exercise { Id = id };
+                context.Exercise.Attach(exercise);
+                _attachedExercises.Add(exercise);
+            }
+
+            return exercise;
+        }
+
+        private Domain.ApproachItem mapApproachItem(Model.ApproachItem itemModel, Domain.ApproachItem item)
+        {
+            item.NumberOfApproach = itemModel.NumberOfApproach;
+            item.Hard = itemModel.Hard;
+            item.Technicality = itemModel.Technicality switch
+            {
+                Model.ApproachLvl.good => Domain.ApproachLvl.good,
+                Model.ApproachLvl.bad => Domain.ApproachLvl.bad,
+                Model.ApproachLvl.normal => Domain.ApproachLvl.normal,
+                _ => Domain.ApproachLvl.normal
+            };
+            item.Time = itemModel.Time;
+            item.Weight = itemModel.Weight;
+
+            return item;
         }
     }
 }
