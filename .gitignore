@@ -463,3 +463,5 @@ $RECYCLE.BIN/
 /TrainingManager.Log/obj/project.nuget.cache
 /TrainingManager.Log/obj/TrainingManager.Log.csproj.nuget.dgspec.json
 /TrainingManager.Log/obj/TrainingManager.Log.csproj.nuget.g.props
+/TrainingManager/TMData/database.db
+*.db
