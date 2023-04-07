@@ -17,76 +17,120 @@ namespace TrainingManager.Logic.Storage.Commands
         private readonly Model.Training _training;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
+        private List<Domain.Exercise> _attachedExercises;
 
         public UpdateTrainingCommand(StorageContext context, Model.Training training, ILogFactory log, IMapper mapper) : base(context)
         {
             _training = training;
             _logger = log.CreateModuleLogger(typeof(UpdateTrainingCommand));
             _mapper = mapper;
+            _attachedExercises = new List<Exercise>();
         }
 
         public async override Task ExecuteAsync()
         {        
-            var training = await context.Training.Where(e => e.Id == _training.Id).FirstOrDefaultAsync();
+            var training = await context.Training.Where(e => e.Id == _training.Id)
+                .Include(e => e.Approachs)
+                .ThenInclude(e => e.ApproachsItems)
+                .Include(e => e.Approachs)
+                .ThenInclude(e => e.Exercise)
+                .FirstOrDefaultAsync();
 
             if (training == null )
                 throw new KeyNotFoundException($"Тренирока с id = {_training.Id} не найдена");
-         
+
+            _attachedExercises.AddRange(training.Approachs.Select(e => e.Exercise));
+
             training.TrainingDate = _training.TrainingDate;
             training.Description = _training.Description;
             training.Name = _training.Name;
             training.Time = _training.Time;
-            context.Training.Update(training);
-            await context.SaveChangesAsync();
-
-            foreach(var exercise in training.Approachs.Select(e => e.Exercise).ToArray())
-            {
-                context.Entry<Domain.Exercise>(exercise).State = EntityState.Detached;
-            }
 
             var deleteApproachs = training.Approachs.Where(e => !_training.Approachs.Any(z => z.Id == e.Id));
             var addApproachsModel = _training.Approachs.Where(e => !training.Approachs.Any(z => z.Id == e.Id));
-            var editApproachsModel = _training.Approachs.Where(e => training.Approachs.Any(z => z.Id == e.Id));
+            var editApproachs = training.Approachs.Where(e => _training.Approachs.Any(z => z.Id == e.Id));
 
             foreach (var approach in deleteApproachs)
             {
-                context.Exercise.Attach(approach.Exercise);
-                training.Approachs.Remove(approach);
                 context.Approach.Remove(approach);
-                await context.SaveChangesAsync();
             }
-            foreach(var approachModel in addApproachsModel)
+
+            foreach (var approachModel in addApproachsModel)
             {
-                var approach = _mapper.Map<Model.Approach, Domain.Approach>(approachModel);
-                context.Exercise.Attach(approach.Exercise);
+                var approach = new Domain.Approach();
+                approach.NumberOfTraining = approachModel.NumberOfTraining;
+                approach.ApproachsItems = approachModel.ApproachsItems.Select(e =>
+                {
+                    return mapApproachItem(e, new Domain.ApproachItem());
+                }).ToArray();
+                approach.Exercise = getAttachedExercise(approachModel.Exercise.Id);
+
                 training.Approachs.Add(approach);
-                await context.SaveChangesAsync();
-
-                foreach (var approachItem in training.Approachs.ToArray())
-                {
-                    context.Entry<Domain.Exercise>(approachItem.Exercise).State = EntityState.Detached;
-                    context.Entry<Domain.Approach>(approachItem).State = EntityState.Detached;
-                }
-
             }
-            foreach (var approachModel in editApproachsModel)
+
+            foreach (var approach in editApproachs)
             {
-                var approach = _mapper.Map<Model.Approach, Domain.Approach>(approachModel);
-                approach.TrainingId = training.Id;
+                var newApproachModel = _training.Approachs
+                    .FirstOrDefault(e => e.Id == approach.Id);
 
-                context.Exercise.Attach(approach.Exercise);
-                context.Approach.Attach(approach);
-                context.Approach.Update(approach);
+                approach.NumberOfTraining = newApproachModel.NumberOfTraining;
                 
-                
-                await context.SaveChangesAsync();
+                var deleteApproachItems = approach.ApproachsItems
+                    .Where(e => !newApproachModel.ApproachsItems.Any(z => z.Id == e.Id));
+                var editApproachItems = approach.ApproachsItems
+                    .Where(e => newApproachModel.ApproachsItems.Any(z => z.Id == e.Id));
+                var addApproachitems = newApproachModel.ApproachsItems
+                    .Where(e => !approach.ApproachsItems.Any(z => z.Id == e.Id));
 
-                foreach (var approachItem in training.Approachs.ToArray())
+
+                context.ApproachItem.RemoveRange(deleteApproachItems.ToArray());
+
+                editApproachItems.ToList().ForEach(e =>
                 {
-                    context.Entry<Domain.Exercise>(approachItem.Exercise).State = EntityState.Detached;
-                    context.Entry<Domain.Approach>(approachItem).State = EntityState.Detached;
-                }
+                    var newApproachItemModel = newApproachModel.ApproachsItems
+                        .FirstOrDefault(u => u.Id == e.Id);
+
+                    context.ApproachItem
+                        .Update(mapApproachItem(newApproachItemModel, e));
+                });
+
+                addApproachitems.ToList().ForEach(e =>
+                {
+                    approach.ApproachsItems.Add(mapApproachItem(e, new Domain.ApproachItem()));
+                });
             }
+
+            await context.SaveChangesAsync();
+        }
+
+        private Domain.Exercise getAttachedExercise(long id)
+        {
+            Domain.Exercise exercise = _attachedExercises.FirstOrDefault(e => e.Id == id);
+            if (exercise == null)
+            {
+                exercise = new Exercise { Id = id };
+                context.Exercise.Attach(exercise);
+                _attachedExercises.Add(exercise);
+            }
+
+            return exercise;
+        }
+
+        private Domain.ApproachItem mapApproachItem(Model.ApproachItem itemModel, Domain.ApproachItem item)
+        {
+            item.NumberOfApproach = itemModel.NumberOfApproach;
+            item.Hard = itemModel.Hard;
+            item.Technicality = itemModel.Technicality switch
+            {
+                Model.ApproachLvl.good => ApproachLvl.good,
+                Model.ApproachLvl.bad => ApproachLvl.bad,
+                Model.ApproachLvl.normal => ApproachLvl.normal,
+                _ => ApproachLvl.normal
+            };
+            item.Time = itemModel.Time;
+            item.Weight = itemModel.Weight;
+
+            return item;
         }
     }
 }
