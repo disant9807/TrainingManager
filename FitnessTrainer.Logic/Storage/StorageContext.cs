@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TrainingManager.Logic.Storage.Domain;
+using TrainingManager.Logic.Storage.Extensions;
 
 namespace TrainingManager.Logic.Storage
 {
@@ -31,29 +32,7 @@ namespace TrainingManager.Logic.Storage
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-            modelBuilder.Entity<CategoryOfBody>().HasData(
-				new CategoryOfBody
-                {
-                    Code = "Back",
-                    Name = "Спина",
-                    Decsription = "Спина",
-                    ShortName = "Спина"
-                },
-                new CategoryOfBody
-                {
-                    Code = "legs",
-                    Name = "Ноги",
-                    Decsription = "Ноги",
-                    ShortName = "Ноги"
-                },
-                new CategoryOfBody
-                {
-                    Code = "Chest",
-                    Name = "Грудь",
-                    Decsription = "Грудь",
-                    ShortName = "Грудь"
-                }
-            );
+            modelBuilder.builderInitBody();
 		}
 	}
 }
