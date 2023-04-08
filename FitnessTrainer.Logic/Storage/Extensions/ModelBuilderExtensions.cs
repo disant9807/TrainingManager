@@ -16,7 +16,7 @@ namespace TrainingManager.Logic.Storage.Extensions
             builder.Entity<CategoryOfBody>().HasData(
                new CategoryOfBody
                {
-                   Code = "Back",
+                   Code = "GrudinoKlyuchichnoSosceviddnayaMyshca",
                    Name = "Грудино-ключично-сосцевиддная мышца",
                    Decsription = "Грудино-ключично-сосцевидная мышца представляет " +
                    "собой довольно крупный мышечный тяж на переднебоковой поверхности" +
@@ -27,7 +27,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "legs",
+                   Code = "PoluosistayaMyshcaGolovy",
                    Name = "Полуосистая мышца головы",
                    Decsription = "Полуостистая мышца головы располагается между " +
                    "поперечными отростками 5 верхних грудных позвонков и 3—4 нижних шейных " +
@@ -37,7 +37,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "Ременная мышца головы",
+                   Code = "RemennayaMyshcaGolovy",
                    Name = "Ременная мышца головы",
                    Decsription = "начинается от выйной связки, " +
                    "остистых отростков III- Vii шейного и 3 верхних " +
@@ -52,7 +52,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "none",
+                   Code = "MyshcaPodnimayushchayaLopatku",
                    Name = "Мышца, поднимающая лопатку",
                    Decsription = "ШМышца, поднимающая лопатку, — располагается " +
                    "под трапециевидной мышцей. Начинаясь от задних бугорков " +
@@ -65,7 +65,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },               
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "LestnichnayaMyshca",
                    Name = "Лестничная мышца",
                    Decsription = "Лестничные мышцы — мышцы шеи глубокого слоя боковой (латеральной) группы." +
                    "Лестничные мышцы поднимают верхние рёбра, действуя как мышца вдоха. При фиксированных " +
@@ -75,7 +75,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "LopatochnoPodyazychnayaMyshcaNizhneeBryushko",
                    Name = "Лопаточно-подъязычная мышца, нижнее брюшко",
                    Decsription = "парная мышца передней поверхности " +
                    "шеи из группы подподъязычных. Имеет длинную уплощенную " +
@@ -84,7 +84,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "TrapecividnayaMyshca",
                    Name = "Трапецивидная мышца",
                    Decsription = "Трапециеви́дная мы́шца — " +
                    "плоская широкая мышца, занимающая поверхностное " +
@@ -99,7 +99,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "Akromion",
                    Name = "Акромион",
                    Decsription = "Латеральный конец лопаточной кости, " +
                    "сочленяющийся с акромиальной суставной поверхностью " +
@@ -112,7 +112,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "Klyuchica",
                    Name = "Ключица",
                    Decsription = "в анатомии человека — небольшая трубчатая " +
                    "кость S-образной формы из пояса верхней конечности, соединяющая лопатку " +
@@ -121,7 +121,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "DeltovidnayaMyshca",
                    Name = "Дельтовидная мышца",
                    Decsription = "Дельтовидная мышца — в анатомии человека — поверхностная мышца плеча, " +
                    "образующая его наружный контур. Принимает участие в сгибании и разгибании плеча, отведении " +
@@ -131,7 +131,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BolshayaGrudnayaMyshcaGrudinoRebernayaChast",
                    Name = "Болшая грудная мышца, грудино-реберная часть",
                    Decsription = "Крупная поверхностная мышца веерообразной формы, " +
                    "расположенная на передней поверхности груди. " +
@@ -141,7 +141,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BolshayaGrudnayaMyshcaAbdominalnayaChast",
                    Name = "Болшая грудная мышца, абдоминальная часть",
                    Decsription = "Крупная поверхностная мышца веерообразной формы, " +
                    "расположенная на передней поверхности груди. " +
@@ -151,7 +151,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "Grudina",
                    Name = "Грудина",
                    Decsription = "Продолговатая плоская кость в середине груди. " +
                    "Соединяется с рёбрами при помощи хрящей, " +
@@ -162,7 +162,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka",
                    Name = "Трицепс, трехглавая мышца плеча, длинная головка",
                    Decsription = "Мышца-разгибатель задней группы плеча, " +
                    "занимает всю заднюю сторону плеча. От подсуставного " +
@@ -171,7 +171,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka",
                    Name = "Трицепс, трехглавая мышца плеча, медиальная головка",
                    Decsription = "Мышца-разгибатель задней группы плеча, " +
                    "занимает всю заднюю сторону плеча. От задней поверхности " +
@@ -180,7 +180,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka",
                    Name = "Трицепс, трехглавая мышца плеча, латеральная головка",
                    Decsription = "Мышца-разгибатель задней группы плеча, " +
                    "занимает всю заднюю сторону плеча. От задней поверхности плеча",
@@ -188,7 +188,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BicepsDvuglavayaMyshcaPlecha",
                    Name = "Бицепс (двуглавая мышца) плеча",
                    Decsription = "Большая мышца плеча, хорошо заметна под кожей." +
                    "Сгибает плечо в плечевом суставе, предплечье в локтевом.",
@@ -196,7 +196,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "PlechevayaMyshca",
                    Name = "Плечевая мышца",
                    Decsription = "лежит глубже двуглавой мышцы плеча, начинается от " +
                    "передней поверхности плечевой кости и от обеих межмышечных перегородок, " +
@@ -205,7 +205,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "PlecheluchevayaMyshca",
                    Name = "Плечелучевая мышца",
                    Decsription = "Мышца предплечья передней группы." +
                    "Сгибает предплечье в локтевом суставе и устанавливает " +
@@ -214,7 +214,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },              
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BolshayaMyshcaSpiny",
                    Name = "Большая мышца спины",
                    Decsription = "Поверхностная мышца, занимающая всю нижнюю часть спины, " +
                    "верхние пучки в начальной части прикрыты трапециевидной мышцей." +
@@ -226,7 +226,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "LoktevayaMyshca",
                    Name = "Локтевая мышца",
                    Decsription = "Небольшая пирамидальная мышца, " +
                    "являющаяся как бы продолжением медиальной головки " +
@@ -238,7 +238,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BolshayaZubchatayaMyshca",
                    Name = "Большая зубчатая мышца",
                    Decsription = "Расположена в переднем отделе грудной стенки. " +
                    "Верхняя её часть прикрыта большой грудной мышцей, нижняя расположена " +
@@ -253,7 +253,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "DlinnayaLadonnayaMyshca",
                    Name = "Длинная ладонная мышца",
                    Decsription = "имеет короткое веретенообразное брюшко и очень " +
                    "длинное сухожилие. Лежит непосредственно под кожей, внутри от " +
@@ -267,7 +267,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "PoverhnostnyjSgibatelPalcevKisti",
                    Name = "Поверхностный сгибатель пальцев кисти",
                    Decsription = "Мышца передней группы предплечья." +
                    "Спереди мышца прикрыта длинной ладонной мышцей и " +
@@ -277,406 +277,399 @@ namespace TrainingManager.Logic.Storage.Extensions
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "RazgebatelPalcevKisti",
                    Name = "Разгебатель пальцев кисти",
                    Decsription = "Мышца предплечья задней группы",
                    ShortName = "Разгебатель пальцев кисти"
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "SrednyayaYagodichnayaMyshca",
                    Name = "Средняя ягодичная мышца",
                    Decsription = "",
                    ShortName = "Средняя ягодичная мышца"
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "SrednyayaYagodichnayaMyshcaPodYagodichnojFasciej",
                    Name = "Средняя ягодичная мышца, под ягодичной фасцией",
                    Decsription = "",
                    ShortName = "Средняя ягодичная мышца, под ягодичной фасцией"
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BolshayaYagodichnayaMyshca",
                    Name = "Большая ягодичная мышца",
                    Decsription = "",
                    ShortName = "Большая ягодичная мышца"
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BolshojVertel",
                    Name = "Большой вертел",
                    Decsription = "",
                    ShortName = ""
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "NapryagatelShirokojFascii",
                    Name = "Напрягатель широкой фасции",
                    Decsription = "",
                    ShortName = ""
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "PodvzdoshnoBolshebercovyjTrakt",
                    Name = "Подвздошно-большеберцовый тракт",
                    Decsription = "",
                    ShortName = ""
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BicepsPlechaDlannayaGolovka",
                    Name = "Бицепс плеча, дланная головка",
                    Decsription = "",
                    ShortName = ""
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "PromezhutochnayaShirokayaMyshcaBedra",
                    Name = "Промежуточная широкая мышца бедра",
                    Decsription = "",
                    ShortName = ""
                },
                new CategoryOfBody
                {
-                   Code = "",
+                   Code = "PodshovennayaMyshca",
                    Name = "Подшовенная мышца",
                    Decsription = "",
                    ShortName = ""
                },
                 new CategoryOfBody
                {
-                   Code = "",
+                   Code = "BedroLateralnyjMyshchelok",
                    Name = "Бедро, латеральный мыщелок",
                    Decsription = "",
                    ShortName = ""
                },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Menisk",
                     Name = "Мениск",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "ShejkaMalobercovojKosti",
                     Name = "Шейка малоберцовой кости",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "IkronozhnayaMyshcaLateralnayaGolovka",
                     Name = "Икроножная мышца, латеральная головка",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "KambapavidnayaMyshca",
                     Name = "Камбапавидная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "DlinnayaMalobercovayaMyshca",
                     Name = "Длинная малоберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "DlinnyjRazgibatelPalcevStopy",
                     Name = "Длинный разгибатель пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "PerednyayaBolshebercovayaMyshca",
                     Name = "Передняя большеберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "KorotkayaMalobercovayaMyshca",
                     Name = "Короткая малоберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "TretyaMalobercovayaMyshca",
                     Name = "Третья малоберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "DlinnyjRazgibatelBoshogoPalcaStopy",
                     Name = "Длинный разгибатель большого пальца стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "LateralnayaLodyshka",
                     Name = "Латеральная лодышка",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "KorotkijRazgibatelBolshogopalca",
                     Name = "Короткий разгибатель большого пальца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Короткий разгибатель пальцев стопыц",
+                    Code = "KorotkijRazgibatelPalcevStopy",
+                    Name = "Короткий разгибатель пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "MyshcaOtvodyashchayaMizinecStopy",
                     Name = "Мышца, отводящая мизинец стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "MyshcaOtvodyashchayaBolshojPalecStopy",
                     Name = "Мышца, отводящая большой палец стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Мышца, отводящая мизинец стопы",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "PervayaPlyusnevayaKost",
                     Name = "Первая плюсневая кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "MedialayaKlinovidnayaKost",
                     Name = "Медиальая клиновидная кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ladevidnaya",
                     Name = "Ладьевидная кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "TarannayaKost",
                     Name = "Таранная кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "MedialnayaLodyzhka",
                     Name = "Медиальная лодыжка",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "PyatochnoeSuhozhilie",
                     Name = "Пяточное сухожилие",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "DlinnyjSgibatelBolshogoPalcaStopy",
                     Name = "Длинный сгибатель большого пальца стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnyjsgibatelbolshogopalcevstopy",
                     Name = "Длинный сгибатель большого пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "KambalovidnayaMyshca",
                     Name = "Камбаловидная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Perednyayabolshebercovayamyshca",
                     Name = "Передняя большеберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bolshebercovayakostmedialnayapoverhnost",
                     Name = "Большеберцовая кость, медиальная поверхность",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ikronozhnayamyshcamedialnayagolovka",
                     Name = "Икроножная мышца, медиальная головка",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bedromedialnyjmyshchelok",
                     Name = "Бедро, медиальный мыщелок",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Nadkolennik",
                     Name = "Надколенник",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Tonkayamyshca",
                     Name = "Тонкая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Portnyazhnaya myshca",
                     Name = "Портняжная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnayaprivodyashchayamyshca",
                     Name = "Длинная приводящая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Pryamayamyshcabedra",
                     Name = "Прямая мышца бедра",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Piramidalnayamyshcapodaponevrozom",
                     Name = "Пирамидальная мышца, под апоневрозом",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Myshcapodnimayushchayayaichko",
                     Name = "Мышца, поднимающая яичко",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Podvzdoshnoepoyasnichnayamyshca",
                     Name = "Подвздошное поясничная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Belayaliniyazhivota",
                     Name = "Белая линия живота",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Proksimalnayafalanga",
                     Name = "Проксимальная фаланга",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Detalnayafalanga",
                     Name = "Детальная фаланга",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Vtorayapyastnayakost",
                     Name = "Вторая пястная кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Tenar",
                     Name = "Тенар",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Poverhostnyjsgibatelpalcevruki",
                     Name = "Поверхостный сгибатель пальцев руки",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnayaladonnayamyshca",
                     Name = "Длинная ладонная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Luchevojsgibatelzapyastya",
                     Name = "Лучевой сгибатель запястья",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Korotkijluchevojrvzgibatelzapyastya",
                     Name = "Короткий лучевой рвзгибатель запястья",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnyjluchevojrazgibatelzapyastya",
                     Name = "Длинный лучевой разгибатель запястья",
                     Decsription = "",
                     ShortName = ""
@@ -690,133 +683,126 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Plecheluchevayamyshca",
                     Name = "Круглый пронатор",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Podvzdoshnaya kost",
                     Name = "Подвздошная кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Pryamaya myshca zhivota",
                     Name = "Прямая мышца живота",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Naruzhnayakosayamyshcazhivota",
                     Name = "Наружная косая мышца живота",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bolshayagrudnayamyshca",
                     Name = "Большая грудная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Sedmojshejnyepozvonokostistyjostrovok",
                     Name = "Седьмой шейные позвонок, остистый островок",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Trapecevidnayamyshca",
                     Name = "Трапецевидная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Grebenlopatki",
                     Name = "Гребень лопатки",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Podostnayamyshca",
                     Name = "Подостная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Malayakruglayamyshca",
                     Name = "Малая круглая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bolshayakruglayamyshca",
                     Name = "Большая круглая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bolshayarombovidnayamyshca",
                     Name = "Большая ромбовидная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Grudnojpozvonokostistyjostrovok",
                     Name = "Грудной позвонок, остистый островок",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bolshayamyshcaspiny",
                     Name = "Большая мышца спины",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Torakolyumbalnayafasciya",
                     Name = "Тораколюмбальная фасция",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Тораколюмбальная фасция",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "Poyasnichnyjtreugolnik",
                     Name = "Поясничный треугольник",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Podvzdoshnayaost",
                     Name = "Подвздошная ость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Krestecdorsalnayapoverhnost",
                     Name = "Крестец, дорсальная поверхность",
                     Decsription = "",
                     ShortName = ""
@@ -830,91 +816,77 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Krestecdorsalnayapoverhnost",
                     Name = "Крестец, дорсальная поверхность",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Polusuhozhilnayamyshca",
                     Name = "Полусухожильная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Klyuvovidnoplechevayamyshca",
                     Name = "Клювовидно-плечевая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Клювовидно-плечевая мышца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "TricepsPlecha",
                     Name = "Трицепс плеча",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Loktevojotrostok",
                     Name = "Локтевой отросток",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Loktevojsgibatelzapyastya",
                     Name = "Локтевой сгибатель запястья",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Loktevojrazgibatelzapyastya",
                     Name = "Локтевой разгибатель запястья",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Локтевой разгибатель запястья",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "Dlinnayamyshcaotvodyashchayabolshojpaleckisti",
                     Name = "Длинная мышца, отводящая большой палец кисти",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnyjsgibatelbolshogopalcakisti",
                     Name = "Длинный сгибатель большого пальца кисти",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Gorohovdnayamyshcaotvodyashchayabolshojpaleckisti",
                     Name = "Гороховдная мышца, отводящая большой палец кисти",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Korotkayamyshcaotvodyashchayabolshojpaleckisti",
                     Name = "Короткая мышца, отводящая большой палец кисти",
                     Decsription = "",
                     ShortName = ""
@@ -928,218 +900,190 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ladonnyjaponevroz",
                     Name = "Дистальная фаланга",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Razgibatelpalcevkistisuhozhilie",
                     Name = "Разгибатель пальцев кисти, сухожилие",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bolshayaprivodyashchayamyshchca",
                     Name = "Большая приводящая мыщца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Большая приводящая мыщца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "Lateralnayashirokayamyshcabedra",
                     Name = "Латеральная широкая мышца бедра",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bicepsbedra",
                     Name = "Бицепс бедра",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bedrennayakostpodkolennayapoverhnost",
                     Name = "Бедренная кость, подколенная поверхность",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Podoshvennayamyshca",
                     Name = "Подошвенная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ikronozhnayamyshcalateralnayagolovka",
                     Name = "Икроножная мышца, латеральная головка",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnayamalobercovayamyshca",
                     Name = "Длинная малоберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ikronozhnayamyshcasuhozhilie",
                     Name = "Икроножная мышца, сухожилие",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Bugristostpyatochnojkosti",
                     Name = "Бугристость пяточной кости",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Grudinopoyazychnayamyshca",
                     Name = "Грудино-поъязычная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Perednyayazubchatayamyshca",
                     Name = "Передняя зубчатая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Lateralnyjnadmyshchelok",
                     Name = "Латеральный надмыщелок",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Pupochnoekolco",
                     Name = "Пупочное кольцо",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Kosayavnutrennyayamyshcazhivota",
                     Name = "Косая внутренняя мышца живота",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Kosayavnutrennyayamyshcazhivotapodaponevrozom",
                     Name = "Косая внутренняя мышца живота (под апоневрозом)",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Podvzdoshnopoyasnichnayamyshca",
                     Name = "Подвздошно-поясничная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "GrebenchatayaMyshca",
                     Name = "Гребенчатая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Medialnayashirokayamyshcabedra",
                     Name = "Медиальная широкая мышца бедра",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Svyazkanadkolennika",
                     Name = "Связка надколенника",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Связка надколенника",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "Bugristost' bol'shebercovoj kosti",
                     Name = "Бугристость большеберцовой кости",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ikronozhnayamyshca",
                     Name = "Икроножная мышца",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Икроножная мышца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
+                    Code = "Dlinnyjsgibatelpalcevstopy",
                     Name = "Длинный сгибатель пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnyjrazgibatelpalcevstopy",
                     Name = "Длинный разгибатель пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Dlinnyjrazgibatelpalcevstopy",
                     Name = "Длинный разгибатель пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Lopatochnopodyazychnayamyshcanizhneeboyushk",
                     Name = "Лопаточно-подъязычная мышца, нижнее боюшко",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
-                    Name = "",
                     Decsription = "",
                     ShortName = ""
                 }
