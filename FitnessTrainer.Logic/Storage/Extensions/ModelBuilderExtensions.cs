@@ -396,13 +396,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "PerednyayaBolshebercovayaMyshca",
-                    Name = "Передняя большеберцовая мышца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
                     Code = "KorotkayaMalobercovayaMyshca",
                     Name = "Короткая малоберцовая мышца",
                     Decsription = "",
@@ -564,7 +557,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "Portnyazhnaya myshca",
+                    Code = "PortnyazhnayaMyshca",
                     Name = "Портняжная мышца",
                     Decsription = "",
                     ShortName = ""
@@ -648,13 +641,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "Dlinnayaladonnayamyshca",
-                    Name = "Длинная ладонная мышца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
                     Code = "Luchevojsgibatelzapyastya",
                     Name = "Лучевой сгибатель запястья",
                     Decsription = "",
@@ -676,28 +662,21 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
-                    Name = "Плечелучевая мышца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "Plecheluchevayamyshca",
+                    Code = "Kruglyjpronator",
                     Name = "Круглый пронатор",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "Podvzdoshnaya kost",
+                    Code = "PodvzdoshnayaKost",
                     Name = "Подвздошная кость",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "Pryamaya myshca zhivota",
+                    Code = "PryamayaMyshcaZhivota",
                     Name = "Прямая мышца живота",
                     Decsription = "",
                     ShortName = ""
@@ -774,13 +753,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "Bolshayamyshcaspiny",
-                    Name = "Большая мышца спины",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
                     Code = "Torakolyumbalnayafasciya",
                     Name = "Тораколюмбальная фасция",
                     Decsription = "",
@@ -797,20 +769,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                 {
                     Code = "Podvzdoshnayaost",
                     Name = "Подвздошная ость",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "Krestecdorsalnayapoverhnost",
-                    Name = "Крестец, дорсальная поверхность",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "",
-                    Name = "Крестец, дорсальная поверхность",
                     Decsription = "",
                     ShortName = ""
                 },
@@ -893,14 +851,14 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "",
+                    Code = "Ladonnyjaponevroz",
                     Name = "Ладонный апоневроз",
                     Decsription = "",
                     ShortName = ""
                 },
                 new CategoryOfBody
                 {
-                    Code = "Ladonnyjaponevroz",
+                    Code = "Distalnayafalanga",
                     Name = "Дистальная фаланга",
                     Decsription = "",
                     ShortName = ""
@@ -944,20 +902,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                 {
                     Code = "Podoshvennayamyshca",
                     Name = "Подошвенная мышца",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "Ikronozhnayamyshcalateralnayagolovka",
-                    Name = "Икроножная мышца, латеральная головка",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "Dlinnayamalobercovayamyshca",
-                    Name = "Длинная малоберцовая мышца",
                     Decsription = "",
                     ShortName = ""
                 },
@@ -1047,7 +991,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                 },
                 new CategoryOfBody
                 {
-                    Code = "Bugristost' bol'shebercovoj kosti",
+                    Code = "BugristostbolshebercovojKosti",
                     Name = "Бугристость большеберцовой кости",
                     Decsription = "",
                     ShortName = ""
@@ -1063,20 +1007,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                 {
                     Code = "Dlinnyjsgibatelpalcevstopy",
                     Name = "Длинный сгибатель пальцев стопы",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "Dlinnyjrazgibatelpalcevstopy",
-                    Name = "Длинный разгибатель пальцев стопы",
-                    Decsription = "",
-                    ShortName = ""
-                },
-                new CategoryOfBody
-                {
-                    Code = "Dlinnyjrazgibatelpalcevstopy",
-                    Name = "Длинный разгибатель пальцев стопы",
                     Decsription = "",
                     ShortName = ""
                 },
