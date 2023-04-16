@@ -33,6 +33,7 @@ namespace TrainingManager.Logic.Storage
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
             modelBuilder.builderInitBody();
-		}
+            modelBuilder.builderInitExercise();
+        }
 	}
 }

@@ -17,19 +17,36 @@ namespace TrainingManager.Logic.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
 
-            modelBuilder.Entity("CategoryOfBodyExercise", b =>
+            modelBuilder.Entity("ExerciseCategoryOfBody", b =>
                 {
-                    b.Property<string>("CategoryOfBodiesCode")
-                        .HasColumnType("TEXT");
-
                     b.Property<long>("ExerciseId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CategoryOfBodiesCode", "ExerciseId");
+                    b.Property<string>("CategoryOfBodyId")
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("ExerciseId");
+                    b.HasKey("ExerciseId", "CategoryOfBodyId");
 
-                    b.ToTable("CategoryOfBodyExercise");
+                    b.HasIndex("CategoryOfBodyId");
+
+                    b.ToTable("ExerciseCategoryOfBody");
+
+                    b.HasData(
+                        new
+                        {
+                            ExerciseId = 1L,
+                            CategoryOfBodyId = "DeltovidnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 1L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 1L,
+                            CategoryOfBodyId = "PlecheluchevayaMyshca"
+                        });
                 });
 
             modelBuilder.Entity("ExerciseTrainingProgramDay", b =>
@@ -1215,6 +1232,1229 @@ namespace TrainingManager.Logic.Migrations
                     b.HasIndex("AvatarId");
 
                     b.ToTable("Exercise");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5400),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Попеременные сгибания рук с гантелями",
+                            ShortName = "Сгибания рук с гантелями"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5418),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Концетрированное сгибание одной руки с гантелью",
+                            ShortName = "Сгибание одной руки с гантелью"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5422),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание рук с гантелями хватом молоток",
+                            ShortName = "Сгибание рук с гантелями хватом молоток"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5426),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание одной руки с рукояткой нижнего блока",
+                            ShortName = "Сгибание одной руки с рукояткой нижнего блока"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5430),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание рук с рукоятками верхних блоков",
+                            ShortName = "Сгибание рук с рукоятками верхних блоков"
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5434),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание рук с грифом штанги",
+                            ShortName = "Сгибание рук с грифом штанги"
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5438),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание рук на тренижере",
+                            ShortName = "Сгибание рук на тренижере"
+                        },
+                        new
+                        {
+                            Id = 8L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5443),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание рук на скамье",
+                            ShortName = "Сгибание рук на скамье"
+                        },
+                        new
+                        {
+                            Id = 9L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5447),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание со штангой хватом сверху",
+                            ShortName = "Сгибание со штангой хватом сверхуы"
+                        },
+                        new
+                        {
+                            Id = 10L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5451),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание запястий со штангой хватом сверху",
+                            ShortName = "Разгибание запястий со штангой хватом сверху"
+                        },
+                        new
+                        {
+                            Id = 11L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5456),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание запястий со штангой хватом снизу",
+                            ShortName = "Сгибание запястий со штангой хватом снизу"
+                        },
+                        new
+                        {
+                            Id = 12L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5460),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание рук с рукояткой верхнего блока хватом сверху",
+                            ShortName = "Разгибание рук с рукояткой верхнего блока хватом сверху"
+                        },
+                        new
+                        {
+                            Id = 13L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5464),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание рук с рукояткой верхнего блока хватом снизу",
+                            ShortName = "Разгибание рук с рукояткой верхнего блока хватом снизу"
+                        },
+                        new
+                        {
+                            Id = 14L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5467),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание одной руки с верхним блоком хватом снизу",
+                            ShortName = "Разгибание одной руки с верхним блоком хватом снизу"
+                        },
+                        new
+                        {
+                            Id = 15L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5471),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание рук со штангой лежа",
+                            ShortName = "Разгибание рук со штангой лежа"
+                        },
+                        new
+                        {
+                            Id = 16L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5475),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание рук с гантелями лежа",
+                            ShortName = "Разгибание рук с гантелями лежа"
+                        },
+                        new
+                        {
+                            Id = 17L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5479),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание одной руки с гантелью из-за головы",
+                            ShortName = "Разгибание одной руки с гантелью из-за головы"
+                        },
+                        new
+                        {
+                            Id = 18L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5483),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание рук с однойц гантелью из-за головы",
+                            ShortName = "Разгибание рук с однойц гантелью из-за голов"
+                        },
+                        new
+                        {
+                            Id = 19L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5487),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание рук с изогнутым грифом штанги из-за головы",
+                            ShortName = "Разгибание рук с изогнутым грифом штанги из-за головы"
+                        },
+                        new
+                        {
+                            Id = 20L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5491),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание одной руки назад с гантлью в наклоне",
+                            ShortName = "Разгибание одной руки назад с гантлью в наклоне"
+                        },
+                        new
+                        {
+                            Id = 21L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5495),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Отжимания трицепсами спиной к скамье",
+                            ShortName = "Отжимания трицепсами спиной к скамье"
+                        },
+                        new
+                        {
+                            Id = 22L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5499),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим штанги из-за головы сидя",
+                            ShortName = "Жим штанги из-за головы сидя"
+                        },
+                        new
+                        {
+                            Id = 23L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5503),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = true,
+                            Name = "Жим штанги с груди сидя",
+                            ShortName = "Жим штанги с груди сидя"
+                        },
+                        new
+                        {
+                            Id = 24L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5507),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим гантелей лежа",
+                            ShortName = "Жим гантелей лежа"
+                        },
+                        new
+                        {
+                            Id = 25L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5511),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим гантелей сидя",
+                            ShortName = "Жим гантелей сидя"
+                        },
+                        new
+                        {
+                            Id = 26L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5515),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Попеременный жим гантелей с поворотами запястий",
+                            ShortName = "Попеременный жим гантелей с поворотами запястий"
+                        },
+                        new
+                        {
+                            Id = 27L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5518),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем гантелей в стороны в наклоне вперед",
+                            ShortName = "Подъем гантелей в стороны в наклоне вперед"
+                        },
+                        new
+                        {
+                            Id = 28L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5522),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем гантелей в стороны",
+                            ShortName = "Подъем гантелей в стороны"
+                        },
+                        new
+                        {
+                            Id = 29L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5526),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем гантелей вперед попеременно",
+                            ShortName = "Подъем гантелей вперед попеременно"
+                        },
+                        new
+                        {
+                            Id = 30L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5530),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем гантели в сторону одной рукой, лежа на боку",
+                            ShortName = "Подъем гантели в сторону одной рукой, лежа на боку"
+                        },
+                        new
+                        {
+                            Id = 31L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5533),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем одной руки в сторону с нижнего блока",
+                            ShortName = "Подъем одной руки в сторону с нижнего блока"
+                        },
+                        new
+                        {
+                            Id = 32L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5537),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем одной руки вперед с нижнего блока стоя",
+                            ShortName = "Подъем одной руки вперед с нижнего блока стоя"
+                        },
+                        new
+                        {
+                            Id = 33L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5541),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Перекрестные махи руками назад с верхних блоков",
+                            ShortName = "Перекрестные махи руками назад с верхних блоков"
+                        },
+                        new
+                        {
+                            Id = 34L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5545),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Перекрестные махи руками назад с нижних блоков в наклоне",
+                            ShortName = "Перекрестные махи руками назад с нижних блоков в наклоне"
+                        },
+                        new
+                        {
+                            Id = 35L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5550),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы рук вперед с одной гантелью",
+                            ShortName = "Подъемы рук вперед с одной гантелью"
+                        },
+                        new
+                        {
+                            Id = 36L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5553),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы штанги вперед",
+                            ShortName = "Подъемы штанги вперед"
+                        },
+                        new
+                        {
+                            Id = 37L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5646),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Плечевая передняя протяжка",
+                            ShortName = "Плечевая передняя протяжка"
+                        },
+                        new
+                        {
+                            Id = 38L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5653),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы рук в стороны на тренажере",
+                            ShortName = "Подъемы рук в стороны на тренажере"
+                        },
+                        new
+                        {
+                            Id = 39L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5657),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи руками назад с рукоятками тренажера",
+                            ShortName = "Махи руками назад с рукоятками тренажерае"
+                        },
+                        new
+                        {
+                            Id = 40L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5661),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим штанги, лежа на наклонной скамье",
+                            ShortName = "Жим штанги, лежа на наклонной скамье"
+                        },
+                        new
+                        {
+                            Id = 41L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5666),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим штанги, лежа на горизонтальной скамье",
+                            ShortName = "Жим штанги, лежа на горизонтальной скамье"
+                        },
+                        new
+                        {
+                            Id = 42L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5670),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим штанги, лежа на скамье с уклоном",
+                            ShortName = "Жим штанги, лежа на скамье с уклоном"
+                        },
+                        new
+                        {
+                            Id = 43L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5674),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Отжимания от пола",
+                            ShortName = "Отжимания от пола"
+                        },
+                        new
+                        {
+                            Id = 44L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5678),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Отжимания на брусьях",
+                            ShortName = "Отжимания на брусьях"
+                        },
+                        new
+                        {
+                            Id = 45L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5682),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим гантелей лежа",
+                            ShortName = "Жим гантелей лежа"
+                        },
+                        new
+                        {
+                            Id = 46L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5685),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разведение гантелей лежа",
+                            ShortName = "Разведение гантелей лежа"
+                        },
+                        new
+                        {
+                            Id = 47L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5689),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Жим гантелей, лежа на наклонной скамье",
+                            ShortName = "Жим гантелей, лежа на наклонной скамье"
+                        },
+                        new
+                        {
+                            Id = 48L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5693),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сведение рук в тренажере",
+                            ShortName = "Сведение рук в тренажере"
+                        },
+                        new
+                        {
+                            Id = 49L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5696),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сведение верхних блоков",
+                            ShortName = "Сведение верхних блоков"
+                        },
+                        new
+                        {
+                            Id = 50L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5701),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга гантели из-за головы лежа",
+                            ShortName = "Тяга гантели из-за головы лежа"
+                        },
+                        new
+                        {
+                            Id = 51L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5704),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга штанги лежа",
+                            ShortName = "Тяга штанги лежа"
+                        },
+                        new
+                        {
+                            Id = 52L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5708),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подтягивания на перекладине хватом снизу",
+                            ShortName = "Подтягивания на перекладине хватом снизу"
+                        },
+                        new
+                        {
+                            Id = 53L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5713),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подтягивания на специальной перекладине",
+                            ShortName = "Подтягивания на специальной перекладине"
+                        },
+                        new
+                        {
+                            Id = 54L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5717),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга верхнего блока перед собой",
+                            ShortName = "Тяга верхнего блока перед собой"
+                        },
+                        new
+                        {
+                            Id = 55L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5721),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга верхнего блока за шею",
+                            ShortName = "Тяга верхнего блока за шею"
+                        },
+                        new
+                        {
+                            Id = 56L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5725),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга верхнего блока узим хватом",
+                            ShortName = "Тяга верхнего блока узким хватом"
+                        },
+                        new
+                        {
+                            Id = 57L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5729),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга верхнего блока прямыми руками",
+                            ShortName = "Тяга верхнего блока прямыми рукам"
+                        },
+                        new
+                        {
+                            Id = 58L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5732),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга верхнего блока (гребля)",
+                            ShortName = "Тяга верхнего блока (гребля)"
+                        },
+                        new
+                        {
+                            Id = 59L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5736),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга гантели одной рукой",
+                            ShortName = "Тяга гантели одной рукой"
+                        },
+                        new
+                        {
+                            Id = 60L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5740),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга штанги, стоя в наклоне",
+                            ShortName = "Тяга штанги стоя в наклоне"
+                        },
+                        new
+                        {
+                            Id = 61L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5744),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Тяга т-образного грифа",
+                            ShortName = "Тяга т-образного грифа"
+                        },
+                        new
+                        {
+                            Id = 62L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5747),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Мертвые тяги со штангой, ноги прямые",
+                            ShortName = "Мертвые тяги со штангой, ноги прямые"
+                        },
+                        new
+                        {
+                            Id = 63L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5752),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Мертвые тяги в стиле сумо",
+                            ShortName = "Мертвые тяги в стиле сумо"
+                        },
+                        new
+                        {
+                            Id = 64L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5755),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Становые тяги со штангой",
+                            ShortName = "Становые тяги со штангой"
+                        },
+                        new
+                        {
+                            Id = 65L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5759),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Поясничные прогибания",
+                            ShortName = "Поясничные прогибания"
+                        },
+                        new
+                        {
+                            Id = 66L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5763),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибания туловища на тренажере",
+                            ShortName = "Разгибания туловища на тренажерея"
+                        },
+                        new
+                        {
+                            Id = 67L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5767),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Вертикальные тяги",
+                            ShortName = "Вертикальные тяги"
+                        },
+                        new
+                        {
+                            Id = 68L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5772),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Шраги со штангой",
+                            ShortName = "Шраги со штангой"
+                        },
+                        new
+                        {
+                            Id = 69L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5775),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Шраги с гантелями",
+                            ShortName = "Шраги с гантелями"
+                        },
+                        new
+                        {
+                            Id = 70L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5779),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Шраги в тренажере",
+                            ShortName = "Шраги в тренажере"
+                        },
+                        new
+                        {
+                            Id = 71L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5783),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = true,
+                            Name = "Приседания с гантелями",
+                            ShortName = "Приседания с гантелями"
+                        },
+                        new
+                        {
+                            Id = 72L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5787),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Приседания со штангой на груди",
+                            ShortName = "Приседания со штангой на груди"
+                        },
+                        new
+                        {
+                            Id = 73L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5846),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Приседания со штангой на плечах",
+                            ShortName = "Приседания со штангой на плечах"
+                        },
+                        new
+                        {
+                            Id = 74L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5852),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Широкие приседания",
+                            ShortName = "Широкие приседания"
+                        },
+                        new
+                        {
+                            Id = 75L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5856),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Наклонный жим ногами",
+                            ShortName = "Наклонный жим ногами"
+                        },
+                        new
+                        {
+                            Id = 76L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5860),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Приседания на тренажере",
+                            ShortName = "Приседания на тренажере"
+                        },
+                        new
+                        {
+                            Id = 77L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5864),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание ног",
+                            ShortName = "Разгибание ног"
+                        },
+                        new
+                        {
+                            Id = 78L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5870),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание ног лежа",
+                            ShortName = "Сгибание ног лежа"
+                        },
+                        new
+                        {
+                            Id = 79L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5874),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание одной ноги лежа",
+                            ShortName = "Сгибание одной ноги лежаа"
+                        },
+                        new
+                        {
+                            Id = 80L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5878),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сгибание ног сидя",
+                            ShortName = "Сгибание ног сидя"
+                        },
+                        new
+                        {
+                            Id = 81L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5881),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы торса",
+                            ShortName = "Подъемы торса"
+                        },
+                        new
+                        {
+                            Id = 82L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5885),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Приведение одной ноги стоя",
+                            ShortName = "Приведение одной ноги стоя"
+                        },
+                        new
+                        {
+                            Id = 83L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5889),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сведение ног сидя",
+                            ShortName = "Сведение ног сидя"
+                        },
+                        new
+                        {
+                            Id = 84L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5893),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы на носки стоя",
+                            ShortName = "Подъемы на носки стоя"
+                        },
+                        new
+                        {
+                            Id = 85L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5898),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем на носок одной ноги стоя",
+                            ShortName = "Подъем на носок одной ноги стоя"
+                        },
+                        new
+                        {
+                            Id = 86L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5902),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы на носки в наклоне",
+                            ShortName = "Подъемы на носки в наклоне"
+                        },
+                        new
+                        {
+                            Id = 87L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5905),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание голени сидя",
+                            ShortName = "Разгибание голени сидя"
+                        },
+                        new
+                        {
+                            Id = 111L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5909),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разгибание голени сидя, со штангой на коленях",
+                            ShortName = "Разгибание голени сидя, со штангой на коленях"
+                        },
+                        new
+                        {
+                            Id = 88L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5912),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сворачивание туловища на полу",
+                            ShortName = "Сворачивание туловища на пол"
+                        },
+                        new
+                        {
+                            Id = 89L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5916),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы туловища у гимнастической стенки",
+                            ShortName = "Подъемы туловища у гимнастической стенки"
+                        },
+                        new
+                        {
+                            Id = 90L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5920),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сворачивание туловища с голенью на скамье",
+                            ShortName = "Сворачивание туловища с голенью на скамье"
+                        },
+                        new
+                        {
+                            Id = 91L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5924),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы туловища на наклонной скамье",
+                            ShortName = "Подъемы туловища на наклонной скамье"
+                        },
+                        new
+                        {
+                            Id = 92L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5929),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем туловища на вертикальной скамье",
+                            ShortName = "Подъем туловища на вертикальной скамье"
+                        },
+                        new
+                        {
+                            Id = 93L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5932),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сворачивание туловища с верхним блоком",
+                            ShortName = "Сворачивание туловища с верхним блоком"
+                        },
+                        new
+                        {
+                            Id = 94L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5936),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Сворачивание тууловища на тренажере",
+                            ShortName = "Сворачивание туловища на тренажере"
+                        },
+                        new
+                        {
+                            Id = 95L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5939),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъемы ног на наклонной скамье",
+                            ShortName = "Подъемы ног на наклонной скамье"
+                        },
+                        new
+                        {
+                            Id = 96L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5943),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем коленей в упоре",
+                            ShortName = "Подъем коленей в упоре"
+                        },
+                        new
+                        {
+                            Id = 97L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5947),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Подъем коленей в висе",
+                            ShortName = "Подъем коленей в висе"
+                        },
+                        new
+                        {
+                            Id = 98L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5952),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разворот туловища с грифом",
+                            ShortName = "Разворот туловища с грифом"
+                        },
+                        new
+                        {
+                            Id = 99L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5956),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Боковые наклоны туловища стоя",
+                            ShortName = "Боковые наклоны туловища на римском стуле"
+                        },
+                        new
+                        {
+                            Id = 100L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5960),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Вращение туловища на тренажере Твист",
+                            ShortName = "Вращение туловища на тренажере Твист"
+                        },
+                        new
+                        {
+                            Id = 101L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5964),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Выпады со штангой на плечах",
+                            ShortName = "Выпады со штангой на плечах"
+                        },
+                        new
+                        {
+                            Id = 102L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5968),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Выпады с гантелями",
+                            ShortName = "Выпады с гантелями"
+                        },
+                        new
+                        {
+                            Id = 103L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5971),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи ногой назад с нижнего блока",
+                            ShortName = "Махи ногой назад с нижнего блока"
+                        },
+                        new
+                        {
+                            Id = 104L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5975),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи ногой назад с рычагом тренажера",
+                            ShortName = "Махи ногой назад с рычагом тренажера"
+                        },
+                        new
+                        {
+                            Id = 105L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5979),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи ногой нзад на полу",
+                            ShortName = "Махи ногой нзад на полу"
+                        },
+                        new
+                        {
+                            Id = 106L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5983),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Мостик лежа",
+                            ShortName = "Мостик лежа"
+                        },
+                        new
+                        {
+                            Id = 107L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5987),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи ногой в сторону с нинего блока",
+                            ShortName = "Махи ногой в сторону с нинего блока"
+                        },
+                        new
+                        {
+                            Id = 108L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(5990),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи ногой в сторону с рычагом тренажера",
+                            ShortName = "Махи ногой в сторону с рычагом тренажера"
+                        },
+                        new
+                        {
+                            Id = 109L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(6054),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Махи ногой в сторону, лежа на боку",
+                            ShortName = "Махи ногой в сторону, лежа на боку"
+                        },
+                        new
+                        {
+                            Id = 110L,
+                            CreatedDate = new DateTime(2023, 4, 15, 23, 11, 57, 898, DateTimeKind.Local).AddTicks(6059),
+                            Description = "",
+                            HardSkill = 1,
+                            IsArchived = false,
+                            IsBased = false,
+                            Name = "Разведение ног на тренажере",
+                            ShortName = "Разведение ног на тренажере"
+                        });
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Goal", b =>
@@ -1486,11 +2726,11 @@ namespace TrainingManager.Logic.Migrations
                     b.ToTable("UnitsOfMeasurements");
                 });
 
-            modelBuilder.Entity("CategoryOfBodyExercise", b =>
+            modelBuilder.Entity("ExerciseCategoryOfBody", b =>
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", null)
                         .WithMany()
-                        .HasForeignKey("CategoryOfBodiesCode")
+                        .HasForeignKey("CategoryOfBodyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
