@@ -29,8 +29,8 @@ namespace TrainingManager.Logic
 				var logFactory = services.GetService<ILogFactory>();
 				var connectionString = (config ?? throw new ArgumentNullException(nameof(config))).StorageConnectionString;
 				options.EnableSensitiveDataLogging();
-				options.UseSqlite($"Data Source={connectionString}");
-			});
+				options.UseNpgsql(connectionString);
+            });
 		}
 	}
 }

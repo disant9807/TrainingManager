@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TrainingManager.Logic.Storage;
 
 #nullable disable
@@ -11,25 +12,30 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    [Migration("20230324061549_RenamePurposeToGoal")]
-    partial class RenamePurposeToGoal
+    [Migration("20230416075436_FirstMigration")]
+    partial class FirstMigration
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("CategoryOfBodyExercise", b =>
                 {
                     b.Property<string>("CategoryOfBodiesCode")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
-                    b.Property<long>("ExercisesId")
-                        .HasColumnType("INTEGER");
+                    b.Property<long>("ExerciseId")
+                        .HasColumnType("bigint");
 
-                    b.HasKey("CategoryOfBodiesCode", "ExercisesId");
+                    b.HasKey("CategoryOfBodiesCode", "ExerciseId");
 
-                    b.HasIndex("ExercisesId");
+                    b.HasIndex("ExerciseId");
 
                     b.ToTable("CategoryOfBodyExercise");
                 });
@@ -37,10 +43,10 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("ExerciseTrainingProgramDay", b =>
                 {
                     b.Property<long>("ExercisesId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<Guid>("TrainingProgramDaysId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("ExercisesId", "TrainingProgramDaysId");
 
@@ -53,19 +59,19 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<long?>("ExerciseId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<int>("NumberOfTraining")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<long>("TrainingId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -80,25 +86,25 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Hard")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<int>("NumberOfApproach")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Technicality")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<long>("Time")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<float>("Weight")
-                        .HasColumnType("REAL");
+                        .HasColumnType("real");
 
                     b.Property<Guid>("approachId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -110,91 +116,67 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.CategoryOfBody", b =>
                 {
                     b.Property<string>("Code")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("AvatarId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Decsription")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Code");
 
                     b.HasIndex("AvatarId");
 
                     b.ToTable("CategoryOfBody");
-
-                    b.HasData(
-                        new
-                        {
-                            Code = "Back",
-                            Decsription = "Спина",
-                            IsArchived = false,
-                            Name = "Спина",
-                            ShortName = "Спина"
-                        },
-                        new
-                        {
-                            Code = "legs",
-                            Decsription = "Ноги",
-                            IsArchived = false,
-                            Name = "Ноги",
-                            ShortName = "Ноги"
-                        },
-                        new
-                        {
-                            Code = "Chest",
-                            Decsription = "Грудь",
-                            IsArchived = false,
-                            Name = "Грудь",
-                            ShortName = "Грудь"
-                        });
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Exercise", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<Guid?>("AvatarId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int?>("HardSkill")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsBased")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -207,18 +189,26 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CompletionDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsArchived")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -229,27 +219,27 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long?>("ExerciseId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("SizeItemId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<long?>("TrainingProgramId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -266,17 +256,19 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -287,30 +279,24 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("AvatarId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("BodyCode")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CodeUnitsOfMeasurement")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long>("SizeId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AvatarId");
 
                     b.HasIndex("BodyCode");
 
@@ -325,28 +311,29 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
-                    b.Property<string>("CategoryOfBodyCode")
-                        .HasColumnType("TEXT");
+                    b.Property<string>("BodyCode")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("CodeUnitsOfMeasurement")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
-                    b.Property<long>("PurposeId")
-                        .HasColumnType("INTEGER");
+                    b.Property<long>("GoalId")
+                        .HasColumnType("bigint");
 
                     b.Property<float>("Value")
-                        .HasColumnType("REAL");
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryOfBodyCode");
+                    b.HasIndex("BodyCode");
 
                     b.HasIndex("CodeUnitsOfMeasurement");
 
-                    b.HasIndex("PurposeId");
+                    b.HasIndex("GoalId");
 
                     b.ToTable("SubGoal");
                 });
@@ -355,30 +342,32 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long>("Time")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("TrainingDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<long?>("TrainingProgramId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -391,28 +380,30 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<Guid?>("AvatarId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -425,27 +416,27 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("DayRelax")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int>("NumberOfTrainingProgram")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<long>("TrainingProgramId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -457,15 +448,18 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", b =>
                 {
                     b.Property<string>("Code")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsArchive")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Code");
 
-                    b.ToTable("UnitsOfMeasurement");
+                    b.ToTable("UnitsOfMeasurements");
                 });
 
             modelBuilder.Entity("CategoryOfBodyExercise", b =>
@@ -478,7 +472,7 @@ namespace TrainingManager.Logic.Migrations
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Exercise", null)
                         .WithMany()
-                        .HasForeignKey("ExercisesId")
+                        .HasForeignKey("ExerciseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -561,12 +555,6 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SizeItem", b =>
                 {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Image", "Avatar")
-                        .WithMany()
-                        .HasForeignKey("AvatarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "Body")
                         .WithMany()
                         .HasForeignKey("BodyCode")
@@ -585,8 +573,6 @@ namespace TrainingManager.Logic.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Avatar");
-
                     b.Navigation("Body");
 
                     b.Navigation("Size");
@@ -596,9 +582,11 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.SubGoal", b =>
                 {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "CategoryOfBody")
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", "Body")
                         .WithMany()
-                        .HasForeignKey("CategoryOfBodyCode");
+                        .HasForeignKey("BodyCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", "UnitsOfMeasurement")
                         .WithMany()
@@ -606,15 +594,15 @@ namespace TrainingManager.Logic.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Goal", "Purpose")
-                        .WithMany("SubPurpose")
-                        .HasForeignKey("PurposeId")
+                    b.HasOne("TrainingManager.Logic.Storage.Domain.Goal", "Goal")
+                        .WithMany("SubGoals")
+                        .HasForeignKey("GoalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CategoryOfBody");
+                    b.Navigation("Body");
 
-                    b.Navigation("Purpose");
+                    b.Navigation("Goal");
 
                     b.Navigation("UnitsOfMeasurement");
                 });
@@ -660,7 +648,7 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Goal", b =>
                 {
-                    b.Navigation("SubPurpose");
+                    b.Navigation("SubGoals");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Size", b =>

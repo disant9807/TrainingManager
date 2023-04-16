@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TrainingManager.Logic.Storage;
 
 #nullable disable
@@ -11,36 +12,748 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    [Migration("20230415142623_InitExerciseValueDefault")]
-    partial class InitExerciseValueDefault
+    [Migration("20230416080504_InitExerciseData")]
+    partial class InitExerciseData
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("CategoryOfBodyExercise", b =>
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("ExerciseCategoryOfBody", b =>
                 {
-                    b.Property<string>("CategoryOfBodiesCode")
-                        .HasColumnType("TEXT");
-
                     b.Property<long>("ExerciseId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
-                    b.HasKey("CategoryOfBodiesCode", "ExerciseId");
+                    b.Property<string>("CategoryOfBodyId")
+                        .HasColumnType("text");
 
-                    b.HasIndex("ExerciseId");
+                    b.HasKey("ExerciseId", "CategoryOfBodyId");
 
-                    b.ToTable("CategoryOfBodyExercise");
+                    b.HasIndex("CategoryOfBodyId");
+
+                    b.ToTable("ExerciseCategoryOfBody");
+
+                    b.HasData(
+                        new
+                        {
+                            ExerciseId = 1L,
+                            CategoryOfBodyId = "DeltovidnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 1L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 1L,
+                            CategoryOfBodyId = "PlecheluchevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 2L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 2L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 2L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 3L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 3L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 3L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 3L,
+                            CategoryOfBodyId = "PlecheluchevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 4L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 4L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 4L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 5L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 5L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 5L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 6L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 6L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 6L,
+                            CategoryOfBodyId = "PlecheluchevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 7L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 7L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 8L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 8L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "PlecheluchevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "PlechevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "BicepsDvuglavayaMyshcaPlecha"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "BicepsPlechaDlannayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "Dlinnyjluchevojrazgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "Korotkijluchevojrvzgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "Razgibatelpalcevkistisuhozhilie"
+                        },
+                        new
+                        {
+                            ExerciseId = 9L,
+                            CategoryOfBodyId = "Loktevojrazgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 10L,
+                            CategoryOfBodyId = "Dlinnyjluchevojrazgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 10L,
+                            CategoryOfBodyId = "Korotkijluchevojrvzgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 10L,
+                            CategoryOfBodyId = "Razgibatelpalcevkistisuhozhilie"
+                        },
+                        new
+                        {
+                            ExerciseId = 10L,
+                            CategoryOfBodyId = "Loktevojrazgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 11L,
+                            CategoryOfBodyId = "Luchevojsgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 11L,
+                            CategoryOfBodyId = "DlinnayaLadonnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 11L,
+                            CategoryOfBodyId = "PoverhnostnyjSgibatelPalcevKisti"
+                        },
+                        new
+                        {
+                            ExerciseId = 11L,
+                            CategoryOfBodyId = "Loktevojsgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 11L,
+                            CategoryOfBodyId = "Dlinnyjsgibatelbolshogopalcakisti"
+                        },
+                        new
+                        {
+                            ExerciseId = 12L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 12L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 12L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 12L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 13L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 13L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 13L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 13L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 13L,
+                            CategoryOfBodyId = "Korotkijluchevojrvzgibatelzapyastya"
+                        },
+                        new
+                        {
+                            ExerciseId = 14L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 14L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 14L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 14L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 15L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 15L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 15L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 15L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 16L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 16L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 16L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 16L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 17L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 17L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 17L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 18L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 18L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 18L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 18L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 19L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 19L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 19L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 20L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 20L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 20L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 21L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 21L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 21L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 21L,
+                            CategoryOfBodyId = "LoktevayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 22L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 22L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 22L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 22L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 22L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 22L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 23L,
+                            CategoryOfBodyId = "BolshayaGrudnayaMyshcaGrudinoChychicnayaChast"
+                        },
+                        new
+                        {
+                            ExerciseId = 24L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 24L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 24L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 24L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 24L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 24L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka"
+                        },
+                        new
+                        {
+                            ExerciseId = 25L,
+                            CategoryOfBodyId = "BolshayaGrudnayaMyshcaGrudinoChychicnayaChast"
+                        },
+                        new
+                        {
+                            ExerciseId = 26L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 26L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 26L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 26L,
+                            CategoryOfBodyId = "Malayakruglayamyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 26L,
+                            CategoryOfBodyId = "TrapecividnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 26L,
+                            CategoryOfBodyId = "Podostnayamyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 27L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 27L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 27L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 27L,
+                            CategoryOfBodyId = "TrapecividnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 28L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 28L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 28L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 29L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 29L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 29L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 29L,
+                            CategoryOfBodyId = "BolshayaGrudnayaMyshcaGrudinoChychicnayaChast"
+                        },
+                        new
+                        {
+                            ExerciseId = 30L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 30L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 31L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 31L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 31L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 32L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 32L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 32L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 33L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 33L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 33L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 33L,
+                            CategoryOfBodyId = "TrapecividnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "TrapecividnayaMyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaPered"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaSrednya"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "DeltovidnayaMyshcaZad"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "Bolshayakruglayamyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "Podostnayamyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 34L,
+                            CategoryOfBodyId = "Malayakruglayamyshca"
+                        },
+                        new
+                        {
+                            ExerciseId = 35L,
+                            CategoryOfBodyId = "Malayakruglayamyshca"
+                        });
                 });
 
             modelBuilder.Entity("ExerciseTrainingProgramDay", b =>
                 {
                     b.Property<long>("ExercisesId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<Guid>("TrainingProgramDaysId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("ExercisesId", "TrainingProgramDaysId");
 
@@ -53,19 +766,19 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<long?>("ExerciseId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<int>("NumberOfTraining")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<long>("TrainingId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -80,25 +793,25 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Hard")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<int>("NumberOfApproach")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Technicality")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<long>("Time")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<float>("Weight")
-                        .HasColumnType("REAL");
+                        .HasColumnType("real");
 
                     b.Property<Guid>("approachId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -110,25 +823,25 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.CategoryOfBody", b =>
                 {
                     b.Property<string>("Code")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("AvatarId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Decsription")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Code");
 
@@ -216,6 +929,38 @@ namespace TrainingManager.Logic.Migrations
                             IsArchived = false,
                             Name = "Дельтовидная мышца",
                             ShortName = "Дельтовидная мышца"
+                        },
+                        new
+                        {
+                            Code = "DeltovidnayaMyshcaPered",
+                            Decsription = "",
+                            IsArchived = false,
+                            Name = "Дельтовидная мышца. Передняя часть",
+                            ShortName = "Дельтовидная мышца"
+                        },
+                        new
+                        {
+                            Code = "DeltovidnayaMyshcaSrednya",
+                            Decsription = "",
+                            IsArchived = false,
+                            Name = "Дельтовидная мышца. Средняя часть.",
+                            ShortName = "Дельтовидная мышца"
+                        },
+                        new
+                        {
+                            Code = "DeltovidnayaMyshcaZad",
+                            Decsription = "",
+                            IsArchived = false,
+                            Name = "Дельтовидная мышца. Задняя часть.",
+                            ShortName = "Дельтовидная мышца"
+                        },
+                        new
+                        {
+                            Code = "BolshayaGrudnayaMyshcaGrudinoChychicnayaChast",
+                            Decsription = "",
+                            IsArchived = false,
+                            Name = "Болшая грудная мышца, ключицная часть",
+                            ShortName = "Грудная мышца, ключицная часть"
                         },
                         new
                         {
@@ -1183,34 +1928,36 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<Guid?>("AvatarId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int?>("HardSkill")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsBased")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -1222,7 +1969,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6085),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1233,7 +1980,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6099),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1244,7 +1991,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6104),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1255,7 +2002,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 4L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6107),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1266,7 +2013,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 5L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6110),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1277,7 +2024,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 6L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6114),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1288,7 +2035,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 7L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6117),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1299,7 +2046,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 8L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6120),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1310,7 +2057,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 9L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6124),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1321,7 +2068,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 10L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6127),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1332,7 +2079,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 11L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6130),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1343,7 +2090,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 12L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6193),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1354,7 +2101,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 13L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6197),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1365,7 +2112,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 14L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6201),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1376,7 +2123,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 15L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6205),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1387,7 +2134,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 16L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6208),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1398,7 +2145,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 17L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6212),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1409,7 +2156,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 18L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6216),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1420,7 +2167,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 19L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6220),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1431,7 +2178,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 20L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6223),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1442,7 +2189,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 21L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6226),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1453,7 +2200,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 22L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6229),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1464,7 +2211,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 23L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6233),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1475,7 +2222,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 24L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6236),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1486,7 +2233,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 25L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6239),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1497,7 +2244,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 26L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6243),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1508,7 +2255,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 27L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6246),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1519,7 +2266,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 28L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6249),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1530,7 +2277,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 29L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6253),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1541,7 +2288,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 30L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6256),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1552,7 +2299,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 31L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6260),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1563,7 +2310,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 32L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6264),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1574,7 +2321,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 33L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6268),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1585,7 +2332,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 34L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6271),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1596,7 +2343,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 35L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6274),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1607,7 +2354,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 36L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6277),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1618,7 +2365,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 37L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6281),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1629,7 +2376,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 38L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6284),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1640,7 +2387,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 39L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6287),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1651,7 +2398,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 40L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6291),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1662,7 +2409,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 41L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6295),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1673,7 +2420,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 42L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6298),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1684,7 +2431,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 43L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6301),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1695,7 +2442,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 44L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6305),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1706,7 +2453,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 45L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6309),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1717,7 +2464,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 46L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6312),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1728,7 +2475,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 47L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6316),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1739,7 +2486,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 48L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6374),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1750,7 +2497,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 49L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6379),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1761,7 +2508,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 50L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6382),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1772,7 +2519,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 51L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6386),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1783,7 +2530,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 52L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6390),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1794,7 +2541,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 53L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6393),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1805,7 +2552,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 54L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6397),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1816,7 +2563,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 55L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6400),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1827,7 +2574,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 56L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6404),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1838,7 +2585,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 57L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6408),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1849,7 +2596,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 58L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6411),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1860,7 +2607,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 59L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6415),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1871,7 +2618,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 60L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6418),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1882,7 +2629,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 61L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6421),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1893,7 +2640,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 62L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6426),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1904,7 +2651,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 63L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6429),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1915,7 +2662,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 64L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6433),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1926,7 +2673,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 65L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6436),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1937,7 +2684,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 66L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6440),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1948,7 +2695,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 67L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6443),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1959,7 +2706,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 68L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6447),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1970,7 +2717,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 69L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6450),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1981,7 +2728,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 70L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6454),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -1992,7 +2739,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 71L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6457),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2003,7 +2750,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 72L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6460),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2014,7 +2761,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 73L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6464),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2025,7 +2772,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 74L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6467),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2036,7 +2783,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 75L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6471),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2047,7 +2794,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 76L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6474),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2058,7 +2805,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 77L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6478),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2069,7 +2816,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 78L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6482),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2080,7 +2827,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 79L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6485),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2091,7 +2838,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 80L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6489),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2102,7 +2849,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 81L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6493),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2113,7 +2860,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 82L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6496),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2124,7 +2871,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 83L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6499),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2135,7 +2882,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 84L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6503),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2146,7 +2893,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 85L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6564),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2157,7 +2904,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 86L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6568),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2168,7 +2915,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 87L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6571),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2179,7 +2926,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 111L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6575),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2190,7 +2937,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 88L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6579),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2201,7 +2948,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 89L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6582),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2212,7 +2959,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 90L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6586),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2223,7 +2970,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 91L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6590),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2234,7 +2981,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 92L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6593),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2245,7 +2992,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 93L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6596),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2256,7 +3003,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 94L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6599),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2267,7 +3014,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 95L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6603),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2278,7 +3025,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 96L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6606),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2289,7 +3036,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 97L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6610),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2300,7 +3047,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 98L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6614),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2311,7 +3058,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 99L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6617),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2322,7 +3069,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 100L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6620),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2333,7 +3080,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 101L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6623),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2344,7 +3091,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 102L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6627),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2355,7 +3102,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 103L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6630),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2366,7 +3113,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 104L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6634),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2377,7 +3124,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 105L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6638),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2388,7 +3135,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 106L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6641),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2399,7 +3146,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 107L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6645),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2410,7 +3157,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 108L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6648),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2421,7 +3168,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 109L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6652),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2432,7 +3179,7 @@ namespace TrainingManager.Logic.Migrations
                         new
                         {
                             Id = 110L,
-                            CreatedDate = new DateTime(2023, 4, 15, 22, 26, 22, 380, DateTimeKind.Local).AddTicks(6655),
+                            CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                             Description = "",
                             HardSkill = 1,
                             IsArchived = false,
@@ -2446,24 +3193,26 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CompletionDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -2474,27 +3223,27 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long?>("ExerciseId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("SizeItemId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<long?>("TrainingProgramId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -2511,17 +3260,19 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -2532,22 +3283,22 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("BodyCode")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CodeUnitsOfMeasurement")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long>("SizeId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -2564,21 +3315,21 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("BodyCode")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CodeUnitsOfMeasurement")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long>("GoalId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<float>("Value")
-                        .HasColumnType("REAL");
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -2595,30 +3346,32 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<long>("Time")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("TrainingDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<long?>("TrainingProgramId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -2631,28 +3384,30 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<Guid?>("AvatarId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -2665,27 +3420,27 @@ namespace TrainingManager.Logic.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("DayRelax")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchived")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int>("NumberOfTrainingProgram")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<long>("TrainingProgramId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -2697,25 +3452,25 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.UnitsOfMeasurement", b =>
                 {
                     b.Property<string>("Code")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsArchive")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Code");
 
                     b.ToTable("UnitsOfMeasurements");
                 });
 
-            modelBuilder.Entity("CategoryOfBodyExercise", b =>
+            modelBuilder.Entity("ExerciseCategoryOfBody", b =>
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.CategoryOfBody", null)
                         .WithMany()
-                        .HasForeignKey("CategoryOfBodiesCode")
+                        .HasForeignKey("CategoryOfBodyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

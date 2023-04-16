@@ -19,7 +19,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 1,
                     Name = "Попеременные сгибания рук с гантелями",
                     ShortName = "Сгибания рук с гантелями",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -29,7 +29,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 2,
                     Name = "Концетрированное сгибание одной руки с гантелью",
                     ShortName = "Сгибание одной руки с гантелью",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -39,7 +39,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 3,
                     Name = "Сгибание рук с гантелями хватом молоток",
                     ShortName = "Сгибание рук с гантелями хватом молоток",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -49,7 +49,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 4,
                     Name = "Сгибание одной руки с рукояткой нижнего блока",
                     ShortName = "Сгибание одной руки с рукояткой нижнего блока",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -59,7 +59,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 5,
                     Name = "Сгибание рук с рукоятками верхних блоков",
                     ShortName = "Сгибание рук с рукоятками верхних блоков",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -69,7 +69,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 6,
                     Name = "Сгибание рук с грифом штанги",
                     ShortName = "Сгибание рук с грифом штанги",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -79,7 +79,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 7,
                     Name = "Сгибание рук на тренижере",
                     ShortName = "Сгибание рук на тренижере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -89,7 +89,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 8,
                     Name = "Сгибание рук на скамье",
                     ShortName = "Сгибание рук на скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -99,7 +99,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 9,
                     Name = "Сгибание со штангой хватом сверху",
                     ShortName = "Сгибание со штангой хватом сверхуы",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -109,7 +109,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 10,
                     Name = "Разгибание запястий со штангой хватом сверху",
                     ShortName = "Разгибание запястий со штангой хватом сверху",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -119,7 +119,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 11,
                     Name = "Сгибание запястий со штангой хватом снизу",
                     ShortName = "Сгибание запястий со штангой хватом снизу",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -129,7 +129,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 12,
                     Name = "Разгибание рук с рукояткой верхнего блока хватом сверху",
                     ShortName = "Разгибание рук с рукояткой верхнего блока хватом сверху",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -139,7 +139,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 13,
                     Name = "Разгибание рук с рукояткой верхнего блока хватом снизу",
                     ShortName = "Разгибание рук с рукояткой верхнего блока хватом снизу",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -149,7 +149,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 14,
                     Name = "Разгибание одной руки с верхним блоком хватом снизу",
                     ShortName = "Разгибание одной руки с верхним блоком хватом снизу",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -159,7 +159,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 15,
                     Name = "Разгибание рук со штангой лежа",
                     ShortName = "Разгибание рук со штангой лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -169,7 +169,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 16,
                     Name = "Разгибание рук с гантелями лежа",
                     ShortName = "Разгибание рук с гантелями лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -179,7 +179,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 17,
                     Name = "Разгибание одной руки с гантелью из-за головы",
                     ShortName = "Разгибание одной руки с гантелью из-за головы",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -189,7 +189,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 18,
                     Name = "Разгибание рук с однойц гантелью из-за головы",
                     ShortName = "Разгибание рук с однойц гантелью из-за голов",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -199,7 +199,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 19,
                     Name = "Разгибание рук с изогнутым грифом штанги из-за головы",
                     ShortName = "Разгибание рук с изогнутым грифом штанги из-за головы",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -209,7 +209,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 20,
                     Name = "Разгибание одной руки назад с гантлью в наклоне",
                     ShortName = "Разгибание одной руки назад с гантлью в наклоне",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -219,7 +219,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 21,
                     Name = "Отжимания трицепсами спиной к скамье",
                     ShortName = "Отжимания трицепсами спиной к скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -229,7 +229,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 22,
                     Name = "Жим штанги из-за головы сидя",
                     ShortName = "Жим штанги из-за головы сидя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -239,7 +239,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 23,
                     Name = "Жим штанги с груди сидя",
                     ShortName = "Жим штанги с груди сидя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = true
@@ -249,7 +249,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 24,
                     Name = "Жим гантелей лежа",
                     ShortName = "Жим гантелей лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -259,7 +259,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 25,
                     Name = "Жим гантелей сидя",
                     ShortName = "Жим гантелей сидя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -269,7 +269,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 26,
                     Name = "Попеременный жим гантелей с поворотами запястий",
                     ShortName = "Попеременный жим гантелей с поворотами запястий",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -279,7 +279,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 27,
                     Name = "Подъем гантелей в стороны в наклоне вперед",
                     ShortName = "Подъем гантелей в стороны в наклоне вперед",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -289,7 +289,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 28,
                     Name = "Подъем гантелей в стороны",
                     ShortName = "Подъем гантелей в стороны",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -299,7 +299,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 29,
                     Name = "Подъем гантелей вперед попеременно",
                     ShortName = "Подъем гантелей вперед попеременно",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -309,7 +309,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 30,
                     Name = "Подъем гантели в сторону одной рукой, лежа на боку",
                     ShortName = "Подъем гантели в сторону одной рукой, лежа на боку",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -319,7 +319,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 31,
                     Name = "Подъем одной руки в сторону с нижнего блока",
                     ShortName = "Подъем одной руки в сторону с нижнего блока",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -329,7 +329,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 32,
                     Name = "Подъем одной руки вперед с нижнего блока стоя",
                     ShortName = "Подъем одной руки вперед с нижнего блока стоя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -339,7 +339,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 33,
                     Name = "Перекрестные махи руками назад с верхних блоков",
                     ShortName = "Перекрестные махи руками назад с верхних блоков",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -349,7 +349,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 34,
                     Name = "Перекрестные махи руками назад с нижних блоков в наклоне",
                     ShortName = "Перекрестные махи руками назад с нижних блоков в наклоне",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -359,7 +359,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 35,
                     Name = "Подъемы рук вперед с одной гантелью",
                     ShortName = "Подъемы рук вперед с одной гантелью",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -369,7 +369,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 36,
                     Name = "Подъемы штанги вперед",
                     ShortName = "Подъемы штанги вперед",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -379,7 +379,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 37,
                     Name = "Плечевая передняя протяжка",
                     ShortName = "Плечевая передняя протяжка",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -389,7 +389,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 38,
                     Name = "Подъемы рук в стороны на тренажере",
                     ShortName = "Подъемы рук в стороны на тренажере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -399,7 +399,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 39,
                     Name = "Махи руками назад с рукоятками тренажера",
                     ShortName = "Махи руками назад с рукоятками тренажерае",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -409,7 +409,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 40,
                     Name = "Жим штанги, лежа на наклонной скамье",
                     ShortName = "Жим штанги, лежа на наклонной скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -419,7 +419,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 41,
                     Name = "Жим штанги, лежа на горизонтальной скамье",
                     ShortName = "Жим штанги, лежа на горизонтальной скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -429,7 +429,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 42,
                     Name = "Жим штанги, лежа на скамье с уклоном",
                     ShortName = "Жим штанги, лежа на скамье с уклоном",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -439,7 +439,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 43,
                     Name = "Отжимания от пола",
                     ShortName = "Отжимания от пола",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -449,7 +449,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 44,
                     Name = "Отжимания на брусьях",
                     ShortName = "Отжимания на брусьях",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -459,7 +459,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 45,
                     Name = "Жим гантелей лежа",
                     ShortName = "Жим гантелей лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -469,7 +469,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 46,
                     Name = "Разведение гантелей лежа",
                     ShortName = "Разведение гантелей лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -479,7 +479,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 47,
                     Name = "Жим гантелей, лежа на наклонной скамье",
                     ShortName = "Жим гантелей, лежа на наклонной скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -489,7 +489,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 48,
                     Name = "Сведение рук в тренажере",
                     ShortName = "Сведение рук в тренажере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -499,7 +499,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 49,
                     Name = "Сведение верхних блоков",
                     ShortName = "Сведение верхних блоков",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -509,7 +509,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 50,
                     Name = "Тяга гантели из-за головы лежа",
                     ShortName = "Тяга гантели из-за головы лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -519,7 +519,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 51,
                     Name = "Тяга штанги лежа",
                     ShortName = "Тяга штанги лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -529,7 +529,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 52,
                     Name = "Подтягивания на перекладине хватом снизу",
                     ShortName = "Подтягивания на перекладине хватом снизу",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -539,7 +539,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 53,
                     Name = "Подтягивания на специальной перекладине",
                     ShortName = "Подтягивания на специальной перекладине",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -549,7 +549,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 54,
                     Name = "Тяга верхнего блока перед собой",
                     ShortName = "Тяга верхнего блока перед собой",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -559,7 +559,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 55,
                     Name = "Тяга верхнего блока за шею",
                     ShortName = "Тяга верхнего блока за шею",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -569,7 +569,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 56,
                     Name = "Тяга верхнего блока узим хватом",
                     ShortName = "Тяга верхнего блока узким хватом",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -579,7 +579,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 57,
                     Name = "Тяга верхнего блока прямыми руками",
                     ShortName = "Тяга верхнего блока прямыми рукам",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -589,7 +589,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 58,
                     Name = "Тяга верхнего блока (гребля)",
                     ShortName = "Тяга верхнего блока (гребля)",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -599,7 +599,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 59,
                     Name = "Тяга гантели одной рукой",
                     ShortName = "Тяга гантели одной рукой",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -609,7 +609,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 60,
                     Name = "Тяга штанги, стоя в наклоне",
                     ShortName = "Тяга штанги стоя в наклоне",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -619,7 +619,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 61,
                     Name = "Тяга т-образного грифа",
                     ShortName = "Тяга т-образного грифа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -629,7 +629,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 62,
                     Name = "Мертвые тяги со штангой, ноги прямые",
                     ShortName = "Мертвые тяги со штангой, ноги прямые",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -639,7 +639,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 63,
                     Name = "Мертвые тяги в стиле сумо",
                     ShortName = "Мертвые тяги в стиле сумо",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -649,7 +649,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 64,
                     Name = "Становые тяги со штангой",
                     ShortName = "Становые тяги со штангой",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -659,7 +659,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 65,
                     Name = "Поясничные прогибания",
                     ShortName = "Поясничные прогибания",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -669,7 +669,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 66,
                     Name = "Разгибания туловища на тренажере",
                     ShortName = "Разгибания туловища на тренажерея",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -679,7 +679,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 67,
                     Name = "Вертикальные тяги",
                     ShortName = "Вертикальные тяги",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -689,7 +689,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 68,
                     Name = "Шраги со штангой",
                     ShortName = "Шраги со штангой",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -699,7 +699,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 69,
                     Name = "Шраги с гантелями",
                     ShortName = "Шраги с гантелями",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -709,7 +709,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 70,
                     Name = "Шраги в тренажере",
                     ShortName = "Шраги в тренажере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -719,7 +719,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 71,
                     Name = "Приседания с гантелями",
                     ShortName = "Приседания с гантелями",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = true
@@ -729,7 +729,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 72,
                     Name = "Приседания со штангой на груди",
                     ShortName = "Приседания со штангой на груди",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -739,7 +739,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 73,
                     Name = "Приседания со штангой на плечах",
                     ShortName = "Приседания со штангой на плечах",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -749,7 +749,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 74,
                     Name = "Широкие приседания",
                     ShortName = "Широкие приседания",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -759,7 +759,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 75,
                     Name = "Наклонный жим ногами",
                     ShortName = "Наклонный жим ногами",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -769,7 +769,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 76,
                     Name = "Приседания на тренажере",
                     ShortName = "Приседания на тренажере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -779,7 +779,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 77,
                     Name = "Разгибание ног",
                     ShortName = "Разгибание ног",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -789,7 +789,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 78,
                     Name = "Сгибание ног лежа",
                     ShortName = "Сгибание ног лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -799,7 +799,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 79,
                     Name = "Сгибание одной ноги лежа",
                     ShortName = "Сгибание одной ноги лежаа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -809,7 +809,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 80,
                     Name = "Сгибание ног сидя",
                     ShortName = "Сгибание ног сидя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -819,7 +819,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 81,
                     Name = "Подъемы торса",
                     ShortName = "Подъемы торса",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -829,7 +829,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 82,
                     Name = "Приведение одной ноги стоя",
                     ShortName = "Приведение одной ноги стоя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -839,7 +839,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 83,
                     Name = "Сведение ног сидя",
                     ShortName = "Сведение ног сидя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -849,7 +849,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 84,
                     Name = "Подъемы на носки стоя",
                     ShortName = "Подъемы на носки стоя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -859,7 +859,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 85,
                     Name = "Подъем на носок одной ноги стоя",
                     ShortName = "Подъем на носок одной ноги стоя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -869,7 +869,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 86,
                     Name = "Подъемы на носки в наклоне",
                     ShortName = "Подъемы на носки в наклоне",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -879,7 +879,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 87,
                     Name = "Разгибание голени сидя",
                     ShortName = "Разгибание голени сидя",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -889,7 +889,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 111,
                     Name = "Разгибание голени сидя, со штангой на коленях",
                     ShortName = "Разгибание голени сидя, со штангой на коленях",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -899,7 +899,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 88,
                     Name = "Сворачивание туловища на полу",
                     ShortName = "Сворачивание туловища на пол",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -909,7 +909,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 89,
                     Name = "Подъемы туловища у гимнастической стенки",
                     ShortName = "Подъемы туловища у гимнастической стенки",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -919,7 +919,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 90,
                     Name = "Сворачивание туловища с голенью на скамье",
                     ShortName = "Сворачивание туловища с голенью на скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -929,7 +929,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 91,
                     Name = "Подъемы туловища на наклонной скамье",
                     ShortName = "Подъемы туловища на наклонной скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -939,7 +939,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 92,
                     Name = "Подъем туловища на вертикальной скамье",
                     ShortName = "Подъем туловища на вертикальной скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -949,7 +949,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 93,
                     Name = "Сворачивание туловища с верхним блоком",
                     ShortName = "Сворачивание туловища с верхним блоком",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -959,7 +959,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 94,
                     Name = "Сворачивание тууловища на тренажере",
                     ShortName = "Сворачивание туловища на тренажере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -969,7 +969,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 95,
                     Name = "Подъемы ног на наклонной скамье",
                     ShortName = "Подъемы ног на наклонной скамье",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -979,7 +979,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 96,
                     Name = "Подъем коленей в упоре",
                     ShortName = "Подъем коленей в упоре",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -989,7 +989,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 97,
                     Name = "Подъем коленей в висе",
                     ShortName = "Подъем коленей в висе",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -999,7 +999,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 98,
                     Name = "Разворот туловища с грифом",
                     ShortName = "Разворот туловища с грифом",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1009,7 +1009,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 99,
                     Name = "Боковые наклоны туловища стоя",
                     ShortName = "Боковые наклоны туловища на римском стуле",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1019,7 +1019,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 100,
                     Name = "Вращение туловища на тренажере Твист",
                     ShortName = "Вращение туловища на тренажере Твист",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1029,7 +1029,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 101,
                     Name = "Выпады со штангой на плечах",
                     ShortName = "Выпады со штангой на плечах",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1039,7 +1039,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 102,
                     Name = "Выпады с гантелями",
                     ShortName = "Выпады с гантелями",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1049,7 +1049,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 103,
                     Name = "Махи ногой назад с нижнего блока",
                     ShortName = "Махи ногой назад с нижнего блока",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1059,7 +1059,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 104,
                     Name = "Махи ногой назад с рычагом тренажера",
                     ShortName = "Махи ногой назад с рычагом тренажера",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1069,7 +1069,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 105,
                     Name = "Махи ногой нзад на полу",
                     ShortName = "Махи ногой нзад на полу",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1079,7 +1079,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 106,
                     Name = "Мостик лежа",
                     ShortName = "Мостик лежа",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1089,7 +1089,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 107,
                     Name = "Махи ногой в сторону с нинего блока",
                     ShortName = "Махи ногой в сторону с нинего блока",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1099,7 +1099,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 108,
                     Name = "Махи ногой в сторону с рычагом тренажера",
                     ShortName = "Махи ногой в сторону с рычагом тренажера",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1109,7 +1109,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 109,
                     Name = "Махи ногой в сторону, лежа на боку",
                     ShortName = "Махи ногой в сторону, лежа на боку",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1119,7 +1119,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                     Id = 110,
                     Name = "Разведение ног на тренажере",
                     ShortName = "Разведение ног на тренажере",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
                     IsBased = false
@@ -1186,7 +1186,6 @@ namespace TrainingManager.Logic.Storage.Extensions
                             new { ExerciseId = (long)13, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka" },
                             new { ExerciseId = (long)13, CategoryOfBodyId = "LoktevayaMyshca" },
                             new { ExerciseId = (long)13, CategoryOfBodyId = "Korotkijluchevojrvzgibatelzapyastya" },
-                            new { ExerciseId = (long)13, CategoryOfBodyId = "Korotkijluchevojrvzgibatelzapyastya" },
                             new { ExerciseId = (long)14, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka" },
                             new { ExerciseId = (long)14, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka" },
                             new { ExerciseId = (long)14, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka" },
@@ -1210,7 +1209,7 @@ namespace TrainingManager.Logic.Storage.Extensions
                             new { ExerciseId = (long)19, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka" },
                             new { ExerciseId = (long)19, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaMedialnayaGolovka" },
                             new { ExerciseId = (long)20, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka" },
-                            new { ExerciseId = (long)20, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka" },,
+                            new { ExerciseId = (long)20, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka" },
                             new { ExerciseId = (long)20, CategoryOfBodyId = "LoktevayaMyshca" },
                             new { ExerciseId = (long)21, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaDlinnayaGolovka" },
                             new { ExerciseId = (long)21, CategoryOfBodyId = "TricepsTrekhglavayaMyshcaPlechaLateralnayaGolovka" },
