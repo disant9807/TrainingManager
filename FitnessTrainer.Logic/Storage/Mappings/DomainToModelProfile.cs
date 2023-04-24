@@ -30,6 +30,8 @@ namespace TrainingManager.Logic.Storage.Mappings
 				.ForMember(m => m.UnitsOfMeasurement, m => m.Ignore());
 			CreateMap<Domain.UnitsOfMeasurement, Model.UnitsOfMeasurement>().ReverseMap();
 			CreateMap<Domain.CategoryOfBody, Model.CategoryOfBody>().ReverseMap();
+			CreateMap<Domain.StatisticsIndicator, Model.StatisticsIndicator>().ReverseMap();
+			CreateMap<Domain.ObjectOfStatistics, Model.ObjectOfStatistics>().ReverseMap();
         }
 	}
 }
