@@ -150,7 +150,33 @@ namespace TrainingManager.Logic.Storage
         public Task<Model.UnitsOfMeasurement> GetUnitsOfMeasurementById(string code)
             => Execute((u) => new GetUnitsOfMeasurementByIdRequest(u, _logFactory, _mapper, code));
 
+		public Task<Model.ObjectOfStatistics> GetObjectOfStatisticsById(string code)
+			=> Execute((u) => new GetObjectOfStatisticsByIdRequest(u, _mapper, code));
 
+        public Task<Model.ObjectOfStatistics[]> GetObjectsOfStatistics(string userId)
+            => Execute((u) => new GetObjectsOfStatisticsRequest(u, _mapper, userId));
+
+        public Task<string> CreateObjectsOfStatistics(Model.ObjectOfStatistics objectOfStatistics)
+            => Execute((u) => new CreateObjectsOfStatisticsRequest(u, objectOfStatistics, _logFactory, _mapper));
+
+        public Task UpdateObjectOfStatistics(Model.ObjectOfStatistics objectOfStatistics)
+            => Execute((u) => new UpdateObjectOfStatisticsCommand(u, objectOfStatistics, _logFactory, _mapper));
+
+        public Task<Model.ObjectOfStatistics> GetObjectOfStatisticsByUnitCategory(string unitCode, string categoryCode)
+            => Execute((u) => new GetObjectOfStatisticsByUnitCategoryRequest(u, _mapper, categoryCode, unitCode));
+
+
+        public Task<Model.StatisticsIndicator[]> GetStatistics(GetStatisticsFilter filter)
+            => Execute((u) => new GetStatisticsRequest(u, _mapper, filter));
+
+        public Task<Guid> AddStatistics(Model.StatisticsIndicator statistics)
+            => Execute((u) => new AddStatisticsIndicatorRequest(u, statistics, _logFactory, _mapper));
+
+        public Task UpdateStatisticsIndicator(Model.StatisticsIndicator statistics)
+            => Execute((u) => new UpdateStatisticsIndicatorCommand(u, statistics, _logFactory, _mapper));
+
+        public Task ArchiveStatistics(Guid id, bool isArchive)
+            => Execute((u) => new ArchiveStatisticsCommand(u, _logFactory, id, isArchive));
 
         protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
 		{

@@ -36,6 +36,7 @@ namespace TrainingManager.Logic.Storage
 		{
             modelBuilder.builderInitBody();
             modelBuilder.builderInitExercise();
+            modelBuilder.builderInitCategory();
         }
 	}
 }

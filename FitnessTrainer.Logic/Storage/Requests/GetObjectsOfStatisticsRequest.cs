@@ -12,18 +12,18 @@ namespace TrainingManager.Logic.Storage.Requests
 {
     public class GetObjectsOfStatisticsRequest : BaseStorageRequest<Model.ObjectOfStatistics[]>
     {
-        private readonly GetObjectsOfStatisticsFilter filter;
+        private readonly string _userId;
         private readonly IMapper _mapper;
 
-        public GetObjectsOfStatisticsRequest(StorageContext context, IMapper mapper, GetObjectsOfStatisticsFilter filter) : base(context)
+        public GetObjectsOfStatisticsRequest(StorageContext context, IMapper mapper, string userId) : base(context)
         {
-            this.filter = filter;
+            this._userId = userId;
             _mapper = mapper;
         }
 
         public override async Task<ObjectOfStatistics[]> ExecuteAsync()
         {
-            var statisticsRequest = context.GetFiltredObjectOfStatistics(this.filter);
+            var statisticsRequest = context.GetFiltredObjectOfStatistics(_userId);
             var statistics = statisticsRequest.AsNoTracking();
 
             return await statistics.Select(e => e.AsStatistics(_mapper)).ToArrayAsync();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrainingManager.Logic.Model;
+using TrainingManager.Logic.Storage.Requests;
 
 namespace TrainingManager.Logic.Storage
 {
@@ -59,5 +60,19 @@ namespace TrainingManager.Logic.Storage
         Task RemoveUnitsOfMeasurement(string id, bool isArchived);
         Task ArchiveUnitsOfMeasurement(string id, bool isArchived);
         Task<UnitsOfMeasurement> GetUnitsOfMeasurementById(string code);
+
+        // Объекты статистики
+        Task<ObjectOfStatistics[]> GetObjectsOfStatistics(string userId);
+        Task<ObjectOfStatistics> GetObjectOfStatisticsById(string code);
+        Task<string> CreateObjectsOfStatistics(ObjectOfStatistics objectOfStatistics);
+        Task UpdateObjectOfStatistics(ObjectOfStatistics objectOfStatistics);
+        Task ArchiveObjectOfStatstics(string id, bool isArchived));
+        Task<Model.ObjectOfStatistics> GetObjectOfStatisticsByUnitCategoryRequest(string unitCode, string categoryCode);
+
+        // Элементы статистики
+        Task<StatisticsIndicator[]> GetStatistics(GetStatisticsFilter filter);
+        Task<Guid> AddStatistics(StatisticsIndicator statistics);
+        Task UpdateStatisticsIndicator(StatisticsIndicator objectOfStatistics);
+        Task ArchiveStatistics(Guid id, bool isArchived));
     }
 }
