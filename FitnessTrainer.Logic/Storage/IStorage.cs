@@ -63,16 +63,12 @@ namespace TrainingManager.Logic.Storage
 
         // Объекты статистики
         Task<ObjectOfStatistics[]> GetObjectsOfStatistics(string userId);
-        Task<ObjectOfStatistics> GetObjectOfStatisticsById(string code);
-        Task<string> CreateObjectsOfStatistics(ObjectOfStatistics objectOfStatistics);
+        Task<ObjectOfStatistics[]> GetObjectOfStatisticsByCategory(string categoryCode, string userId);
+        Task<ObjectOfStatistics> GetObjectOfStatisticsById(Guid id);
+        Task<Guid> CreateObjectsOfStatistics(ObjectOfStatistics objectOfStatistics);
+        Task<Guid[]> CreateObjectsOfStatisticsArr(ObjectOfStatistics[] objectOfStatistics);
         Task UpdateObjectOfStatistics(ObjectOfStatistics objectOfStatistics);
-        Task ArchiveObjectOfStatstics(string id, bool isArchived));
-        Task<Model.ObjectOfStatistics> GetObjectOfStatisticsByUnitCategoryRequest(string unitCode, string categoryCode);
+        Task ArchiveObjectOfStatstics(Guid id, bool isArchived);
 
-        // Элементы статистики
-        Task<StatisticsIndicator[]> GetStatistics(GetStatisticsFilter filter);
-        Task<Guid> AddStatistics(StatisticsIndicator statistics);
-        Task UpdateStatisticsIndicator(StatisticsIndicator objectOfStatistics);
-        Task ArchiveStatistics(Guid id, bool isArchived));
     }
 }

@@ -13,7 +13,7 @@ namespace TrainingManager.Logic.Storage.Extensions
     {
         public static IQueryable<Domain.ObjectOfStatistics> GetFiltredObjectOfStatistics (this StorageContext context, string userId)
         {
-            var data = from e in context.StatisticsIndicators.AsNoTracking()
+            var data = from e in context.ObjectOfStatistics
                        where e.UserId == userId
                        select e;
             return data;

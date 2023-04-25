@@ -40,7 +40,6 @@ namespace TrainingManager.Logic.Storage.Commands
             statistics.Code = _objectOfStatistics.Code;
             statistics.Description = _objectOfStatistics.Description;
             statistics.Name = _objectOfStatistics.Name;
-            statistics.UnitCode = _objectOfStatistics.UnitCode;
 
             context.ObjectOfStatistics.Update(statistics);
             await context.SaveChangesAsync();

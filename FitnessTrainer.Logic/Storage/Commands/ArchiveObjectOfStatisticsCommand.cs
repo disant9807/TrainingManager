@@ -16,11 +16,11 @@ namespace TrainingManager.Logic.Storage.Commands
 {
     public class ArchiveObjectOfStatisticsCommand : BaseStorageCommand
     {
-        private readonly string _id;
+        private readonly Guid _id;
         private readonly bool _isArchive;
         private readonly ILogger _logger;
 
-        public ArchiveObjectOfStatisticsCommand(StorageContext context, string id, bool isArchive, ILogFactory log) : base(context)
+        public ArchiveObjectOfStatisticsCommand(StorageContext context, Guid id, bool isArchive, ILogFactory log) : base(context)
         {
             _logger = log.CreateModuleLogger(typeof(ArchiveObjectOfStatisticsCommand));
             _id = id;
@@ -29,7 +29,7 @@ namespace TrainingManager.Logic.Storage.Commands
 
         public async override Task ExecuteAsync()
         {
-            var statistics = await context.ObjectOfStatistics.FirstOrDefaultAsync(e => e.Code == _id);
+            var statistics = await context.ObjectOfStatistics.FirstOrDefaultAsync(e => e.Id == _id);
 
             if (statistics == null)
                 throw new KeyNotFoundException($"Статистика с id = {_id} не найдена");

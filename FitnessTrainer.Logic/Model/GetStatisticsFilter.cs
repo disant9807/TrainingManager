@@ -10,7 +10,7 @@ namespace TrainingManager.Logic.Model
     {
         public string UserId { get; set; }
 
-        public string ObjectCode { get; set; }
+        public Guid? ObjectCode { get; set; }
 
         public DateTime? MeasurementFrom { get; set; }
 

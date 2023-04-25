@@ -12,10 +12,10 @@ namespace TrainingManager.Logic.Storage.Requests
 {
     public class GetObjectOfStatisticsByIdRequest : BaseStorageRequest<Model.ObjectOfStatistics>
     {
-        private readonly string _objectOfStatisticsCode;
+        private readonly Guid _objectOfStatisticsCode;
         private readonly IMapper _mapper;
 
-        public GetObjectOfStatisticsByIdRequest(StorageContext context, IMapper mapper, string objectOfStatisticsCode) : base(context)
+        public GetObjectOfStatisticsByIdRequest(StorageContext context, IMapper mapper, Guid objectOfStatisticsCode) : base(context)
         {
             _objectOfStatisticsCode = objectOfStatisticsCode;
             _mapper = mapper;
@@ -24,7 +24,8 @@ namespace TrainingManager.Logic.Storage.Requests
         public override async Task<Model.ObjectOfStatistics> ExecuteAsync()
         {
             var statisticsRequest = await context.ObjectOfStatistics
-                .FirstOrDefaultAsync(e => e.Code == _objectOfStatisticsCode);
+                .Include(e => e.StatisticsIndicators)
+                .FirstOrDefaultAsync(e => e.Id == _objectOfStatisticsCode);
 
             if (statisticsRequest is null)
                 throw new ArgumentNullException(nameof(statisticsRequest), $"Ошибка при получении части тела по id {_objectOfStatisticsCode}");

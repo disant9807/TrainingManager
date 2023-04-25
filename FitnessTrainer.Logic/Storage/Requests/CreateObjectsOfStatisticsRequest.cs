@@ -11,7 +11,7 @@ using TrainingManager.Logic.Storage.Domain;
 
 namespace TrainingManager.Logic.Storage.Requests
 {
-    public class CreateObjectsOfStatisticsRequest : BaseStorageRequest<string>
+    public class CreateObjectsOfStatisticsRequest : BaseStorageRequest<Guid>
     {
         private readonly Model.ObjectOfStatistics _objectOfStatistics;
         private readonly ILogger _logger;
@@ -24,23 +24,22 @@ namespace TrainingManager.Logic.Storage.Requests
             _mapper = mapper;
         }
 
-        public override async Task<string> ExecuteAsync()
+        public override async Task<Guid> ExecuteAsync()
         {
             if (_objectOfStatistics == null)
                 throw new ArgumentNullException($"Ошибка в {_objectOfStatistics}");
 
             var objectOfStatistics = new ObjectOfStatistics();
 
-            objectOfStatistics.UnitCode = _objectOfStatistics.UnitCode;
-            objectOfStatistics.Code = _objectOfStatistics.Code;
             objectOfStatistics.CategoryCode = _objectOfStatistics.CategoryCode;
             objectOfStatistics.Description = _objectOfStatistics.Description;
             objectOfStatistics.Name = _objectOfStatistics.Name;
+            objectOfStatistics.CreateOrUpdate = _objectOfStatistics.CreateOrUpdate;
 
 
             context.ObjectOfStatistics.Add(objectOfStatistics);
             await context.SaveChangesAsync();
-            return objectOfStatistics.Code;
+            return objectOfStatistics.Id;
         }
     }
 }

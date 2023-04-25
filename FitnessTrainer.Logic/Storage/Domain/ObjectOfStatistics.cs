@@ -12,7 +12,7 @@ namespace TrainingManager.Logic.Storage.Domain
     public class ObjectOfStatistics
     {
         [Key]
-        public string Code { get; set; }
+        public Guid Id { get; set; }
 
         public string CategoryCode { get; set; }
 
@@ -23,18 +23,19 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public string Description { get; set; }
 
+        public string Code { get; set; }
+
+        public string UserId { get; set; }
+
         public bool IsArchived { get; set; }
-
-        public string UnitCode { get; set; }
-
-        [ForeignKey("UnitCode")]
-        public UnitsOfMeasurement UnitsOfMeasurement { get; set; }
 
         public DateTime CreateOrUpdate { get; set; }
 
+        public List<StatisticsIndicator> StatisticsIndicators { get; set; }
+
         public ObjectOfStatistics()
         {
-
+            StatisticsIndicators = new List<StatisticsIndicator>();
         }
     }
 }

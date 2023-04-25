@@ -17,7 +17,7 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public bool IsArchived { get; set; }
 
-        public string ObjectCode { get; set; }
+        public Guid ObjectCode { get; set; }
 
         [ForeignKey("ObjectCode")]
         public ObjectOfStatistics ObjectOfStatistics { get; set; }

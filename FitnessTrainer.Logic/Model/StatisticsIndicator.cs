@@ -14,7 +14,7 @@ namespace TrainingManager.Logic.Model
 
         public bool IsArchived { get; set; }
 
-        public string ObjectCode { get; set; }
+        public Guid ObjectCode { get; set; }
 
         public ObjectOfStatistics ObjectOfStatistics { get; set; }
 
@@ -23,5 +23,6 @@ namespace TrainingManager.Logic.Model
         public DateTime CreatedOrUpdate { get; set; }
 
         public DateTime DateOfMeasurement { get; set; }
+
     }
 }

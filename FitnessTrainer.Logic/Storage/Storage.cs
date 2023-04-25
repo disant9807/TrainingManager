@@ -150,21 +150,26 @@ namespace TrainingManager.Logic.Storage
         public Task<Model.UnitsOfMeasurement> GetUnitsOfMeasurementById(string code)
             => Execute((u) => new GetUnitsOfMeasurementByIdRequest(u, _logFactory, _mapper, code));
 
-		public Task<Model.ObjectOfStatistics> GetObjectOfStatisticsById(string code)
-			=> Execute((u) => new GetObjectOfStatisticsByIdRequest(u, _mapper, code));
+		public Task<Model.ObjectOfStatistics> GetObjectOfStatisticsById(Guid id)
+			=> Execute((u) => new GetObjectOfStatisticsByIdRequest(u, _mapper, id));
+          
+        public Task<Model.ObjectOfStatistics[]> GetObjectOfStatisticsByCategory(string categoryCode, string userId)
+            => Execute((u) => new GetObjectOfStatisticsByCategoryRequest(u, _mapper, categoryCode, userId));
 
-        public Task<Model.ObjectOfStatistics[]> GetObjectsOfStatistics(string userId)
-            => Execute((u) => new GetObjectsOfStatisticsRequest(u, _mapper, userId));
+        public Task<Model.ObjectOfStatistics[]> GetObjectsOfStatistics(string id)
+            => Execute((u) => new GetObjectsOfStatisticsRequest(u, _mapper, id));
 
-        public Task<string> CreateObjectsOfStatistics(Model.ObjectOfStatistics objectOfStatistics)
+        public Task<Guid> CreateObjectsOfStatistics(Model.ObjectOfStatistics objectOfStatistics)
             => Execute((u) => new CreateObjectsOfStatisticsRequest(u, objectOfStatistics, _logFactory, _mapper));
+
+        public Task<Guid[]> CreateObjectsOfStatisticsArr(Model.ObjectOfStatistics[] objectOfStatistics)
+            => Execute((u) => new CreateObjectsOfStatisticsArrRequest(u, objectOfStatistics, _logFactory, _mapper));
 
         public Task UpdateObjectOfStatistics(Model.ObjectOfStatistics objectOfStatistics)
             => Execute((u) => new UpdateObjectOfStatisticsCommand(u, objectOfStatistics, _logFactory, _mapper));
 
-        public Task<Model.ObjectOfStatistics> GetObjectOfStatisticsByUnitCategory(string unitCode, string categoryCode)
-            => Execute((u) => new GetObjectOfStatisticsByUnitCategoryRequest(u, _mapper, categoryCode, unitCode));
-
+        public Task ArchiveObjectOfStatstics(Guid id, bool isArchived)
+            => Execute((u) => new ArchiveObjectOfStatisticsCommand(u, id, isArchived, _logFactory));
 
         public Task<Model.StatisticsIndicator[]> GetStatistics(GetStatisticsFilter filter)
             => Execute((u) => new GetStatisticsRequest(u, _mapper, filter));
