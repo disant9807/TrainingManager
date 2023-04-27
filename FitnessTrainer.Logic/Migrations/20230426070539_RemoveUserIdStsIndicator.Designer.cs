@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TrainingManager.Logic.Storage;
@@ -11,9 +12,11 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230426070539_RemoveUserIdStsIndicator")]
+    partial class RemoveUserIdStsIndicator
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3224,33 +3227,6 @@ namespace TrainingManager.Logic.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.GenStatistics", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("CategoryCode")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("GeneratedTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryCode");
-
-                    b.ToTable("GenStatistics");
-                });
-
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Goal", b =>
                 {
                     b.Property<long>("Id")
@@ -3339,9 +3315,6 @@ namespace TrainingManager.Logic.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("GenStatisticsId")
-                        .HasColumnType("uuid");
-
                     b.Property<bool>("IsArchived")
                         .HasColumnType("boolean");
 
@@ -3356,8 +3329,6 @@ namespace TrainingManager.Logic.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryCode");
-
-                    b.HasIndex("GenStatisticsId");
 
                     b.ToTable("ObjectOfStatistics");
                 });
@@ -3677,17 +3648,6 @@ namespace TrainingManager.Logic.Migrations
                     b.Navigation("Avatar");
                 });
 
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.GenStatistics", b =>
-                {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Image", b =>
                 {
                     b.HasOne("TrainingManager.Logic.Storage.Domain.Exercise", null)
@@ -3710,10 +3670,6 @@ namespace TrainingManager.Logic.Migrations
                         .HasForeignKey("CategoryCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.GenStatistics", null)
-                        .WithMany("Statistics")
-                        .HasForeignKey("GenStatisticsId");
 
                     b.Navigation("Category");
                 });
@@ -3820,11 +3776,6 @@ namespace TrainingManager.Logic.Migrations
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Exercise", b =>
                 {
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.GenStatistics", b =>
-                {
-                    b.Navigation("Statistics");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Goal", b =>

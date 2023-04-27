@@ -13,8 +13,6 @@ namespace TrainingManager.Logic.Storage.Domain
         [Key]
         public Guid Id { get; set; }
 
-        public string UserId { get; set; }
-
         public bool IsArchived { get; set; }
 
         public Guid ObjectCode { get; set; }

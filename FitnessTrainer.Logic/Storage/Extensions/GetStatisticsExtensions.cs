@@ -18,7 +18,6 @@ namespace TrainingManager.Logic.Storage.Extensions
             var data = from e in context.StatisticsIndicators.AsNoTracking()
                        where !filter.MeasurementFrom.HasValue || e.DateOfMeasurement >= filter.MeasurementFrom
                        where !measurementTo.HasValue || e.DateOfMeasurement < measurementTo
-                       where e.UserId == filter.UserId
                        where e.ObjectCode == filter.ObjectCode
                        select e;
             return data;

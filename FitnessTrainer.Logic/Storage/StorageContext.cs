@@ -27,6 +27,7 @@ namespace TrainingManager.Logic.Storage
         public DbSet<StatisticsIndicator> StatisticsIndicators { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<UnitsOfMeasurement> UnitsOfMeasurements { get; set; }
+        public DbSet<GenStatistics> GenStatistics { get; set; }
 
         public StorageContext(DbContextOptions<StorageContext> dbContextOptions) : base(dbContextOptions)
         {

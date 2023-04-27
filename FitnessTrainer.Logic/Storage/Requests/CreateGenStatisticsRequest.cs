@@ -8,31 +8,32 @@ using AutoMapper;
 using TrainingManager.Log;
 using Microsoft.EntityFrameworkCore;
 using TrainingManager.Logic.Storage.Domain;
-using TrainingManager.Logic.Model;
 
 namespace TrainingManager.Logic.Storage.Requests
 {
-    public class CreateObjectsOfStatisticsArrRequest : BaseStorageRequest<Guid[]>
+    public class CreateGenStatisticsRequest : BaseStorageRequest<Guid>
     {
-        private readonly Model.ObjectOfStatistics[] _objectOfStatistics;
+        private readonly Model.GenStatistics _genStatistics;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public CreateObjectsOfStatisticsArrRequest(StorageContext context, Model.ObjectOfStatistics[] objectOfStatistics, ILogFactory log, IMapper mapper) : base(context)
+        public CreateGenStatisticsRequest(StorageContext context, Model.GenStatistics genStatistics, ILogFactory log, IMapper mapper) : base(context)
         {
-            _objectOfStatistics = objectOfStatistics;
+            _genStatistics = genStatistics;
             _logger = log.CreateModuleLogger(typeof(CreateExerciseRequest));
             _mapper = mapper;
         }
 
-        public override async Task<Guid[]> ExecuteAsync()
+        public override async Task<Guid> ExecuteAsync()
         {
-            if (_objectOfStatistics == null)
-                throw new ArgumentNullException($"Ошибка в {_objectOfStatistics}");
+            if (_genStatistics == null)
+                throw new ArgumentNullException($"Ошибка в {_genStatistics}");
+
+            var genStatistics = new GenStatistics();
 
             var statistis = new List<Domain.ObjectOfStatistics>();
 
-            foreach(var model in _objectOfStatistics)
+            foreach (var model in _genStatistics.Statistics)
             {
                 var objectOfStatistics = new Domain.ObjectOfStatistics();
 
@@ -63,10 +64,18 @@ namespace TrainingManager.Logic.Storage.Requests
                 statistis.Add(objectOfStatistics);
             }
 
+            genStatistics.UserId = _genStatistics.UserId;
+            genStatistics.Id = _genStatistics.Id;
+            genStatistics.CategoryCode = _genStatistics.CategoryCode;
+            genStatistics.CreatedTime = _genStatistics.CreatedTime;
+            genStatistics.GeneratedTime = _genStatistics.GeneratedTime;
+            
+            genStatistics.Statistics = statistis;
 
-            context.ObjectOfStatistics.AddRange(statistis);
+
+            context.GenStatistics.Add(genStatistics);
             await context.SaveChangesAsync();
-            return statistis.Select(e => e.Id).ToArray();
+            return genStatistics.Id;
         }
     }
 }

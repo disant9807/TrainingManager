@@ -35,7 +35,6 @@ namespace TrainingManager.Logic.Storage.Requests
                 statistic.CreatedOrUpdate = DateTime.Now;
                 statistic.IsArchived = false;
                 statistic.ObjectCode = statisticsIndicator.ObjectCode;
-                statistic.UserId = statisticsIndicator.UserId;
                 statistic.Value = statisticsIndicator.Value;
                 statistic.DateOfMeasurement = statisticsIndicator.DateOfMeasurement;
 

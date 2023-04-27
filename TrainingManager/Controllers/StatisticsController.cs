@@ -34,28 +34,28 @@ namespace TrainingManager.Controllers
 
         [HttpGet("{statisticsId}")]
         [ProducesResponseType(typeof(Training), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<ObjectOfStatistics>>> GetStatisticsById([FromRoute]string statisticsId)
+        public async Task<ActionResult<IEnumerable<GenStatistics>>> GetStatisticsById([FromRoute]string statisticsId)
         {
             Guid statisticsGuid;
-            if (Guid.TryParse(statisticsId, out statisticsGuid))
+            if (!Guid.TryParse(statisticsId, out statisticsGuid))
             {
                 throw new ArgumentNullException(nameof(statisticsId));
             }
 
-            var statistics = await _storage.GetObjectOfStatisticsById(statisticsGuid);
+            var statistics = await _storage.GetGenStatisticsById(statisticsGuid);
             return Ok(statistics);
         }
 
 
         [HttpGet("{userId}/{categoryCode}")]
         [ProducesResponseType(typeof(Training), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<ObjectOfStatistics>>> GetStatisticsByCategory([FromRoute]string categoryCode, [FromRoute]string userId)
+        public async Task<ActionResult<IEnumerable<GenStatistics>>> GetStatisticsByCategory([FromRoute]string categoryCode, [FromRoute]string userId)
         {
             if (string.IsNullOrWhiteSpace(userId)) { 
                 throw new ArgumentNullException(nameof(userId));
             }
 
-            var statistics = await _storage.GetObjectOfStatisticsByCategory(categoryCode, userId);
+            var statistics = await _storage.GetGenStatisticsByCategory(categoryCode, userId);
             return Ok(statistics);
         }
 
@@ -64,17 +64,13 @@ namespace TrainingManager.Controllers
 		/// <returns>Идентификатор созданной цели</returns>
 		[HttpPost("goal")]
         [ProducesResponseType(typeof(Training), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<ObjectOfStatistics>>> GenGoalStatistics([FromQuery] DateTime dateFrom, [FromQuery] DateTime dateTo)
+        public async Task<ActionResult<GenStatistics>> GenGoalStatistics([FromQuery] DateTime dateFrom, [FromQuery] DateTime dateTo, [FromQuery] string userId)
         {
             _log.Debug("Запуск процесса генерации стаатистики цели");
             if ((dateTo - dateFrom) > TimeSpan.FromDays(366))
                 return BadRequest();
 
-            var goals = await _storage.GetGoals(new GetGoalsFilter
-            {
-                CreatedFrom = dateFrom,
-                CreatedTo = dateTo
-            });
+            var goals = await _storage.GetGoalsByPeriodInclude(dateFrom, dateTo);
 
             var objOfStatistics = new List<ObjectOfStatistics>();
 
@@ -88,6 +84,7 @@ namespace TrainingManager.Controllers
                     localObjOfStatistics = new ObjectOfStatistics
                     {
                         Id = Guid.NewGuid(),
+                        UserId = userId,
                         CategoryCode = "Goal",
                         Description = "",
                         Code = subGoal.BodyCode,
@@ -97,34 +94,42 @@ namespace TrainingManager.Controllers
                     objOfStatistics.Add(localObjOfStatistics);
                 }
 
+                var selectGoal = goals.FirstOrDefault(e => e.SubGoals.Any(z => z.Id == subGoal.Id));
+
                 localObjOfStatistics.StatisticsIndicators.Add(new StatisticsIndicator
                     {
-                        DateOfMeasurement = goals
-                            .FirstOrDefault(e => e.SubGoals.Contains(subGoal)).CompletionDate,
+                        DateOfMeasurement = selectGoal.CompletionDate,
                         ObjectCode = localObjOfStatistics.Id,
                         Value = subGoal.Value.ToString()
                     });
             }
 
-            await _storage.CreateObjectsOfStatisticsArr(objOfStatistics.ToArray());
+            var genStatistics = new GenStatistics
+            {
+                CategoryCode = "Goal",
+                CreatedTime = DateTime.Now,
+                GeneratedTime = DateTime.Now,
+                Id = Guid.NewGuid(),
+                Statistics = objOfStatistics,
+                UserId = userId
+            };
 
-            return objOfStatistics;
+            await _storage.CreateGenStatistics(genStatistics);
+
+            return Ok(genStatistics);
         }
 
         /// <summary>Статистика заамера</summary>
 		/// <returns>Идентификатор созданной цели</returns>
 		[HttpPost("size")]
         [ProducesResponseType(typeof(Training), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<ObjectOfStatistics>>> GenSizeStatistics([FromQuery] DateTime dateFrom, [FromQuery] DateTime dateTo)
+        public async Task<ActionResult<GenStatistics>> GenSizeStatistics([FromQuery] DateTime dateFrom, [FromQuery] DateTime dateTo, [FromQuery] string userId)
         {
             if ((dateTo - dateFrom) > TimeSpan.FromDays(366))
                 return BadRequest();
 
-            var sizes = await _storage.GetSizes(new GetSizesFilter
-            {
-                CreatedFrom = dateFrom,
-                CreatedTo = dateTo
-            });
+            var sizes = await _storage
+                .GetSizesByPeriodInclude(dateFrom, dateTo);
 
             var objOfStatistics = new List<ObjectOfStatistics>();
 
@@ -140,41 +145,49 @@ namespace TrainingManager.Controllers
                         Id = Guid.NewGuid(),
                         CategoryCode = "Size",
                         Description = "",
+                        UserId = userId,
                         Code = sizeItem.BodyCode,
                         Name = sizeItem.Body.ShortName ?? sizeItem.Body.Name
                     };
 
                     objOfStatistics.Add(localObjOfStatistics);
                 }
+                var selectSize = sizes.FirstOrDefault(e => e.SizeItems.Any(z => z.Id == sizeItem.Id));
 
                 localObjOfStatistics.StatisticsIndicators.Add(new StatisticsIndicator
                 {
-                    DateOfMeasurement = sizes
-                            .FirstOrDefault(e => e.SizeItems.Contains(sizeItem)).CreatedDate,
+                    DateOfMeasurement = selectSize.CreatedDate,
                     ObjectCode = localObjOfStatistics.Id,
                     Value = sizeItem.Value.ToString()
                 });
             }
 
-            await _storage.CreateObjectsOfStatisticsArr(objOfStatistics.ToArray());
+            var genStatistics = new GenStatistics
+            {
+                CategoryCode = "Size",
+                CreatedTime = DateTime.Now,
+                GeneratedTime = DateTime.Now,
+                Id = Guid.NewGuid(),
+                Statistics = objOfStatistics,
+                UserId = userId
+            };
 
-            return objOfStatistics;
+            await _storage.CreateGenStatistics(genStatistics);
+
+            return Ok(genStatistics);
         }
 
         /// <summary>Статистика тренировки</summary>
 		/// <returns>Идентификатор созданной цели</returns>
 		[HttpPost("training")]
         [ProducesResponseType(typeof(Training), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<ObjectOfStatistics>>> GenTrainingStatistics([FromQuery] DateTime dateFrom, [FromQuery] DateTime dateTo)
+        public async Task<ActionResult<GenStatistics>> GenTrainingStatistics([FromQuery] DateTime dateFrom, [FromQuery] DateTime dateTo, [FromQuery] string userId)
         {
-            if ((dateTo - dateFrom) > TimeSpan.FromDays(366))
+            var daysCount = (dateTo - dateFrom).TotalDays;
+            if (daysCount > 366)
                 return BadRequest();
 
-            var training = await _storage.GetTraining(new GetTrainingsFilter
-            {
-                TrainingFrom = dateFrom,
-                TrainingTo = dateTo
-            }, Order.Desc);
+            var training = await _storage.GetTrainingsByPeriodInclude(dateFrom, dateTo);
 
             var objOfStatistics = new List<ObjectOfStatistics>();
 
@@ -188,6 +201,7 @@ namespace TrainingManager.Controllers
                     localObjOfStatistics = new ObjectOfStatistics
                     {
                         Id = Guid.NewGuid(),
+                        UserId = userId,
                         CategoryCode = "Training",
                         Description = "",
                         Code = approach.Exercise.Id.ToString(),
@@ -197,20 +211,34 @@ namespace TrainingManager.Controllers
                     objOfStatistics.Add(localObjOfStatistics);
                 }
 
-                localObjOfStatistics.StatisticsIndicators.Add(new StatisticsIndicator
+                var selectTraining = training.FirstOrDefault(e => e.Approachs.Any(z => z.Id == approach.Id));
+
+
+
+                if (approach?.ApproachsItems?.Length > 0)
                 {
-                    DateOfMeasurement = training
-                            .FirstOrDefault(e => e.Approachs
-                            .Select(z => z.Id)
-                            .Contains(approach.Id)).CreatedDate,
-                    ObjectCode = localObjOfStatistics.Id,
-                    Value = approach.ApproachsItems.Average(e => e.Weight).ToString()
-                });
+                    localObjOfStatistics.StatisticsIndicators.Add(new StatisticsIndicator
+                    {
+                        DateOfMeasurement = selectTraining.TrainingDate ?? selectTraining.CreatedDate,
+                        ObjectCode = localObjOfStatistics.Id,
+                        Value = approach.ApproachsItems.Average(e => e.Weight).ToString()
+                    });
+                }
             }
 
-            await _storage.CreateObjectsOfStatisticsArr(objOfStatistics.ToArray());
+            var genStatistics = new GenStatistics
+            {
+                CategoryCode = "Training",
+                CreatedTime = DateTime.Now,
+                GeneratedTime = DateTime.Now,
+                Id = Guid.NewGuid(),
+                Statistics = objOfStatistics,
+                UserId = userId
+            };
 
-            return objOfStatistics;
+            await _storage.CreateGenStatistics(genStatistics);
+
+            return Ok(genStatistics);
         }
     }
 }

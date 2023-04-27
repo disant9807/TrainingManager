@@ -25,6 +25,7 @@ namespace TrainingManager.Logic.Storage
         Task<TrainingProgram> GetTrainingProgramById(long id);
 
         // Тренировки
+        Task<Training[]> GetTrainingsByPeriodInclude(DateTime dateFrom, DateTime dateTo);
         Task<Training[]> GetTraining(GetTrainingsFilter filter, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateTraining(Training training);
         Task UpdateTraining(Training training);
@@ -32,6 +33,7 @@ namespace TrainingManager.Logic.Storage
         Task<Training> GetTrainingById(long id);
 
         // Замеры
+        Task<Size[]> GetSizesByPeriodInclude(DateTime dateFrom, DateTime dateTo);
         Task<Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateSize(Size size);
         Task UpdateSize(Size size);
@@ -39,6 +41,7 @@ namespace TrainingManager.Logic.Storage
         Task<Size> GetSizeById(long id);
 
         // Цели
+        Task<Goal[]> GetGoalsByPeriodInclude(DateTime dateFrom, DateTime dateTo);
         Task<Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateGoal(Goal size);
         Task UpdateGoal(Goal size);
@@ -70,5 +73,9 @@ namespace TrainingManager.Logic.Storage
         Task UpdateObjectOfStatistics(ObjectOfStatistics objectOfStatistics);
         Task ArchiveObjectOfStatstics(Guid id, bool isArchived);
 
+
+        Task<Guid> CreateGenStatistics(GenStatistics genStatistics);
+        Task<GenStatistics[]> GetGenStatisticsByCategory(string categoryCode, string userId);
+        Task<GenStatistics> GetGenStatisticsById(Guid id);
     }
 }

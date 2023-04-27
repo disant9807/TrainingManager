@@ -32,6 +32,7 @@ namespace TrainingManager.Logic.Storage.Mappings
 			CreateMap<Domain.CategoryOfBody, Model.CategoryOfBody>().ReverseMap();
 			CreateMap<Domain.StatisticsIndicator, Model.StatisticsIndicator>().ReverseMap();
 			CreateMap<Domain.ObjectOfStatistics, Model.ObjectOfStatistics>().ReverseMap();
+            CreateMap<Domain.GenStatistics, Model.GenStatistics>().ReverseMap();
         }
 	}
 }

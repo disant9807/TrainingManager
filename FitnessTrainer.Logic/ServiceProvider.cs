@@ -23,6 +23,7 @@ namespace TrainingManager.Logic
 
 		private static void AddDbContextFactory(IServiceCollection services)
 		{
+			AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 			services.AddDbContextFactory<StorageContext>((services, options) =>
 			{
 				var config = services.GetService<IConfig>();

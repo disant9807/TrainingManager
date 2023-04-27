@@ -38,7 +38,6 @@ namespace TrainingManager.Logic.Storage.Commands
 
             statistics.DateOfMeasurement = _statisticsIndicator.DateOfMeasurement;
             statistics.ObjectCode = _statisticsIndicator.ObjectCode;
-            statistics.UserId = _statisticsIndicator.UserId;
             statistics.Value = _statisticsIndicator.Value;
 
             context.StatisticsIndicators.Update(statistics);

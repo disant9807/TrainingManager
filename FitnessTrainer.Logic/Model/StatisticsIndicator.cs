@@ -16,8 +16,6 @@ namespace TrainingManager.Logic.Model
 
         public Guid ObjectCode { get; set; }
 
-        public ObjectOfStatistics ObjectOfStatistics { get; set; }
-
         public string Value { get; set; }
 
         public DateTime CreatedOrUpdate { get; set; }

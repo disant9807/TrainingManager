@@ -72,6 +72,7 @@ namespace TrainingManager
 					{
 						endpoints.MapControllers();
 					});
+
 			}
 			catch (System.Exception e)
 			{

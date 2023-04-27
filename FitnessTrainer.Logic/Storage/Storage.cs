@@ -10,7 +10,7 @@ using Serilog;
 using AutoMapper;
 using TrainingManager.Log;
 using TrainingManager.Logic.Model;
-using TrainingManager.Logic.Storage.Domain;
+using System.Collections;
 
 namespace TrainingManager.Logic.Storage
 {
@@ -61,9 +61,10 @@ namespace TrainingManager.Logic.Storage
 		public Task<Model.TrainingProgram> GetTrainingProgramById(long id)
 			=> Execute((u) => new GetTrainingProgramByIdRequest(u, _logFactory, _mapper, id));
 
+        public Task<Model.Training[]> GetTrainingsByPeriodInclude(DateTime dateFrom, DateTime dateTo)
+            => Execute((u) => new GetTrainingsByPeriodIncludeRequest(u, _mapper, dateFrom, dateTo));
 
-
-		public Task<Model.Training[]> GetTraining(GetTrainingsFilter filter, Order? order = null, int? start = null, int? count = null)
+        public Task<Model.Training[]> GetTraining(GetTrainingsFilter filter, Order? order = null, int? start = null, int? count = null)
 			=> Execute((u) => new GetTrainingsRequest(u, _mapper, filter, order, start, count));
 
 		public Task<long> CreateTraining(Model.Training training)
@@ -78,6 +79,9 @@ namespace TrainingManager.Logic.Storage
         public Task<Model.Training> GetTrainingById(long id)
             => Execute((u) => new GetTrainingByIdRequest(u, _logFactory, _mapper, id));
 
+
+        public Task<Model.Size[]> GetSizesByPeriodInclude(DateTime _dateFrom, DateTime _dateTo)
+            => Execute((u) => new GetSizesByPeriodIncludeRequest(u, _mapper, _dateFrom, _dateTo));
 
         public Task<Model.Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null)
             => Execute((u) => new GetSizesRequest(u, _mapper, filter, order, start, count));
@@ -95,6 +99,8 @@ namespace TrainingManager.Logic.Storage
             => Execute((u) => new ArchiveSizeCommand(u, _logFactory, id, isArchive));
 
 
+        public Task<Model.Goal[]> GetGoalsByPeriodInclude(DateTime dateFrom, DateTime dateTo)
+             => Execute((u) => new GetGoalsByPeriodIncludeRequest(u, _mapper, dateFrom, dateTo));
 
         public Task<Model.Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null)
             => Execute((u) => new GetGoalsRequest(u, _mapper, filter, order, start, count));
@@ -182,6 +188,16 @@ namespace TrainingManager.Logic.Storage
 
         public Task ArchiveStatistics(Guid id, bool isArchive)
             => Execute((u) => new ArchiveStatisticsCommand(u, _logFactory, id, isArchive));
+
+
+        public Task<Guid> CreateGenStatistics(GenStatistics genStatistics)
+            => Execute((u) => new CreateGenStatisticsRequest(u, genStatistics, _logFactory, _mapper));
+
+        public Task<GenStatistics[]> GetGenStatisticsByCategory(string categoryCode, string userId)
+            => Execute((u) => new GetGenStatisticsByCategoryRequest(u, _mapper, categoryCode, userId));
+
+        public Task<GenStatistics> GetGenStatisticsById(Guid id)
+            => Execute((u) => new GetGenStatisticsByIdRequest(u, _mapper, id));
 
         protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
 		{
