@@ -15,6 +15,10 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public string Name { get; set; }
 
+        public string UserId { get; set; }
+
+        public bool IsEveryone { get; set; }
+
         public string Description { get; set; }
 
         public bool IsArchived { get; set; }

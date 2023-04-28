@@ -14,6 +14,10 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public string Name { get; set; }
 
+        public string UserId { get; set; }
+
+        public bool IsEveryone { get; set; }
+
         public ICollection<SizeItem> SizeItems { get; set; }
 
         public DateTime CreatedDate { get; set; }

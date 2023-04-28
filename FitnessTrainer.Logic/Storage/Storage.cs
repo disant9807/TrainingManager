@@ -27,8 +27,8 @@ namespace TrainingManager.Logic.Storage
             _contextFactory = contextFactory;
         }
 
-		public Task<Model.Exercise[]> GetExercises(GetExercisesFilter filter, Order? order = null, int? start = null, int? count = null)
-			=> Execute((u) => new GetExercisesRequest(u, filter, order, start, count));
+		public Task<Model.Exercise[]> GetExercises(GetExercisesFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null)
+			=> Execute((u) => new GetExercisesRequest(u, filter, userId, isEveryone, order, start, count));
 
 		public Task<Model.Exercise> GetExerciseById(long id)
 			=> Execute((u) => new GetExerciseByIdRequest(u, _logFactory, _mapper, id));
@@ -45,8 +45,8 @@ namespace TrainingManager.Logic.Storage
 
 
 
-		public Task<Model.TrainingProgram[]> GetTrainingPrograms(GetTrainingProgramsFilter filter, Order? order = null, int? start = null, int? count = null)
-			=> Execute((u) => new GetTrainingProgramsRequest(u, _mapper, filter, order, start, count));
+		public Task<Model.TrainingProgram[]> GetTrainingPrograms(GetTrainingProgramsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null) 
+            => Execute((u) => new GetTrainingProgramsRequest(u, _mapper, filter, userId, isEveryone, order, start, count));
 
 		public Task<long> CreateTrainingProgram(Model.TrainingProgram trainingProgram)
 			=> Execute((u) => new CreateTrainingProgramRequest(u, trainingProgram, _logFactory, _mapper));
@@ -61,11 +61,12 @@ namespace TrainingManager.Logic.Storage
 		public Task<Model.TrainingProgram> GetTrainingProgramById(long id)
 			=> Execute((u) => new GetTrainingProgramByIdRequest(u, _logFactory, _mapper, id));
 
-        public Task<Model.Training[]> GetTrainingsByPeriodInclude(DateTime dateFrom, DateTime dateTo)
-            => Execute((u) => new GetTrainingsByPeriodIncludeRequest(u, _mapper, dateFrom, dateTo));
 
-        public Task<Model.Training[]> GetTraining(GetTrainingsFilter filter, Order? order = null, int? start = null, int? count = null)
-			=> Execute((u) => new GetTrainingsRequest(u, _mapper, filter, order, start, count));
+        public Task<Model.Training[]> GetTrainingsByPeriodInclude(DateTime dateFrom, DateTime dateTo, string userId)
+            => Execute((u) => new GetTrainingsByPeriodIncludeRequest(u, _mapper, dateFrom, dateTo, userId));
+
+        public Task<Model.Training[]> GetTraining(GetTrainingsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null)
+			=> Execute((u) => new GetTrainingsRequest(u, _mapper, filter, userId, isEveryone, order, start, count));
 
 		public Task<long> CreateTraining(Model.Training training)
 			=> Execute((u) => new CreateTrainingRequest(u, training, _logFactory, _mapper));
@@ -80,11 +81,11 @@ namespace TrainingManager.Logic.Storage
             => Execute((u) => new GetTrainingByIdRequest(u, _logFactory, _mapper, id));
 
 
-        public Task<Model.Size[]> GetSizesByPeriodInclude(DateTime _dateFrom, DateTime _dateTo)
-            => Execute((u) => new GetSizesByPeriodIncludeRequest(u, _mapper, _dateFrom, _dateTo));
+        public Task<Model.Size[]> GetSizesByPeriodInclude(DateTime _dateFrom, DateTime _dateTo, string _userId)
+            => Execute((u) => new GetSizesByPeriodIncludeRequest(u, _mapper, _dateFrom, _dateTo, _userId));
 
-        public Task<Model.Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null)
-            => Execute((u) => new GetSizesRequest(u, _mapper, filter, order, start, count));
+        public Task<Model.Size[]> GetSizes(GetSizesFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null)
+            => Execute((u) => new GetSizesRequest(u, _mapper, filter, userId, isEveryone, order, start, count));
 
         public Task<Model.Size> GetSizeById(long id)
 			=> Execute((u) => new GetSizeByIdRequest(u, _logFactory, _mapper, id));
@@ -99,11 +100,11 @@ namespace TrainingManager.Logic.Storage
             => Execute((u) => new ArchiveSizeCommand(u, _logFactory, id, isArchive));
 
 
-        public Task<Model.Goal[]> GetGoalsByPeriodInclude(DateTime dateFrom, DateTime dateTo)
-             => Execute((u) => new GetGoalsByPeriodIncludeRequest(u, _mapper, dateFrom, dateTo));
+        public Task<Model.Goal[]> GetGoalsByPeriodInclude(DateTime dateFrom, DateTime dateTo, string userId)
+             => Execute((u) => new GetGoalsByPeriodIncludeRequest(u, _mapper, dateFrom, dateTo, userId));
 
-        public Task<Model.Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null)
-            => Execute((u) => new GetGoalsRequest(u, _mapper, filter, order, start, count));
+        public Task<Model.Goal[]> GetGoals(GetGoalsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null)
+            => Execute((u) => new GetGoalsRequest(u, _mapper, filter, userId, isEveryone, order, start, count));
 
         public Task<Model.Goal> GetGoalById(long id)
             => Execute((u) => new GetGoalByIdRequest(u, _logFactory, _mapper, id));

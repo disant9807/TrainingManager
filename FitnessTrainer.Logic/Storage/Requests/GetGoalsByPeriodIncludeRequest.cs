@@ -15,12 +15,14 @@ namespace TrainingManager.Logic.Storage.Requests
         private readonly IMapper _mapper;
         private readonly DateTime _dateFrom;
         private readonly DateTime _dateTo;
+        private readonly string _userId;
 
-        public GetGoalsByPeriodIncludeRequest(StorageContext context, IMapper mapper, DateTime dateFrom, DateTime dateTo) : base(context)
+        public GetGoalsByPeriodIncludeRequest(StorageContext context, IMapper mapper, DateTime dateFrom, DateTime dateTo, string userId) : base(context)
         {
             _mapper = mapper;
             _dateFrom = dateFrom;
             _dateTo = dateTo;
+            _userId = userId;
         }
 
         public override async Task<Goal[]> ExecuteAsync()
@@ -28,6 +30,7 @@ namespace TrainingManager.Logic.Storage.Requests
             var goalRequest = context.Goal
                 .Where(e => e.CompletionDate >= _dateFrom)
                 .Where(e => e.CompletionDate <= _dateTo)
+                .Where(e => e.UserId == _userId)
                 .Include(e => e.SubGoals);
             var goal = goalRequest.AsNoTracking();
 

@@ -11,38 +11,38 @@ namespace TrainingManager.Logic.Storage
     public interface IStorage
     {
         // Упражнения
-        Task<Exercise[]> GetExercises(GetExercisesFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<Exercise[]> GetExercises(GetExercisesFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateExercise(Exercise exercise);
         Task UpdateExercise(Exercise exercise);
         Task ArchiveExercise(long id, bool isArchived);
         Task<Exercise> GetExerciseById(long id);
 
         // Тренировочные программы
-        Task<TrainingProgram[]> GetTrainingPrograms(GetTrainingProgramsFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<TrainingProgram[]> GetTrainingPrograms(GetTrainingProgramsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateTrainingProgram(TrainingProgram trainingProgram);
         Task UpdateTrainingProgram(TrainingProgram trainingProgram);
         Task ArchiveTrainingProgram(long id, bool isArchived);
         Task<TrainingProgram> GetTrainingProgramById(long id);
 
         // Тренировки
-        Task<Training[]> GetTrainingsByPeriodInclude(DateTime dateFrom, DateTime dateTo);
-        Task<Training[]> GetTraining(GetTrainingsFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<Training[]> GetTrainingsByPeriodInclude(DateTime dateFrom, DateTime dateTo, string userId);
+        Task<Training[]> GetTraining(GetTrainingsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateTraining(Training training);
         Task UpdateTraining(Training training);
         Task ArchiveTraining(long id, bool isArchived);
         Task<Training> GetTrainingById(long id);
 
         // Замеры
-        Task<Size[]> GetSizesByPeriodInclude(DateTime dateFrom, DateTime dateTo);
-        Task<Size[]> GetSizes(GetSizesFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<Size[]> GetSizesByPeriodInclude(DateTime dateFrom, DateTime dateTo, string userId);
+        Task<Size[]> GetSizes(GetSizesFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateSize(Size size);
         Task UpdateSize(Size size);
         Task ArchiveSize(long id, bool isArchived);
         Task<Size> GetSizeById(long id);
 
         // Цели
-        Task<Goal[]> GetGoalsByPeriodInclude(DateTime dateFrom, DateTime dateTo);
-        Task<Goal[]> GetGoals(GetGoalsFilter filter, Order? order = null, int? start = null, int? count = null);
+        Task<Goal[]> GetGoalsByPeriodInclude(DateTime dateFrom, DateTime dateTo, string userId);
+        Task<Goal[]> GetGoals(GetGoalsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null);
         Task<long> CreateGoal(Goal size);
         Task UpdateGoal(Goal size);
         Task ArchiveGoal(long id, bool isArchived);

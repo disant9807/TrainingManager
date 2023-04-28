@@ -74,7 +74,7 @@ namespace TrainingManager.Controllers
             if (isNotNewGen)
                 return BadRequest("Разрешена тольк 1 генерация статистики в сутки");
 
-            var goals = await _storage.GetGoalsByPeriodInclude(dateFrom, dateTo);
+            var goals = await _storage.GetGoalsByPeriodInclude(dateFrom, dateTo, userId);
 
             var objOfStatistics = new List<ObjectOfStatistics>();
 
@@ -88,7 +88,6 @@ namespace TrainingManager.Controllers
                     localObjOfStatistics = new ObjectOfStatistics
                     {
                         Id = Guid.NewGuid(),
-                        UserId = userId,
                         CategoryCode = "Goal",
                         Description = "",
                         Code = subGoal.BodyCode,
@@ -142,7 +141,7 @@ namespace TrainingManager.Controllers
                 return BadRequest();
 
             var sizes = await _storage
-                .GetSizesByPeriodInclude(dateFrom, dateTo);
+                .GetSizesByPeriodInclude(dateFrom, dateTo, userId);
 
             var objOfStatistics = new List<ObjectOfStatistics>();
 
@@ -158,7 +157,6 @@ namespace TrainingManager.Controllers
                         Id = Guid.NewGuid(),
                         CategoryCode = "Size",
                         Description = "",
-                        UserId = userId,
                         Code = sizeItem.BodyCode,
                         Name = sizeItem.Body.ShortName ?? sizeItem.Body.Name
                     };
@@ -209,7 +207,7 @@ namespace TrainingManager.Controllers
             if (isNotNewGen)
                 return BadRequest();
 
-            var training = await _storage.GetTrainingsByPeriodInclude(dateFrom, dateTo);
+            var training = await _storage.GetTrainingsByPeriodInclude(dateFrom, dateTo, userId);
 
             var objOfStatistics = new List<ObjectOfStatistics>();
 
@@ -223,7 +221,6 @@ namespace TrainingManager.Controllers
                     localObjOfStatistics = new ObjectOfStatistics
                     {
                         Id = Guid.NewGuid(),
-                        UserId = userId,
                         CategoryCode = "Training",
                         Description = "",
                         Code = approach.Exercise.Id.ToString(),

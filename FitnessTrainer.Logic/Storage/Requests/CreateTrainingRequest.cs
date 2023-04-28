@@ -44,6 +44,8 @@ namespace TrainingManager.Logic.Storage.Requests
             training.Description = _training.Description;
             training.Name = _training.Name;
             training.Time = _training.Time;
+            training.UserId = _training.UserId;
+            training.IsEveryone = false;
 
             _training.Approachs.ToList()
                 .ForEach(e =>

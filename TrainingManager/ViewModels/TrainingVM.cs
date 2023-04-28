@@ -8,6 +8,7 @@ namespace TrainingManager.ViewModels
         public DateTime? TrainingDate { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
+        public string UserId { get; set; }
         public int Time { get; set; }
         public string TrainingProgramId { get; set; }
 

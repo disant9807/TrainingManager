@@ -27,7 +27,6 @@ namespace TrainingManager.Logic.Storage.Requests
         {
             var statisticsRequest = await context.ObjectOfStatistics
                 .Where(e => e.CategoryCode == _categoryCode)
-                .Where(e => e.UserId == _userId)
                 .ToListAsync();
 
             if (statisticsRequest is null)

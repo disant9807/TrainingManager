@@ -18,8 +18,9 @@ namespace TrainingManager.Logic.Storage.Requests
         private readonly int? start;
         private readonly int? count;
         private readonly IMapper _mapper;
+        private readonly string _userId;
 
-        public GetTrainingsByPeriodIncludeRequest(StorageContext context, IMapper mapper, DateTime dateFrom, DateTime dateTo) : base(context)
+        public GetTrainingsByPeriodIncludeRequest(StorageContext context, IMapper mapper, DateTime dateFrom, DateTime dateTo, string userId) : base(context)
         {
             if (start < 0)
                 throw new ArgumentOutOfRangeException($"{nameof(start)} start = zero");
@@ -29,6 +30,7 @@ namespace TrainingManager.Logic.Storage.Requests
             this._dateFrom = dateFrom;
             this._dateTo = dateTo;
             _mapper = mapper;
+            _userId = userId;
         }
 
         public override async Task<Training[]> ExecuteAsync()
@@ -36,6 +38,7 @@ namespace TrainingManager.Logic.Storage.Requests
             var training = context.Training
                 .Where(e => e.TrainingDate >= _dateFrom)
                 .Where(e => e.TrainingDate <= _dateTo)
+                .Where(e => e.UserId == _userId)
                 .Include(e => e.Approachs)
                 .ThenInclude(e => e.Exercise)
                 .Include(e => e.Approachs)

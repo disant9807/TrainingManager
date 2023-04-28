@@ -18,12 +18,14 @@ namespace TrainingManager.Logic.Storage.Requests
         private readonly int? start;
         private readonly int? count;
         private readonly IMapper _mapper;
+        private readonly string _userId;
 
-        public GetSizesByPeriodIncludeRequest(StorageContext context, IMapper mapper, DateTime dateFrom, DateTime dateTo) : base(context)
+        public GetSizesByPeriodIncludeRequest(StorageContext context, IMapper mapper, DateTime dateFrom, DateTime dateTo, string userId) : base(context)
         {
             _mapper = mapper;
             _dateFrom = dateFrom;
             _dateTo = dateTo;
+            _userId = userId;
         }
 
         public override async Task<Size[]> ExecuteAsync()
@@ -31,6 +33,7 @@ namespace TrainingManager.Logic.Storage.Requests
             var sizeRequest = context.Size
                 .Where(e => e.CreatedDate >= _dateFrom)
                 .Where(e => e.CreatedDate <= _dateTo)
+                .Where(e => e.UserId == _userId)
                 .Include(e => e.SizeItems);
 
             var size = sizeRequest.AsNoTracking();

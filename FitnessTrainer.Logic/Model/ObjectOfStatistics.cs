@@ -22,8 +22,6 @@ namespace TrainingManager.Logic.Model
 
         public string Code { get; set; }
 
-        public string UserId { get; set; }
-
         public bool IsArchived { get; set; }
 
         public DateTime CreateOrUpdate { get; set; }

@@ -31,6 +31,8 @@ namespace TrainingManager.Logic.Storage.Requests
             size.CreatedDate = DateTime.Now;
             size.Name = _size.Name;
             size.IsArchived = false;
+            size.UserId = _size.UserId;
+            size.IsEveryone = false;
 
             _size.SizeItems.ToList().ForEach(e =>
             {

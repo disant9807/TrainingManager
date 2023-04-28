@@ -36,7 +36,6 @@ namespace TrainingManager.Logic.Storage.Requests
             {
                 var objectOfStatistics = new Domain.ObjectOfStatistics();
 
-                objectOfStatistics.UserId = model.UserId;
                 objectOfStatistics.Code = model.Code;
                 objectOfStatistics.CategoryCode = model.CategoryCode;
                 objectOfStatistics.Description = model.Description;

@@ -12,11 +12,13 @@ namespace TrainingManager.Logic.Storage.Requests
     public class GetExercisesRequest : BaseStorageRequest<Model.Exercise[]>
     {
         private readonly GetExercisesFilter filter;
+        private readonly string _userId;
+        private readonly bool? _isEveryone;
         private readonly Order? _order;
         private readonly int? start;
         private readonly int? count;
 
-        public GetExercisesRequest(StorageContext context, GetExercisesFilter filter, Order? order = null, int? start = null, int? count = null) : base(context)
+        public GetExercisesRequest(StorageContext context, GetExercisesFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null) : base(context)
         {
             if (start < 0)
                 throw new ArgumentOutOfRangeException($"{nameof(start)} start = zero");
@@ -27,11 +29,15 @@ namespace TrainingManager.Logic.Storage.Requests
             _order = order;
             this.start = start;
             this.count = count;
+            _userId = userId;
+            _isEveryone = isEveryone;
         }
 
         public override async Task<Exercise[]> ExecuteAsync()
         {
-            var exercisesRequest = context.GetFiltredExercises(filter);
+            var exercisesRequest = context.GetFiltredExercises(filter)
+                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId));
+
             var exercises = exercisesRequest
                 .Include(e => e.CategoryOfBodies)
                 .Include(e => e.Images)

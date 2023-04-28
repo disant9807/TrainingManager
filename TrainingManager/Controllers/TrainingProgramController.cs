@@ -94,15 +94,15 @@ namespace TrainingManager.Controllers
 			return Ok(trainingProgram);
 		}
 
-		[HttpGet]
+		[HttpGet("get/{userId}")]
 		[ProducesDefaultResponseType]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public async Task<ActionResult<IEnumerable<Exercise>>> TrainingPrograms([FromQuery] QueryParamsTrainingProgramVM parameters)
+		public async Task<ActionResult<IEnumerable<Exercise>>> TrainingPrograms([FromRoute] string userId, [FromQuery] QueryParamsTrainingProgramVM parameters)
 		{
 			var filter = _mapper.Map<QueryParamsTrainingProgramVM, GetTrainingProgramsFilter>(parameters);
 
-			var requests = await _storage.GetTrainingPrograms(filter, parameters.order, parameters.start, parameters.count);
+			var requests = await _storage.GetTrainingPrograms(filter, userId, true, parameters.order, parameters.start, parameters.count);
 
 			return Ok(requests.Select(e => _mapper.Map<TrainingProgram, TrainingProgramVM>(e)));
 		}

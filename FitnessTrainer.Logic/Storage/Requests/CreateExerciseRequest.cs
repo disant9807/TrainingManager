@@ -35,6 +35,8 @@ namespace TrainingManager.Logic.Storage.Requests
             exercise.ShortName = _exercise.ShortName;
             exercise.IsBased = _exercise.IsBased;
             exercise.Description = _exercise.Description;
+            exercise.IsEveryone = false;
+            exercise.UserId = _exercise.UserId;
             exercise.HardSkill = _exercise.HardSkill switch
             {
                 Model.HardSkill.easy => Domain.HardSkill.easy,

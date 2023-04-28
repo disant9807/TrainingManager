@@ -29,6 +29,8 @@ namespace TrainingManager.Logic.Storage.Requests
         {
             var trainingProgram = _mapper.Map<Model.TrainingProgram, Domain.TrainingProgram>(_trainingProgram);
             trainingProgram.CreatedDate = DateTime.Now;
+            trainingProgram.UserId = _trainingProgram.UserId;
+            trainingProgram.IsEveryone = _trainingProgram.IsEveryone;
             context.TrainingProgram.Add(trainingProgram);
             await context.SaveChangesAsync();
 

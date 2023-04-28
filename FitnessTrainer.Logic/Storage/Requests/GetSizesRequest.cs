@@ -17,8 +17,10 @@ namespace TrainingManager.Logic.Storage.Requests
         private readonly int? start;
         private readonly int? count;
         private readonly IMapper _mapper;
+        private readonly string _userId;
+        private readonly bool? _isEveryone;
 
-        public GetSizesRequest(StorageContext context, IMapper mapper, GetSizesFilter filter, Order? order = null, int? start = null, int? count = null) : base(context)
+        public GetSizesRequest(StorageContext context, IMapper mapper, GetSizesFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null) : base(context)
         {
             if (start < 0)
                 throw new ArgumentOutOfRangeException($"{nameof(start)} start = zero");
@@ -30,11 +32,15 @@ namespace TrainingManager.Logic.Storage.Requests
             this.start = start;
             this.count = count;
             _mapper = mapper;
+            this._userId = userId;
+            this._isEveryone = isEveryone;
         }
 
         public override async Task<Size[]> ExecuteAsync()
         {
-            var sizeRequest = context.GetFiltredSizes(filter);
+            var sizeRequest = context.GetFiltredSizes(filter)
+                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId));
+
             var size = sizeRequest.AsNoTracking();
             size = Order(size);
             size = Take(size);

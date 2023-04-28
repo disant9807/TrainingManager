@@ -16,6 +16,10 @@ namespace TrainingManager.Logic.Model
 
         public DateTime CreatedDate { get; set; }
 
+        public string UserId { get; set; }
+
+        public bool IsEveryone { get; set; }
+
         public bool IsArchived { get; set; }
     }
 }

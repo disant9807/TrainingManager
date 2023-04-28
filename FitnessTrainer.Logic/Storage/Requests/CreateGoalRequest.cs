@@ -33,6 +33,8 @@ namespace TrainingManager.Logic.Storage.Requests
             goal.CompletionDate = _goal.CompletionDate;
             goal.Name = _goal.Name;
             goal.IsArchived = false;
+            goal.UserId = _goal.UserId;
+            goal.IsEveryone = false;
 
             _goal.SubGoals.ToList().ForEach(e =>
             {

@@ -94,11 +94,11 @@ namespace TrainingManager.Controllers
 			return Ok(exercise);
 		}
 
-		[HttpGet]
+		[HttpGet("get/{userId}")]
 		[ProducesDefaultResponseType]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public async Task<ActionResult<IEnumerable<Exercise>>> Exercises([FromQuery] QueryParamsExerciseVM parameters)
+		public async Task<ActionResult<IEnumerable<Exercise>>> Exercises([FromRoute] string userId, [FromQuery] QueryParamsExerciseVM parameters)
 		{
 			var filter = new GetExercisesFilter()
 			{
@@ -111,7 +111,7 @@ namespace TrainingManager.Controllers
 				HardSkills = parameters.hardSkills
 			};
 
-			var requests = await _storage.GetExercises(filter, parameters.order, parameters.start, parameters.count);
+			var requests = await _storage.GetExercises(filter, userId, true, parameters.order, parameters.start, parameters.count);
 
 			return Ok(requests.Select(e => _mapper.Map<Exercise, ExerciseVM>(e)));
 		}

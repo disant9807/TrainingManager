@@ -22,7 +22,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -32,7 +34,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -42,7 +46,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -52,7 +58,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -62,7 +70,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -72,7 +82,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -82,7 +94,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -92,7 +106,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -102,7 +118,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -112,7 +130,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -122,7 +142,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -132,7 +154,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -142,7 +166,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -152,7 +178,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -162,7 +190,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -172,7 +202,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -182,7 +214,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -192,7 +226,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -202,7 +238,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -212,7 +250,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -222,7 +262,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -232,7 +274,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -242,7 +286,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = true
+                    IsBased = true,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -252,7 +298,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -262,7 +310,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -272,7 +322,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -282,7 +334,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -292,7 +346,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -302,7 +358,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -312,7 +370,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -322,7 +382,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -332,7 +394,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -342,7 +406,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -352,7 +418,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -362,7 +430,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -372,7 +442,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -382,7 +454,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -392,7 +466,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -402,7 +478,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -412,7 +490,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -422,7 +502,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -432,7 +514,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -442,7 +526,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -452,7 +538,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -462,7 +550,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -472,7 +562,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -482,7 +574,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -492,7 +586,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -502,7 +598,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -512,7 +610,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -522,7 +622,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -532,7 +634,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -542,7 +646,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -552,7 +658,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -562,7 +670,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -572,7 +682,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -582,7 +694,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -592,7 +706,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -602,7 +718,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -612,7 +730,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -622,7 +742,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -632,7 +754,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -642,7 +766,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -652,7 +778,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -662,7 +790,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -672,7 +802,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -682,7 +814,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -692,7 +826,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -702,7 +838,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -712,7 +850,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -722,7 +862,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = true
+                    IsBased = true,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -732,7 +874,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -742,7 +886,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -752,7 +898,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -762,7 +910,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -772,7 +922,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -782,7 +934,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -792,7 +946,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -802,7 +958,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -812,7 +970,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -822,7 +982,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -832,7 +994,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -842,7 +1006,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -852,7 +1018,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -862,7 +1030,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -872,7 +1042,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -882,7 +1054,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -892,7 +1066,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -902,7 +1078,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -912,7 +1090,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -922,7 +1102,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -932,7 +1114,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -942,7 +1126,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -952,7 +1138,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -962,7 +1150,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -972,7 +1162,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -982,7 +1174,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -992,7 +1186,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1002,7 +1198,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1012,7 +1210,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1022,7 +1222,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1032,7 +1234,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1042,7 +1246,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1052,7 +1258,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1062,7 +1270,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1072,7 +1282,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1082,7 +1294,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1092,7 +1306,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1102,7 +1318,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1112,7 +1330,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin"
                 },
                 new Exercise
                 {
@@ -1122,7 +1342,9 @@ namespace TrainingManager.Logic.Storage.Extensions
                     CreatedDate = new DateTime(2023, 4, 16, 15, 57, 3, 473, DateTimeKind.Utc),
                     HardSkill = HardSkill.normal,
                     Description = "",
-                    IsBased = false
+                    IsBased = false,
+                    IsEveryone = true,
+                    UserId = "admin",
                 }
             );
 

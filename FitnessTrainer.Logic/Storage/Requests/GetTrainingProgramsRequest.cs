@@ -17,8 +17,10 @@ namespace TrainingManager.Logic.Storage.Requests
         private readonly int? start;
         private readonly int? count;
         private readonly IMapper _mapper;
+        private readonly string _userId;
+        private readonly bool? _isEveryone;
 
-        public GetTrainingProgramsRequest(StorageContext context, IMapper mapper, GetTrainingProgramsFilter filter, Order? order = null, int? start = null, int? count = null) : base(context)
+        public GetTrainingProgramsRequest(StorageContext context, IMapper mapper, GetTrainingProgramsFilter filter, string userId, bool? isEveryone, Order? order = null, int? start = null, int? count = null) : base(context)
         {
             if (start < 0)
                 throw new ArgumentOutOfRangeException($"{nameof(start)} start = zero");
@@ -30,11 +32,15 @@ namespace TrainingManager.Logic.Storage.Requests
             this.start = start;
             this.count = count;
             _mapper = mapper;
+            this._userId = userId;
+            this._isEveryone = isEveryone;
         }
 
         public override async Task<TrainingProgram[]> ExecuteAsync()
         {
-            var trainingProgramsRequest = context.GetFiltredTrainingPrograms(filter);
+            var trainingProgramsRequest = context.GetFiltredTrainingPrograms(filter)
+                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId));
+
             var trainingPrograms = trainingProgramsRequest
                 .Include(e => e.Days)
                 .AsNoTracking();
