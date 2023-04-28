@@ -118,6 +118,11 @@ namespace TrainingManager.Controllers
                 UserId = userId
             };
 
+            if(genStatistics.Statistics?.Count == 0)
+            {
+                return BadRequest("Отсутствуют данные в выборке");
+            }
+
             await _storage.CreateGenStatistics(genStatistics);
 
             return Ok(genStatistics);
@@ -179,6 +184,11 @@ namespace TrainingManager.Controllers
                 Statistics = objOfStatistics,
                 UserId = userId
             };
+
+            if (genStatistics.Statistics?.Count == 0)
+            {
+                return BadRequest("Отсутствуют данные в выборке");
+            }
 
             await _storage.CreateGenStatistics(genStatistics);
 
@@ -247,6 +257,11 @@ namespace TrainingManager.Controllers
                 Statistics = objOfStatistics,
                 UserId = userId
             };
+
+            if (genStatistics.Statistics?.Count == 0)
+            {
+                return BadRequest("Отсутствуют данные в выборке");
+            }
 
             await _storage.CreateGenStatistics(genStatistics);
 

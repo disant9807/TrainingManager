@@ -100,6 +100,7 @@ namespace TrainingManager.Logic.Storage.Commands
                 });
             }
 
+            context.Training.Update(training);
             await context.SaveChangesAsync();
         }
 

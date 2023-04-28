@@ -28,32 +28,48 @@ namespace TrainingManager.Logic.Storage.Commands
 
         public async override Task ExecuteAsync()
         {
-            var goal = await context.Goal.Where(e => e.Id == _goal.Id)
-                .Include(e => e.SubGoals).AsNoTracking().FirstOrDefaultAsync();
+            var goal = await context.Goal
+                .Where(e => e.Id == _goal.Id)
+                .Include(e => e.SubGoals)
+                .FirstOrDefaultAsync();
 
             if (goal == null)
-                throw new KeyNotFoundException($"Цель с id = {_goal.Id} не найден");
+                throw new KeyNotFoundException($"Цель с id = {_goal.Id} не найдена");
 
-            var goalFromMap = _mapper.Map<Model.Goal, Domain.Goal>(_goal);
+            goal.CompletionDate = _goal.CompletionDate;
+            goal.Description = _goal.Description;
+            goal.Name = _goal.Name;
 
-            context.Entry<Domain.Goal>(goalFromMap).State = EntityState.Detached;
-            foreach (var subGoal in goalFromMap.SubGoals)
+            var deleteSubGoal = goal.SubGoals.Where(e => !_goal.SubGoals.Any(z => z.Id == e.Id));
+            var addSubGoal = _goal.SubGoals.Where(e => !goal.SubGoals.Any(z => z.Id == e.Id));
+            var editSubGoal = goal.SubGoals.Where(e => _goal.SubGoals.Any(z => z.Id == e.Id));
+
+            foreach (var subGoal in deleteSubGoal)
             {
-                context.Entry<Domain.SubGoal>(subGoal).State = EntityState.Detached;
-            } 
-
-            context.Goal.Update(goalFromMap);
-            await context.SaveChangesAsync();
-
-            context.Entry<Domain.Goal>(goalFromMap).State = EntityState.Detached;
-            foreach (var subGoal in goalFromMap.SubGoals)
-            {
-                context.Entry<Domain.SubGoal>(subGoal).State = EntityState.Detached;
+                context.SubGoal.Remove(subGoal);
             }
-            context.SubGoal
-                .RemoveRange(goal.SubGoals
-                    .Where(e => !goalFromMap.SubGoals
-                        .Select(e => e.Id).Contains(e.Id)));
+
+            foreach (var subGoalModel in addSubGoal)
+            {
+                var subGoal = new Domain.SubGoal();
+                subGoal.Value = subGoalModel.Value;
+                subGoal.BodyCode = subGoalModel.BodyCode;
+                subGoal.CodeUnitsOfMeasurement = subGoalModel.CodeUnitsOfMeasurement;
+
+                goal.SubGoals.Add(subGoal);
+            }
+
+            foreach (var subGoal in editSubGoal)
+            {
+                var updatedSubGoal = _goal.SubGoals
+                    .FirstOrDefault(e => e.Id == subGoal.Id);
+
+                subGoal.Value = updatedSubGoal.Value;
+                subGoal.CodeUnitsOfMeasurement = updatedSubGoal.CodeUnitsOfMeasurement;
+                subGoal.BodyCode = updatedSubGoal.BodyCode;
+            }
+
+            context.Goal.Update(goal);
             await context.SaveChangesAsync();
         }
     }

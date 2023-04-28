@@ -26,11 +26,27 @@ namespace TrainingManager.Logic.Storage.Requests
 
         public override async Task<long> ExecuteAsync()
         {
-            var goal = _mapper.Map<Model.Goal, Domain.Goal>(_goal);
+            var goal = new Domain.Goal();
 
+            goal.Description = _goal.Description;
             goal.CreatedDate = DateTime.Now;
+            goal.CompletionDate = _goal.CompletionDate;
+            goal.Name = _goal.Name;
+            goal.IsArchived = false;
+
+            _goal.SubGoals.ToList().ForEach(e =>
+            {
+                var subGoal = new Domain.SubGoal();
+                subGoal.Value = e.Value;
+                subGoal.BodyCode = e.BodyCode;
+                subGoal.CodeUnitsOfMeasurement = e.CodeUnitsOfMeasurement;
+
+                goal.SubGoals.Add(subGoal);
+            });
+
             context.Goal.Add(goal);
             await context.SaveChangesAsync();
+
             return goal.Id;
         }
     }

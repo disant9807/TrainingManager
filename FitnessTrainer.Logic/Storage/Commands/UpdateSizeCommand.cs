@@ -28,89 +28,47 @@ namespace TrainingManager.Logic.Storage.Commands
 
         public async override Task ExecuteAsync()
         {
-            var size = await context.Size.Where(e => e.Id == _size.Id)
-                .Include(e => e.SizeItems).AsNoTracking().FirstOrDefaultAsync();
+            var size = await context.Size
+                .Where(e => e.Id == _size.Id)
+                .Include(e => e.SizeItems)
+                .FirstOrDefaultAsync();
 
             if (size == null)
-                throw new KeyNotFoundException($"Замер с id = {_size.Id} не найден");
+                throw new KeyNotFoundException($"Цель с id = {_size.Id} не найдена");
 
-            var sizeFromMap = _mapper.Map<Model.Size, Domain.Size>(_size);
+            size.Name = _size.Name;
 
-            context.Entry<Domain.Size>(sizeFromMap).State = EntityState.Detached;
-            foreach (var sizeItem in sizeFromMap.SizeItems)
+            var deleteSizeItems = size.SizeItems.Where(e => !_size.SizeItems.Any(z => z.Id == e.Id));
+            var addSizeItems = _size.SizeItems.Where(e => !size.SizeItems.Any(z => z.Id == e.Id));
+            var editSizeItems = size.SizeItems.Where(e => _size.SizeItems.Any(z => z.Id == e.Id));
+
+            foreach (var sizeItem in deleteSizeItems)
             {
-                context.Entry<Domain.SizeItem>(sizeItem).State = EntityState.Detached;
+                context.SizeItem.Remove(sizeItem);
             }
 
-            context.Size.Update(sizeFromMap);
-            await context.SaveChangesAsync();
-
-            context.Entry<Domain.Size>(sizeFromMap).State = EntityState.Detached;
-            foreach (var sizeItem in sizeFromMap.SizeItems)
+            foreach (var sizeItemModel in addSizeItems)
             {
-                context.Entry<Domain.SizeItem>(sizeItem).State = EntityState.Detached;
+                var sizeItem = new Domain.SizeItem();
+                sizeItem.Value = sizeItemModel.Value;
+                sizeItem.BodyCode = sizeItemModel.BodyCode;
+                sizeItem.CodeUnitsOfMeasurement = sizeItemModel.CodeUnitsOfMeasurement;
+
+                size.SizeItems.Add(sizeItem);
             }
-            context.SizeItem
-                .RemoveRange(size.SizeItems
-                    .Where(e => !sizeFromMap.SizeItems
-                        .Select(e => e.Id).Contains(e.Id)));
-            await context.SaveChangesAsync();
 
-            /*
-            var size = await context.Size.Where(e => e.Id == _size.Id).FirstOrDefaultAsync();
+            foreach (var sizeItem in editSizeItems)
+            {
+                var updatedSizeIteml = _size.SizeItems
+                    .FirstOrDefault(e => e.Id == sizeItem.Id);
 
-            if (size == null )
-                throw new KeyNotFoundException($"Размер с id = {_size.Id} не найден");
-
-            size.CreatedDate = _size.CreatedDate;
+                sizeItem.Value = updatedSizeIteml.Value;
+                sizeItem.BodyCode = updatedSizeIteml.BodyCode;
+                sizeItem.CodeUnitsOfMeasurement = updatedSizeIteml.CodeUnitsOfMeasurement;
+            }
 
             context.Size.Update(size);
             await context.SaveChangesAsync();
-
-            foreach(var sizeItem in size.SizeItems.ToArray())
-            {
-                context.Entry<Domain.SizeItem>(sizeItem).State = EntityState.Detached;
-            }
-
-            var deleteSizeItem = size.SizeItems.Where(e => !_size.SizeItems.Any(z => z.Id == e.Id));
-            var addSizeItemModel = _size.SizeItems.Where(e => !size.SizeItems.Any(z => z.Id == e.Id));
-            var editSizeItemModel = _size.SizeItems.Where(e => size.SizeItems.Any(z => z.Id == e.Id));
-
-            foreach (var sizeItem in deleteSizeItem)
-            {
-                size.SizeItems.Remove(sizeItem);
-                context.SizeItem.Remove(sizeItem);
-                await context.SaveChangesAsync();
-            }
-            foreach(var sizeItemModel in addSizeItemModel)
-            {
-                var sizeItem = _mapper.Map<Model.SizeItem, Domain.SizeItem>(sizeItemModel);
-                size.SizeItems.Add(sizeItem);
-                await context.SaveChangesAsync();
-
-                foreach (var sizeitemFor in size.SizeItems.ToArray())
-                {
-                    context.Entry<Domain.SizeItem>(sizeitemFor).State = EntityState.Detached;
-                }
-
-            }
-            foreach (var sizeItemModel in editSizeItemModel)
-            {
-                var sizeItem = _mapper.Map<Model.SizeItem, Domain.SizeItem>(sizeItemModel);
-                sizeItem.SizeId = size.Id;
-
-                context.SizeItem.Attach(sizeItem);
-                context.SizeItem.Update(sizeItem);
-                
-                
-                await context.SaveChangesAsync();
-
-                foreach (var sizeitemFor in size.SizeItems.ToArray())
-                {
-                    context.Entry<Domain.SizeItem>(sizeitemFor).State = EntityState.Detached;
-                }
-            }
-            */
         }
     }
 }

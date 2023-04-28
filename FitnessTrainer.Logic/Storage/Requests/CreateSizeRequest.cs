@@ -26,11 +26,25 @@ namespace TrainingManager.Logic.Storage.Requests
 
         public override async Task<long> ExecuteAsync()
         {
-            var size = _mapper.Map<Model.Size, Domain.Size>(_size);
+            var size = new Domain.Size();
 
             size.CreatedDate = DateTime.Now;
+            size.Name = _size.Name;
+            size.IsArchived = false;
+
+            _size.SizeItems.ToList().ForEach(e =>
+            {
+                var sizeItem = new Domain.SizeItem();
+                sizeItem.Value = e.Value;
+                sizeItem.BodyCode = e.BodyCode;
+                sizeItem.CodeUnitsOfMeasurement = e.CodeUnitsOfMeasurement;
+
+                size.SizeItems.Add(sizeItem);
+            });
+
             context.Size.Add(size);
             await context.SaveChangesAsync();
+
             return size.Id;
         }
     }
