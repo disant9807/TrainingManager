@@ -68,7 +68,11 @@ namespace TrainingManager.Controllers
         {
             _log.Debug("Запуск процесса генерации стаатистики цели");
             if ((dateTo - dateFrom) > TimeSpan.FromDays(366))
-                return BadRequest();
+                return BadRequest("Выборка должна быть меньше года");
+
+            var isNotNewGen = await _storage.GetGenStatisticsByDate(DateTime.Now, userId, "Goal");
+            if (isNotNewGen)
+                return BadRequest("Разрешена тольк 1 генерация статистики в сутки");
 
             var goals = await _storage.GetGoalsByPeriodInclude(dateFrom, dateTo);
 
@@ -128,6 +132,10 @@ namespace TrainingManager.Controllers
             if ((dateTo - dateFrom) > TimeSpan.FromDays(366))
                 return BadRequest();
 
+            var isNotNewGen = await _storage.GetGenStatisticsByDate(DateTime.Now, userId, "Size");
+            if (isNotNewGen)
+                return BadRequest();
+
             var sizes = await _storage
                 .GetSizesByPeriodInclude(dateFrom, dateTo);
 
@@ -185,6 +193,10 @@ namespace TrainingManager.Controllers
         {
             var daysCount = (dateTo - dateFrom).TotalDays;
             if (daysCount > 366)
+                return BadRequest();
+
+            var isNotNewGen = await _storage.GetGenStatisticsByDate(DateTime.Now, userId, "Training");
+            if (isNotNewGen)
                 return BadRequest();
 
             var training = await _storage.GetTrainingsByPeriodInclude(dateFrom, dateTo);

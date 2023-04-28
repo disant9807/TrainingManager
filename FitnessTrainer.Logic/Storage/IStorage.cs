@@ -77,5 +77,6 @@ namespace TrainingManager.Logic.Storage
         Task<Guid> CreateGenStatistics(GenStatistics genStatistics);
         Task<GenStatistics[]> GetGenStatisticsByCategory(string categoryCode, string userId);
         Task<GenStatistics> GetGenStatisticsById(Guid id);
+        Task<bool> GetGenStatisticsByDate(DateTime date, string userId, string category);
     }
 }

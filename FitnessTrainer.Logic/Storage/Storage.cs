@@ -199,6 +199,10 @@ namespace TrainingManager.Logic.Storage
         public Task<GenStatistics> GetGenStatisticsById(Guid id)
             => Execute((u) => new GetGenStatisticsByIdRequest(u, _mapper, id));
 
+        public Task<bool> GetGenStatisticsByDate(DateTime date, string userId, string category)
+            => Execute((u) => new GetGenStatisticsByDateRequest(u, _mapper, date, userId, category));
+
+
         protected virtual async Task Execute(Func<StorageContext, BaseStorageCommand> command)
 		{
 			using var context = _contextFactory.CreateDbContext();
