@@ -12,6 +12,8 @@ namespace TrainingManager.ViewModels
 
         public string UserId { get; set; }
 
+        public bool IsEveryone { get; set; }
+
         public string Description { get; set; }
 
         public bool IsArchived { get; set; }

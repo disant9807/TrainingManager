@@ -11,6 +11,8 @@ namespace TrainingManager.ViewModels
 
         public string UserId { get; set; }
 
+        public bool IsEveryone { get; set; }
+
         public ICollection<SizeItemVM> SizeItems { get; set; }
 
         public DateTime CreatedDate { get; set; }
