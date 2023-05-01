@@ -48,6 +48,7 @@ namespace TrainingManager.Logic.Storage.Requests
             training.Time = _training.Time;
             training.UserId = _training.UserId;
             training.IsEveryone = false;
+            training.CreatedDate = DateTime.Now;
 
             _training.Approachs.ToList()
                 .ForEach(e =>

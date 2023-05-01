@@ -61,9 +61,9 @@ namespace TrainingManager.Logic.Storage.Requests
         {
 
             if (_order == Model.Order.Asc)
-                trainings = trainings.OrderBy(e => e.CreatedDate);
+                trainings = trainings.OrderBy(e => e.TrainingDate);
             else
-                trainings = trainings.OrderByDescending(e => e.CreatedDate);
+                trainings = trainings.OrderByDescending(e => e.TrainingDate);
             
 
             return trainings;

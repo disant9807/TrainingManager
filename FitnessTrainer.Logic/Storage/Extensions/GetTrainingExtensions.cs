@@ -22,11 +22,11 @@ namespace TrainingManager.Logic.Storage.Extensions
                        where !createdTo.HasValue || e.CreatedDate < createdTo
                        where !filter.TrainingFrom.HasValue || e.TrainingDate >= filter.TrainingFrom
                        where !trainingTo.HasValue ||  e.TrainingDate < trainingTo
-                       where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || filter.CategoryOfBodies
-                        .Any(u => e.Approachs.Select(t => t.Exercise).SelectMany(t => t.CategoryOfBodies).Select(t => t.Code).Contains(u))
+                       where filter.CategoryOfBodies == null || !filter.CategoryOfBodies.Any() || e.Approachs
+                        .SelectMany(z => z.Exercise.CategoryOfBodies).Any(y => filter.CategoryOfBodies.ToList().Contains(y.Code))
                        where string.IsNullOrWhiteSpace(filter.Name) || e.Name.ToLower().Contains(filter.Name)
-                       where filter.Exercises == null || !filter.Exercises.Any() || filter.Exercises
-                        .Any(u => e.Approachs.Select(t => t.Exercise.Id.ToString()).Contains(u))
+                       where filter.Exercises == null || !filter.Exercises.Any() || e.Approachs
+                        .Select(z => z.Exercise.Id).Any(y => filter.Exercises.ToList().Contains(y.ToString()))
                        where filter.TrainingPrograms == null || !filter.TrainingPrograms.Any() || filter.TrainingPrograms
                         .Any(u => e.TrainingProgram.Id.ToString() == u)
                        where !filter.isNoneTrainingProgram.HasValue || !filter.isNoneTrainingProgram.Value || filter.TrainingPrograms == null
