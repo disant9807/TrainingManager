@@ -36,7 +36,8 @@ namespace TrainingManager.Logic.Storage.Requests
         public override async Task<Exercise[]> ExecuteAsync()
         {
             var exercisesRequest = context.GetFiltredExercises(filter)
-                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId));
+                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId))
+                .Where(e => !e.IsArchived);
 
             var exercises = exercisesRequest
                 .Include(e => e.CategoryOfBodies)

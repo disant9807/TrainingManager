@@ -39,7 +39,8 @@ namespace TrainingManager.Logic.Storage.Requests
         public override async Task<Size[]> ExecuteAsync()
         {
             var sizeRequest = context.GetFiltredSizes(filter)
-                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId));
+                .Where(e => (_isEveryone == true && e.IsEveryone == true) || (e.UserId == _userId))
+                .Where(e => !e.IsArchived);
 
             var size = sizeRequest.AsNoTracking();
             size = Order(size);
