@@ -31,6 +31,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (size == null)
                 throw new KeyNotFoundException($"Замер с id = {_id} не найден");
 
+            if (size.IsEveryone)
+                throw new MethodAccessException();
+
             size.IsArchived = _isArchive;
 
             context.Size.Update(size);

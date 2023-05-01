@@ -36,6 +36,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (size == null)
                 throw new KeyNotFoundException($"Цель с id = {_size.Id} не найдена");
 
+            if (size.IsEveryone)
+                throw new MethodAccessException();
+
             size.Name = _size.Name;
 
             var deleteSizeItems = size.SizeItems.Where(e => !_size.SizeItems.Any(z => z.Id == e.Id));

@@ -36,6 +36,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (goal == null)
                 throw new KeyNotFoundException($"Цель с id = {_goal.Id} не найдена");
 
+            if (goal.IsEveryone)
+                throw new MethodAccessException();
+
             goal.CompletionDate = _goal.CompletionDate;
             goal.Description = _goal.Description;
             goal.Name = _goal.Name;

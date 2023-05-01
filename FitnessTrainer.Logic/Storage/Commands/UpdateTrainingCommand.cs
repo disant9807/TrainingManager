@@ -39,6 +39,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (training == null )
                 throw new KeyNotFoundException($"Тренирока с id = {_training.Id} не найдена");
 
+            if (training.IsEveryone)
+                throw new MethodAccessException();
+
             _attachedExercises.AddRange(training.Approachs.Select(e => e.Exercise));
 
             training.TrainingDate = _training.TrainingDate;

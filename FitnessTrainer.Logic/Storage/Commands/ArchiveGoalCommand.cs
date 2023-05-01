@@ -31,6 +31,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (goal == null)
                 throw new KeyNotFoundException($"Тренировка с id = {_id} не найдена");
 
+            if (goal.IsEveryone)
+                throw new MethodAccessException();
+
             goal.IsArchived = _isArchive;
 
             context.Goal.Update(goal);

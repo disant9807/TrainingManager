@@ -31,6 +31,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (trainingProgramm == null)
                 throw new KeyNotFoundException($"Тренировочная программа с id = {_id} не найдена");
 
+            if (trainingProgramm.IsEveryone)
+                throw new MethodAccessException();
+
             trainingProgramm.IsArchived = _isArchive;
 
             context.TrainingProgram.Update(trainingProgramm);

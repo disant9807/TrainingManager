@@ -31,6 +31,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (exercise == null)
                 throw new KeyNotFoundException($"Упражнение с id = {_id} не найдено");
 
+            if (exercise.IsEveryone)
+                throw new MethodAccessException();
+
             exercise.IsArchived = _isArchive;
 
             context.Exercise.Update(exercise);

@@ -33,6 +33,9 @@ namespace TrainingManager.Logic.Storage.Commands
             if (exercise == null)
                 throw new KeyNotFoundException($"Упражнение с id = {_exercise.Id} не найден");
 
+            if (exercise.IsEveryone)
+                throw new MethodAccessException();
+
             exercise.ShortName = _exercise.ShortName;
             exercise.Description = _exercise.Description;
             exercise.Name = _exercise.Name;
