@@ -45,10 +45,12 @@ namespace TrainingManager.Logic.Storage.Commands
             training.Description = _training.Description;
             training.Name = _training.Name;
             training.Time = _training.Time;
+            training.TrainingProgramIdFK = _training.TrainingProgramIdFK;
+            training.TrainingProgramDayFK = _training.TrainingProgramDayFK;
 
-            var deleteApproachs = training.Approachs.Where(e => !_training.Approachs.Any(z => z.Id == e.Id));
-            var addApproachsModel = _training.Approachs.Where(e => !training.Approachs.Any(z => z.Id == e.Id));
-            var editApproachs = training.Approachs.Where(e => _training.Approachs.Any(z => z.Id == e.Id));
+            var deleteApproachs = training.Approachs.Where(e => !_training.Approachs.Select(z => z.Id).Contains(e.Id)).ToList();
+            var addApproachsModel = _training.Approachs.Where(e => !training.Approachs.Select(z => z.Id).Contains(e.Id)).ToList();
+            var editApproachs = training.Approachs.Where(e => _training.Approachs.Select(z => z.Id).Contains(e.Id)).ToList();
 
             foreach (var approach in deleteApproachs)
             {

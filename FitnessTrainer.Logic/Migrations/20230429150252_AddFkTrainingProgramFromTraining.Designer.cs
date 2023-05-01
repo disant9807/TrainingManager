@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TrainingManager.Logic.Storage;
@@ -11,9 +12,11 @@ using TrainingManager.Logic.Storage;
 namespace TrainingManager.Logic.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    partial class StorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230429150252_AddFkTrainingProgramFromTraining")]
+    partial class AddFkTrainingProgramFromTraining
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3747,10 +3750,7 @@ namespace TrainingManager.Logic.Migrations
                     b.Property<DateTime?>("TrainingDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid?>("TrainingProgramDayFK")
-                        .HasColumnType("uuid");
-
-                    b.Property<long?>("TrainingProgramIdFK")
+                    b.Property<long>("TrainingProgramIdFK")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -3758,8 +3758,6 @@ namespace TrainingManager.Logic.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TrainingProgramDayFK");
 
                     b.HasIndex("TrainingProgramIdFK");
 
@@ -4043,17 +4041,13 @@ namespace TrainingManager.Logic.Migrations
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.Training", b =>
                 {
-                    b.HasOne("TrainingManager.Logic.Storage.Domain.TrainingProgramDay", "TrainingProgramDay")
-                        .WithMany()
-                        .HasForeignKey("TrainingProgramDayFK");
-
                     b.HasOne("TrainingManager.Logic.Storage.Domain.TrainingProgram", "TrainingProgram")
                         .WithMany()
-                        .HasForeignKey("TrainingProgramIdFK");
+                        .HasForeignKey("TrainingProgramIdFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TrainingProgram");
-
-                    b.Navigation("TrainingProgramDay");
                 });
 
             modelBuilder.Entity("TrainingManager.Logic.Storage.Domain.TrainingProgram", b =>

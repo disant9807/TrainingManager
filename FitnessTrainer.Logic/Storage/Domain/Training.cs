@@ -24,7 +24,15 @@ namespace TrainingManager.Logic.Storage.Domain
 
         public long Time { get; set; }
 
+        public long? TrainingProgramIdFK { get; set; }
+
+        [ForeignKey("TrainingProgramIdFK")]
         public TrainingProgram? TrainingProgram { get; set; }
+
+        public Guid? TrainingProgramDayFK { get; set; }
+
+        [ForeignKey("TrainingProgramDayFK")]
+        public TrainingProgramDay? TrainingProgramDay { get; set; }
 
         public ICollection<Approach> Approachs { get; set; }
 

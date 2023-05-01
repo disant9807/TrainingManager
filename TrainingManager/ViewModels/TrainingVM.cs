@@ -12,7 +12,9 @@ namespace TrainingManager.ViewModels
 
         public bool IsEveryone { get; set; }
         public int Time { get; set; }
-        public string TrainingProgramId { get; set; }
+        public long? TrainingProgramIdFK { get; set; }
+
+        public Guid? TrainingProgramDayFK { get; set; }
 
         public ApproachVM[] Approachs { get; set; }
     }

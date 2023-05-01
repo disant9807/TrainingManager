@@ -41,6 +41,8 @@ namespace TrainingManager.Logic.Storage.Requests
             var training = new Domain.Training();
 
             training.TrainingDate = _training.TrainingDate;
+            training.TrainingProgramIdFK = _training.TrainingProgramIdFK;
+            training.TrainingProgramDayFK = _training.TrainingProgramDayFK;
             training.Description = _training.Description;
             training.Name = _training.Name;
             training.Time = _training.Time;

@@ -17,7 +17,9 @@ namespace TrainingManager.Logic.Model
         public bool IsEveryone { get; set; }
         public string Name { get; set; }
         public long Time { get; set; }
-        public string TrainingProgramId { get; set; }
+        public long? TrainingProgramIdFK { get; set; }
+
+        public Guid? TrainingProgramDayFK { get; set; }
         public TrainingProgram? TrainingProgram { get; set; }
         public ICollection<Approach> Approachs { get; set; }
     }
