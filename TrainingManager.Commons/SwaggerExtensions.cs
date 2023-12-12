@@ -30,6 +30,7 @@ namespace TrainingManager.Commons
 			if (string.IsNullOrWhiteSpace(title)) throw new ArgumentNullException(nameof(title));
 			bool hasExamples = !string.IsNullOrWhiteSpace(examplesNamespace);
 			services.AddSwaggerGen(c => {
+				c.CustomSchemaIds(type => type.ToString());
 				c.SwaggerDoc(version, new OpenApiInfo {
 					Version = version,
 					Title = title,
