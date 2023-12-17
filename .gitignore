@@ -423,6 +423,8 @@ $RECYCLE.BIN/
 .idea/
 *.sln.iml
 
+nuget.config
+
 ##
 ## Visual Studio Code
 ##
